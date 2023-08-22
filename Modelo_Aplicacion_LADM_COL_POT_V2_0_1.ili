@@ -283,6 +283,15 @@ VERSION "2.0"  =
       Infraestructura
     );
 
+    POT_PlanOrdenamientoTerritorialTipo = (
+      !!@ ili2db.dispName = "Plan de Ordenamiento Territorial"
+      POT,
+      !!@ ili2db.dispName = "Plan Básico de Ordenamiento Territorial"
+      PBOT,
+      !!@ ili2db.dispName = "Esquema de Ordenamiento Territorial"
+      EOT
+    );
+
     POT_SistemasGeneralesEstadoTipo = (
       !!@ ili2db.dispName = "Estado existente"
       Existente,
@@ -545,6 +554,13 @@ VERSION "2.0"  =
       Areas_de_Produccion_Agropecuaria
     );
 
+    /** Norma Urbanistica general referida a la potencialidad de utilización correspondiente a 5 categorías:
+     * -Desarrollo
+     * -Consolidación
+     * -Renovación urbana
+     * -Conservación
+     * -Mejoramiento integral
+     */
     POT_TratamientoUrbanisticoTipo = (
       !!@ ili2db.dispName = "Desarrollo"
       Desarrollo,
@@ -702,6 +718,7 @@ VERSION "2.0"  =
       Tipo (EXTENDED) : MANDATORY Modelo_Aplicacion_LADM_COL_POT_V2_0_1.POT_FuenteAdministrativaTipo;
       !!@ ili2db.dispName = "Fecha del Documento"
       Fecha : INTERLIS.XMLDate;
+      Tipo_POT : Modelo_Aplicacion_LADM_COL_POT_V2_0_1.POT_PlanOrdenamientoTerritorialTipo;
     END POT_FuenteAdministrativa;
 
     !!@ ili2db.dispName = "(POT) Fuente Espacial"
@@ -709,6 +726,11 @@ VERSION "2.0"  =
     EXTENDS LADM_COL_V3_0.LADM_Nucleo.COL_FuenteEspacial =
       !!@ ili2db.dispName = "Modelo Fuente"
       Modelo_Fuente : Modelo_Aplicacion_LADM_COL_POT_V2_0_1.POT_ModeloFuenteTipo;
+      !!@ ili2db.dispName = "Escala"
+      Escala : 0.00 .. 10000000000000000000000000000000000000000000000000000000.00;
+      !!@ ili2db.dispName = "Año"
+      Anio : 1500 .. 2500;
+      Responsable : MTEXT*500;
     END POT_FuenteEspacial;
 
     !!@ ili2db.dispName = "(POT) Municipio"
@@ -934,6 +956,10 @@ VERSION "2.0"  =
     !!@ ili2db.dispName = "(POT) UE Sistemas Generales"
     CLASS POT_UE_SistemasGenerales
     EXTENDS LADM_COL_V3_0.LADM_Nucleo.COL_UnidadEspacial =
+      !!@ ili2db.dispName = "Geometría punto"
+      Geometria_Punto : ISO19107_PLANAS_V3_0.GM_Point3D;
+      !!@ ili2db.dispName = "Geometría Línea"
+      Geometria_Linea : ISO19107_PLANAS_V3_0.GM_MultiCurve3D;
     END POT_UE_SistemasGenerales;
 
     /** CLASE A ELIMINAR
