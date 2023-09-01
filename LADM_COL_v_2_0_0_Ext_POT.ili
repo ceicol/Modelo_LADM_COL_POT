@@ -764,10 +764,10 @@ VERSION "2.0"  =
     EXTENDS LADM_COL_V3_1.LADM_Nucleo.COL_UnidadEspacial =
     END POT_UE_AreasActividad;
 
-    !!@ ili2db.dispName = "(POT) UE Centro poblado"
-    CLASS POT_UE_CentroPoblado
+    !!@ ili2db.dispName = "(POT) UE Centro poblado rural"
+    CLASS POT_UE_CentroPobladoRural
     EXTENDS LADM_COL_V3_1.LADM_Nucleo.COL_UnidadEspacial =
-    END POT_UE_CentroPoblado;
+    END POT_UE_CentroPobladoRural;
 
     !!@ ili2db.dispName = "(POT) UE Clasificación del suelo"
     CLASS POT_UE_ClasificacionSuelo
@@ -777,10 +777,6 @@ VERSION "2.0"  =
     !!@ ili2db.dispName = "(POT) UE Sistemas Generales"
     CLASS POT_UE_SistemasGenerales
     EXTENDS LADM_COL_V3_1.LADM_Nucleo.COL_UnidadEspacial =
-      !!@ ili2db.dispName = "Geometría punto"
-      Geometria_Punto : ISO19107_PLANAS_V3_0.GM_Point3D;
-      !!@ ili2db.dispName = "Geometría Línea"
-      Geometria_Linea : ISO19107_PLANAS_V3_0.GM_MultiCurve3D;
     END POT_UE_SistemasGenerales;
 
     !!@ ili2db.dispName = "(POT) UE Tratamiento urbanístico"
