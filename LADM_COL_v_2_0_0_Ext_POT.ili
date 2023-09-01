@@ -603,6 +603,16 @@ VERSION "2.0"  =
     EXTENDS LADM_COL_V3_1.LADM_Nucleo.COL_RelacionNecesariaUnidadesEspaciales =
     END POT_NU_RelacionNecesariaUnidadesEspaciales;
 
+    CLASS POT_Referencia_Linea_SistemasGenerales =
+      !!@ ili2db.dispName = "Geometría"
+      Geometria : MANDATORY ISO19107_PLANAS_V3_0.GM_MultiCurve3D;
+    END POT_Referencia_Linea_SistemasGenerales;
+
+    CLASS POT_Referencia_Punto_SistemasGenerales =
+      !!@ ili2db.dispName = "Geometría"
+      Geometria : MANDATORY ISO19107_PLANAS_V3_0.GM_Point3D;
+    END POT_Referencia_Punto_SistemasGenerales;
+
     /** Áreas con condición de amenaza, son las zonas o áreas del territorio municipal zonificadas como de amenaza alta y media en las que se establezca en la revisión o expedición de un nuevo POT la necesidad de clasificarlas como suelo urbano, de expansión urbana, rural suburbano o centros poblados rurales para permitir su desarrollo.
      */
     !!@ ili2db.dispName = "(POT) UAB Área condición de amenaza"
@@ -808,6 +818,16 @@ VERSION "2.0"  =
       clasificacion_suelo_rural -- {1} POT_UAB_ClasificacionSuelo;
       zonificacion_suelo_rural -- {0..*} POT_UAB_ZonificacionSueloRural;
     END pot_clasificacionsuelo_zonificacionsuelo;
+
+    ASSOCIATION pot_ue_sistemasgenerales_referencia_linea =
+      ue_sistemasgenerales -- {1} POT_UE_SistemasGenerales;
+      referencia_linea -- {0..*} POT_Referencia_Linea_SistemasGenerales;
+    END pot_ue_sistemasgenerales_referencia_linea;
+
+    ASSOCIATION pot_ue_sistemasgenerales_referencia_punto =
+      ue_sistemasgenerales -- {1} POT_UE_SistemasGenerales;
+      referencia_punto -- {0..*} POT_Referencia_Punto_SistemasGenerales;
+    END pot_ue_sistemasgenerales_referencia_punto;
 
     ASSOCIATION pot_zonificacionsuelo_centropoblado =
       pot_desarrollo_restringido -- {1} POT_UAB_ZonificacionSueloRural;
