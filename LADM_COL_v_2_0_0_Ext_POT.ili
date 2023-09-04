@@ -552,6 +552,11 @@ VERSION "2.0"  =
       Responsable : MTEXT*500;
     END POT_FuenteEspacial;
 
+    CLASS POT_LineaReferenciaSistemasGenerales =
+      !!@ ili2db.dispName = "Geometría"
+      Geometria : MANDATORY ISO19107_PLANAS_V3_0.GM_MultiCurve3D;
+    END POT_LineaReferenciaSistemasGenerales;
+
     !!@ ili2db.dispName = "(POT) Municipio"
     CLASS POT_Municipio
     EXTENDS LADM_COL_V3_1.LADM_Nucleo.COL_Interesado =
@@ -602,6 +607,11 @@ VERSION "2.0"  =
     CLASS POT_NU_RelacionNecesariaUnidadesEspaciales
     EXTENDS LADM_COL_V3_1.LADM_Nucleo.COL_RelacionNecesariaUnidadesEspaciales =
     END POT_NU_RelacionNecesariaUnidadesEspaciales;
+
+    CLASS POT_PuntoReferenciaSistemasGenerales =
+      !!@ ili2db.dispName = "Geometría"
+      Geometria : MANDATORY ISO19107_PLANAS_V3_0.GM_Point3D;
+    END POT_PuntoReferenciaSistemasGenerales;
 
     /** Áreas con condición de amenaza, son las zonas o áreas del territorio municipal zonificadas como de amenaza alta y media en las que se establezca en la revisión o expedición de un nuevo POT la necesidad de clasificarlas como suelo urbano, de expansión urbana, rural suburbano o centros poblados rurales para permitir su desarrollo.
      */
@@ -808,6 +818,16 @@ VERSION "2.0"  =
       clasificacion_suelo_rural -- {1} POT_UAB_ClasificacionSuelo;
       zonificacion_suelo_rural -- {0..*} POT_UAB_ZonificacionSueloRural;
     END pot_clasificacionsuelo_zonificacionsuelo;
+
+    ASSOCIATION pot_sistemasgenerales_lineareferencia =
+      sistemas_generales -- {1} POT_UAB_SistemasGenerales;
+      linea_referencia -- {0..*} POT_LineaReferenciaSistemasGenerales;
+    END pot_sistemasgenerales_lineareferencia;
+
+    ASSOCIATION pot_sistemasgenerales_puntoreferencia =
+      sistemas_generales -- {1} POT_UAB_SistemasGenerales;
+      punto_referencia -- {0..*} POT_PuntoReferenciaSistemasGenerales;
+    END pot_sistemasgenerales_puntoreferencia;
 
     ASSOCIATION pot_zonificacionsuelo_centropoblado =
       pot_desarrollo_restringido -- {1} POT_UAB_ZonificacionSueloRural;
