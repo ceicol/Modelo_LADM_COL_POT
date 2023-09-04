@@ -603,6 +603,18 @@ VERSION "2.0"  =
     EXTENDS LADM_COL_V3_1.LADM_Nucleo.COL_RelacionNecesariaUnidadesEspaciales =
     END POT_NU_RelacionNecesariaUnidadesEspaciales;
 
+    CLASS POT_ReferenciaLinea =
+      Categoria : MANDATORY TEXT*255;
+      Detalle : TEXT*255;
+      Geometria : MANDATORY ISO19107_PLANAS_V3_0.GM_MultiCurve3D;
+    END POT_ReferenciaLinea;
+
+    CLASS POT_ReferenciaPunto =
+      Categoria : MANDATORY TEXT*255;
+      Detalle : TEXT*255;
+      Geometria : MANDATORY ISO19107_PLANAS_V3_0.GM_Point3D;
+    END POT_ReferenciaPunto;
+
     /** Áreas con condición de amenaza, son las zonas o áreas del territorio municipal zonificadas como de amenaza alta y media en las que se establezca en la revisión o expedición de un nuevo POT la necesidad de clasificarlas como suelo urbano, de expansión urbana, rural suburbano o centros poblados rurales para permitir su desarrollo.
      */
     !!@ ili2db.dispName = "(POT) UAB Área condición de amenaza"
