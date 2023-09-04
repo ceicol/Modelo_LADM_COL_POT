@@ -731,16 +731,15 @@ VERSION "2.0"  =
     EXTENDS LADM_COL_V3_1.LADM_Nucleo.COL_UnidadAdministrativaBasica =
       !!@ ili2db.dispName = "Tipo de Categoría Rural"
       Tipo_Categoria_Rural : MANDATORY LADM_COL_v_2_0_0_Ext_POT.POT_CategoriaRuralTipo;
-      !!@ ili2db.dispName = "Uso rural principal"
-      Uso_Rural_Principal : MANDATORY LADM_COL_v_2_0_0_Ext_POT.POT_UsoSueloRuralTipo;
-      !!@ ili2db.dispName = "Detalle uso rural principal"
-      Detalle_Uso_Rural_Principal : MANDATORY TEXT*255;
-      !!@ ili2db.dispName = "Uso rural complementario"
-      Uso_Rural_Complementario : MANDATORY TEXT*255;
-      !!@ ili2db.dispName = "Uso rural restringido"
-      Uso_Rural_Restringido : MANDATORY TEXT*255;
-      !!@ ili2db.dispName = "Uso rural prohibido"
-      Uso_Rural_Prohibido : MANDATORY TEXT*255;
+      !!@ ili2db.dispName = "Uso principal"
+      Uso_Principal : MANDATORY LADM_COL_v_2_0_0_Ext_POT.POT_UsoSueloRuralTipo;
+      !!@ ili2db.dispName = "Detalle uso principal"
+      Detalle_Uso_Principal : MANDATORY TEXT*255;
+      !!@ ili2db.dispName = "Uso compatible o complementario"
+      Uso_Compatible_Complementario : MANDATORY TEXT*255;
+      Uso_Condicionado_Restringido : MANDATORY TEXT*255;
+      !!@ ili2db.dispName = "Uso prohibido"
+      Uso_Prohibido : MANDATORY TEXT*255;
     END POT_UAB_ZonificacionSueloRural;
 
     /** Áreas con condición de amenaza, son las zonas o áreas del territorio municipal zonificadas como de amenaza alta y media en las que se establezca en la revisión o expedición de un nuevo POT la necesidad de clasificarlas como suelo urbano, de expansión urbana, rural suburbano o centros poblados rurales para permitir su desarrollo.
@@ -798,7 +797,7 @@ VERSION "2.0"  =
 
     ASSOCIATION pot_areasactividad_centropoblado =
       area_actividad -- {0..*} POT_UAB_AreasActividad;
-      centropoblado -- {1} POT_UAB_CentroPobladoRural;
+      centropoblado -- {0..1} POT_UAB_CentroPobladoRural;
     END pot_areasactividad_centropoblado;
 
     ASSOCIATION pot_clasificacionsuelo_centropoblado =
