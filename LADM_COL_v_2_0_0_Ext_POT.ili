@@ -518,9 +518,11 @@ VERSION "2.0"  =
       Otro
     );
 
-  TOPIC Planes_Ordenamiento_Territorial =
+  TOPIC Planes_Ordenamiento_Territorial
+  EXTENDS LADM_COL_V3_1.LADM_Nucleo =
     BASKET OID AS INTERLIS.UUIDOID;
     OID AS INTERLIS.UUIDOID;
+    DEPENDS ON LADM_COL_V3_1.LADM_Nucleo;
 
     !!@ ili2db.dispName = "(POT) DRR"
     CLASS POT_DRR
@@ -606,7 +608,7 @@ VERSION "2.0"  =
     CLASS POT_ReferenciaLinea =
       Categoria : MANDATORY TEXT*255;
       Detalle : TEXT*255;
-      Geometria : MANDATORY ISO19107_PLANAS_V3_0.GM_MultiCurve3D;
+      Geometria : MANDATORY ISO19107_PLANAS_V3_0.GM_Curve3D;
     END POT_ReferenciaLinea;
 
     CLASS POT_ReferenciaPunto =
