@@ -518,9 +518,11 @@ VERSION "2.0"  =
       Otro
     );
 
-  TOPIC Planes_Ordenamiento_Territorial =
+  TOPIC Planes_Ordenamiento_Territorial2
+  EXTENDS LADM_COL_V3_1.LADM_Nucleo =
     BASKET OID AS INTERLIS.UUIDOID;
     OID AS INTERLIS.UUIDOID;
+    DEPENDS ON LADM_COL_V3_1.LADM_Nucleo;
 
     !!@ ili2db.dispName = "(POT) DRR"
     CLASS POT_DRR
@@ -605,7 +607,7 @@ VERSION "2.0"  =
 
     CLASS POT_Referencia_Linea_SistemasGenerales =
       !!@ ili2db.dispName = "Geometría"
-      Geometria : MANDATORY ISO19107_PLANAS_V3_0.GM_MultiCurve3D;
+      Geometria : MANDATORY ISO19107_PLANAS_V3_0.GM_Curve3D;
     END POT_Referencia_Linea_SistemasGenerales;
 
     CLASS POT_Referencia_Punto_SistemasGenerales =
@@ -834,6 +836,6 @@ VERSION "2.0"  =
       centro_poblado -- {0..*} POT_UAB_CentroPobladoRural;
     END pot_zonificacionsuelo_centropoblado;
 
-  END Planes_Ordenamiento_Territorial;
+  END Planes_Ordenamiento_Territorial2;
 
 END LADM_COL_v_2_0_0_Ext_POT.
