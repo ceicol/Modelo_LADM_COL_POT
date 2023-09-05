@@ -825,6 +825,7 @@ VERSION "2.0"  =
     ASSOCIATION pot_zonificacionsuelo_centropoblado =
       pot_desarrollo_restringido -- {1} POT_UAB_ZonificacionSueloRural;
       centro_poblado -- {0..*} POT_UAB_CentroPobladoRural;
+      MANDATORY CONSTRAINT (pot_desarrollo_restringido->Uso_Principal == #Centro_Poblado);
     END pot_zonificacionsuelo_centropoblado;
 
   END Planes_Ordenamiento_Territorial;
