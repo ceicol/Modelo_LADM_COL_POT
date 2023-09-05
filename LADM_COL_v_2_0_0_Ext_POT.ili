@@ -531,6 +531,18 @@ VERSION "2.0"  =
       Nombre : TEXT*255;
     END POT_DRR;
 
+    STRUCTURE POT_EstructuraUsoCompatibleComplementario =
+      Tipo : MANDATORY TEXT*255;
+    END POT_EstructuraUsoCompatibleComplementario;
+
+    STRUCTURE POT_EstructuraUsoCondicionadoRestringido =
+      Tipo : MANDATORY TEXT*255;
+    END POT_EstructuraUsoCondicionadoRestringido;
+
+    STRUCTURE POT_EstructuraUsoProhibido =
+      Tipo : MANDATORY TEXT*255;
+    END POT_EstructuraUsoProhibido;
+
     !!@ ili2db.dispName = "(POT) Fuente Administrativa"
     CLASS POT_FuenteAdministrativa
     EXTENDS LADM_COL_V3_1.LADM_Nucleo.COL_FuenteAdministrativa =
@@ -639,38 +651,6 @@ VERSION "2.0"  =
       Priorizacion : TEXT*20;
     END POT_UAB_AreaCondicionRiesgo;
 
-    /** Las Áreas de actividad Corresponden a la determinación de zonas (con caracteristicas homogeneas) para la asignación de usos.
-     * 
-     * Nota: Para usos complementario, restringido y prohibido, se puede tomar mas de un valor del dominio pra cada uno de los atrributos.
-     */
-    !!@ ili2db.dispName = "(POT) UAB Áreas de Actividad"
-    CLASS POT_UAB_AreasActividad
-    EXTENDS LADM_COL_V3_1.LADM_Nucleo.COL_UnidadAdministrativaBasica =
-      Uso_Principal : MANDATORY LADM_COL_v_2_0_0_Ext_POT.POT_AreaActividadTipo;
-      /** Se debe describir nombrar los tipos o niveles en los que se clasifican cada uno de los regimenes_usos: Principal, Complementario, Restringido y Prohibido.
-       * Ejm:
-       * Uso Residencial:  El municipio decide clasificarlo en tres clases
-       * Residencial_Tipo_1
-       * Residencial_Tipo_2
-       * Residencial_Tipo_3
-       * Uso Comercial:  El municipio decide clasificarlo en cuatro clases
-       * Comercio Puntual: Comercial_Tipo_1
-       * Cmercio Vecinal: Comercial_Tipo_2
-       * Comercio Zonal: Comercial_Tipo_3
-       * Comercio Regional: Comercial_Tipo_4
-       * Uso Industrial:  El municipio decide clasificarlo en tres clases
-       * Industrial de Alto Impacto: Industrial_Dotacional_Tipo_1
-       * Industrial de Medio Impacto: Industrial_Dotacional_Tipo_2
-       * Industrial de Bajo Impacto: Industrial_Dotacional_Tipo_3
-       * Nota: En este atributo se utiliza en caso de ser necesario aclarar una variante dentro de las categorias especificadas en la clase.
-       */
-      !!@ ili2db.dispName = "Detalle uso principal"
-      Detalle_Uso_Principal : MANDATORY MTEXT*255;
-      Uso_Compatible_Complementario : MANDATORY TEXT*255;
-      Uso_Condicionado_Restringido : MANDATORY TEXT*255;
-      Uso_Prohibido : MANDATORY TEXT*255;
-    END POT_UAB_AreasActividad;
-
     !!@ ili2db.dispName = "(POT) UAB Centro poblado rural"
     CLASS POT_UAB_CentroPobladoRural
     EXTENDS LADM_COL_V3_1.LADM_Nucleo.COL_UnidadAdministrativaBasica =
@@ -726,22 +706,6 @@ VERSION "2.0"  =
       Categoria_Amenaza : LADM_COL_v_2_0_0_Ext_POT.POT_CategoriaAmenazaTipo;
     END POT_UAB_ZonificacionAmenazas;
 
-    !!@ ili2db.dispName = "(POT) UAB Zonificación Suelo Rural"
-    CLASS POT_UAB_ZonificacionSueloRural
-    EXTENDS LADM_COL_V3_1.LADM_Nucleo.COL_UnidadAdministrativaBasica =
-      !!@ ili2db.dispName = "Tipo de Categoría Rural"
-      Tipo_Categoria_Rural : MANDATORY LADM_COL_v_2_0_0_Ext_POT.POT_CategoriaRuralTipo;
-      !!@ ili2db.dispName = "Uso principal"
-      Uso_Principal : MANDATORY LADM_COL_v_2_0_0_Ext_POT.POT_UsoSueloRuralTipo;
-      !!@ ili2db.dispName = "Detalle uso principal"
-      Detalle_Uso_Principal : MANDATORY TEXT*255;
-      !!@ ili2db.dispName = "Uso compatible o complementario"
-      Uso_Compatible_Complementario : MANDATORY TEXT*255;
-      Uso_Condicionado_Restringido : MANDATORY TEXT*255;
-      !!@ ili2db.dispName = "Uso prohibido"
-      Uso_Prohibido : MANDATORY TEXT*255;
-    END POT_UAB_ZonificacionSueloRural;
-
     /** Áreas con condición de amenaza, son las zonas o áreas del territorio municipal zonificadas como de amenaza alta y media en las que se establezca en la revisión o expedición de un nuevo POT la necesidad de clasificarlas como suelo urbano, de expansión urbana, rural suburbano o centros poblados rurales para permitir su desarrollo.
      */
     !!@ ili2db.dispName = "(POT) UE Área condición de amenaza"
@@ -795,15 +759,63 @@ VERSION "2.0"  =
     EXTENDS LADM_COL_V3_1.LADM_Nucleo.COL_UnidadEspacial =
     END POT_UE_ZonificacionSueloRural;
 
-    ASSOCIATION pot_areasactividad_centropoblado =
-      area_actividad -- {0..*} POT_UAB_AreasActividad;
-      centropoblado -- {0..1} POT_UAB_CentroPobladoRural;
-    END pot_areasactividad_centropoblado;
+    /** Las Áreas de actividad Corresponden a la determinación de zonas (con caracteristicas homogeneas) para la asignación de usos.
+     * 
+     * Nota: Para usos complementario, restringido y prohibido, se puede tomar mas de un valor del dominio pra cada uno de los atrributos.
+     */
+    !!@ ili2db.dispName = "(POT) UAB Áreas de Actividad"
+    CLASS POT_UAB_AreasActividad
+    EXTENDS LADM_COL_V3_1.LADM_Nucleo.COL_UnidadAdministrativaBasica =
+      Uso_Principal : MANDATORY LADM_COL_v_2_0_0_Ext_POT.POT_AreaActividadTipo;
+      /** Se debe describir nombrar los tipos o niveles en los que se clasifican cada uno de los regimenes_usos: Principal, Complementario, Restringido y Prohibido.
+       * Ejm:
+       * Uso Residencial:  El municipio decide clasificarlo en tres clases
+       * Residencial_Tipo_1
+       * Residencial_Tipo_2
+       * Residencial_Tipo_3
+       * Uso Comercial:  El municipio decide clasificarlo en cuatro clases
+       * Comercio Puntual: Comercial_Tipo_1
+       * Cmercio Vecinal: Comercial_Tipo_2
+       * Comercio Zonal: Comercial_Tipo_3
+       * Comercio Regional: Comercial_Tipo_4
+       * Uso Industrial:  El municipio decide clasificarlo en tres clases
+       * Industrial de Alto Impacto: Industrial_Dotacional_Tipo_1
+       * Industrial de Medio Impacto: Industrial_Dotacional_Tipo_2
+       * Industrial de Bajo Impacto: Industrial_Dotacional_Tipo_3
+       * Nota: En este atributo se utiliza en caso de ser necesario aclarar una variante dentro de las categorias especificadas en la clase.
+       */
+      !!@ ili2db.dispName = "Detalle uso principal"
+      Detalle_Uso_Principal : MANDATORY MTEXT*255;
+      Uso_Compatible_Complementario : BAG {1..*} OF LADM_COL_v_2_0_0_Ext_POT.Planes_Ordenamiento_Territorial.POT_EstructuraUsoCompatibleComplementario;
+      Uso_Condicionado_Restringido : BAG {1..*} OF LADM_COL_v_2_0_0_Ext_POT.Planes_Ordenamiento_Territorial.POT_EstructuraUsoCondicionadoRestringido;
+      Uso_Prohibido : BAG {1..*} OF LADM_COL_v_2_0_0_Ext_POT.Planes_Ordenamiento_Territorial.POT_EstructuraUsoProhibido;
+    END POT_UAB_AreasActividad;
+
+    !!@ ili2db.dispName = "(POT) UAB Zonificación Suelo Rural"
+    CLASS POT_UAB_ZonificacionSueloRural
+    EXTENDS LADM_COL_V3_1.LADM_Nucleo.COL_UnidadAdministrativaBasica =
+      !!@ ili2db.dispName = "Tipo de Categoría Rural"
+      Tipo_Categoria_Rural : MANDATORY LADM_COL_v_2_0_0_Ext_POT.POT_CategoriaRuralTipo;
+      !!@ ili2db.dispName = "Uso principal"
+      Uso_Principal : MANDATORY LADM_COL_v_2_0_0_Ext_POT.POT_UsoSueloRuralTipo;
+      !!@ ili2db.dispName = "Detalle uso principal"
+      Detalle_Uso_Principal : MANDATORY TEXT*255;
+      !!@ ili2db.dispName = "Uso compatible o complementario"
+      Uso_Compatible_Complementario : BAG {1..*} OF LADM_COL_v_2_0_0_Ext_POT.Planes_Ordenamiento_Territorial.POT_EstructuraUsoCompatibleComplementario;
+      Uso_Condicionado_Restringido : BAG {1..*} OF LADM_COL_v_2_0_0_Ext_POT.Planes_Ordenamiento_Territorial.POT_EstructuraUsoCondicionadoRestringido;
+      !!@ ili2db.dispName = "Uso prohibido"
+      Uso_Prohibido : BAG {1..*} OF LADM_COL_v_2_0_0_Ext_POT.Planes_Ordenamiento_Territorial.POT_EstructuraUsoProhibido;
+    END POT_UAB_ZonificacionSueloRural;
 
     ASSOCIATION pot_clasificacionsuelo_centropoblado =
       centro_poblado -- {0..*} POT_UAB_CentroPobladoRural;
       clasificacion_suelo_urbano -- {1} POT_UAB_ClasificacionSuelo;
     END pot_clasificacionsuelo_centropoblado;
+
+    ASSOCIATION pot_areasactividad_centropoblado =
+      area_actividad -- {0..*} POT_UAB_AreasActividad;
+      centropoblado -- {0..1} POT_UAB_CentroPobladoRural;
+    END pot_areasactividad_centropoblado;
 
     ASSOCIATION pot_clasificacionsuelo_zonificacionsuelo =
       clasificacion_suelo_rural -- {1} POT_UAB_ClasificacionSuelo;
