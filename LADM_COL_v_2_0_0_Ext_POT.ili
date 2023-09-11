@@ -1,8 +1,9 @@
 INTERLIS 2.3;
 
+!!@ technicalContact="mailto:asistenciatecnica@minvivienda.gov.co"
 MODEL LADM_COL_v_2_0_0_Ext_POT (es)
-AT "mailto:PC4@localhost"
-VERSION "2.0"  =
+AT "https://gitlab-ladm-col.igac.gov.co/root/LADM_COL"
+VERSION "2.0.0"  =
   IMPORTS ISO19107_PLANAS_V3_0,LADM_COL_V3_1;
 
   DOMAIN
@@ -617,20 +618,26 @@ VERSION "2.0"  =
     EXTENDS LADM_COL_V3_1.LADM_Nucleo.COL_RelacionNecesariaUnidadesEspaciales =
     END POT_NU_RelacionNecesariaUnidadesEspaciales;
 
+    CLASS POT_ReferenciaLinea_SistemasGenerales =
+      Geometria : MANDATORY ISO19107_PLANAS_V3_0.GM_Curve3D;
+    END POT_ReferenciaLinea_SistemasGenerales;
+
+    CLASS POT_ReferenciaPunto_SistemasGenerales =
+      Geometria : ISO19107_PLANAS_V3_0.GM_Point3D;
+    END POT_ReferenciaPunto_SistemasGenerales;
+
     /** Áreas con condición de amenaza, son las zonas o áreas del territorio municipal zonificadas como de amenaza alta y media en las que se establezca en la revisión o expedición de un nuevo POT la necesidad de clasificarlas como suelo urbano, de expansión urbana, rural suburbano o centros poblados rurales para permitir su desarrollo.
      */
     !!@ ili2db.dispName = "(POT) UAB Área condición de amenaza"
     CLASS POT_UAB_AreaCondicionAmenaza
     EXTENDS LADM_COL_V3_1.LADM_Nucleo.COL_UnidadAdministrativaBasica =
-      !!@ ili2db.dispName = "Código Área Condicición de Amenaza"
-      Codigo : TEXT*20;
-      !!@ ili2db.dispName = "Descripción Área Condicición de Amenaza"
-      Descripcion : MTEXT*255;
       /** Se refiere al desarrollo y elaboración de estudios detallados en el corto, mediano y largo plazo.
        * Dcto 1807/2014 compilado en el Dcto 1077/2015
        */
-      !!@ ili2db.dispName = "Priorización"
-      Priorizacion : TEXT*20;
+      !!@ ili2db.dispName = "Es priorizado"
+      Es_Priorizado : MANDATORY BOOLEAN;
+      !!@ ili2db.dispName = "Descripción Área Condicición de Amenaza"
+      Descripcion : MTEXT*255;
     END POT_UAB_AreaCondicionAmenaza;
 
     /** Áreas con condición de riesgo, corresponden a las zonas o áreas del territorio municipal clasificadas como de amenaza alta que estén urbanizadas, ocupadas o edificadas así como en las que se encuentren elementos del sistema vial, equipamientos (salud, educación, otros) e infraestructura de servicios públicos.
@@ -642,13 +649,13 @@ VERSION "2.0"  =
     !!@ ili2db.dispName = "(POT) UAB Área condición de riesgo"
     CLASS POT_UAB_AreaCondicionRiesgo
     EXTENDS LADM_COL_V3_1.LADM_Nucleo.COL_UnidadAdministrativaBasica =
-      !!@ ili2db.dispName = "Descripción de Área Condición de Riesgo"
-      Descripcion : MTEXT*255;
       /** Se refiere al desarrollo y elaboración de estudios detallados en el corto, mediano y largo plazo.
        * Dcto 1807/2014 compilado en el Dcto 1077/2015
        */
-      !!@ ili2db.dispName = "Priorización"
-      Priorizacion : TEXT*20;
+      !!@ ili2db.dispName = "Es priorizado"
+      Es_Priorizado : MANDATORY BOOLEAN;
+      !!@ ili2db.dispName = "Descripción de Área Condición de Riesgo"
+      Descripcion : MTEXT*255;
     END POT_UAB_AreaCondicionRiesgo;
 
     !!@ ili2db.dispName = "(POT) UAB Centro poblado rural"
@@ -698,7 +705,7 @@ VERSION "2.0"  =
        * Dcto 1807/2014 compilado en el Dcto 1077/2015
        */
       !!@ ili2db.dispName = "Fenómeno Presentado"
-      Fenomeno : LADM_COL_v_2_0_0_Ext_POT.POT_FenomenoAmenazaTipo;
+      Fenomeno : MANDATORY LADM_COL_v_2_0_0_Ext_POT.POT_FenomenoAmenazaTipo;
       /** Es la categoria en la que se le da a cada uno de los fenomenos amenazantes.
        * Dcto 1807/2014 compilado en el Dcto 1077/2015
        */
@@ -811,6 +818,16 @@ VERSION "2.0"  =
       centro_poblado -- {0..*} POT_UAB_CentroPobladoRural;
       clasificacion_suelo_urbano -- {1} POT_UAB_ClasificacionSuelo;
     END pot_clasificacionsuelo_centropoblado;
+
+    ASSOCIATION pot_referencialinea_sistemasgenerales =
+      sistemasgenerales -- {1} POT_UE_SistemasGenerales;
+      referencialinea -- {0..1} POT_ReferenciaLinea_SistemasGenerales;
+    END pot_referencialinea_sistemasgenerales;
+
+    ASSOCIATION pot_referenciapunto_sistemasgenerales =
+      sistemagenerales -- {1} POT_UE_SistemasGenerales;
+      referenciapunto -- {0..1} POT_ReferenciaPunto_SistemasGenerales;
+    END pot_referenciapunto_sistemasgenerales;
 
     ASSOCIATION pot_areasactividad_centropoblado =
       area_actividad -- {0..*} POT_UAB_AreasActividad;
