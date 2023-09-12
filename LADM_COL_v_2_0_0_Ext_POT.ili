@@ -25,13 +25,13 @@ VERSION "2.0.0"  =
       Dotacional,
       !!@ ili2db.dispName = "Mixto"
       Mixto,
+      !!@ ili2db.dispName = "Otro"
       Otro
     );
 
     /** Es la categoria en la que se le da a cada uno de los fenomenos amenazantes.
      * Dcto 1807/2014 compilado en el Dcto 1077/2015
      */
-    !!@ ili2db.dispName = "Categoria de la Amenaza"
     POT_CategoriaAmenazaTipo = (
       !!@ ili2db.dispName = "Categoría alta"
       Alta,
@@ -42,24 +42,24 @@ VERSION "2.0.0"  =
     );
 
     POT_CategoriaRuralTipo = (
-      !!@ ili2db.dispName = "Categoría Suelo Rural Productivo"
+      !!@ ili2db.dispName = "Suelo rural productivo"
       Suelo_Rural_Productivo(
-        !!@ ili2db.dispName = "(Suelo Rural Productivo) Agropecuario"
+        !!@ ili2db.dispName = "(Suelo rural productivo) Agropecuario"
         Agropecuario,
-        !!@ ili2db.dispName = "(Suelo Rural Productivo) Forestal"
+        !!@ ili2db.dispName = "(Suelo rural productivo) Forestal"
         Forestal,
         /** Zonas de minería e hidrocarburos
          */
-        !!@ ili2db.dispName = "(Suelo Rural Productivo) Minería e hidrocarburos"
+        !!@ ili2db.dispName = "(Suelo rural productivo) Minería e hidrocarburos"
         Mineria_Hidrocarburos
       ),
-      !!@ ili2db.dispName = "Categoría Desarrollo Restingido"
+      !!@ ili2db.dispName = "Desarrollo restringido"
       Desarrollo_Restringido(
         /** Art 34.Ley 388/97 SUELO SUBURBANO. Constituyen esta categoría las áreas ubicadas dentro del suelo rural, en las que se mezclan los usos del suelo y las formas de vida del campo y la ciudad, diferentes a las clasificadas como áreas de expansión urbana.
          */
-        !!@ ili2db.dispName = "(Desarrollo Restringido) Suburbano"
+        !!@ ili2db.dispName = "(Desarrollo restringido) Suburbano"
         Suburbano,
-        !!@ ili2db.dispName = "(Desarrollo Restringido) Corredor vial suburbano"
+        !!@ ili2db.dispName = "(Desarrollo restringido) Corredor vial suburbano"
         Corredor_Vial_Suburbano,
         /** LEY 388 Y DCTO 3600 NO DEFINEN QUE ES UN CENTRO POBLADO RURAL
          * 
@@ -68,7 +68,7 @@ VERSION "2.0.0"  =
          * 
          * Para los efectos de esta ley se entiende por centros poblados los corregimientos, inspecciones de policía o caseríos con veinte (20) o más viviendas contiguas, localizados en la zona rural.
          */
-        !!@ ili2db.dispName = "(Desarrollo Restringido) Centro poblado en la zona rural"
+        !!@ ili2db.dispName = "(Desarrollo restringido) Centro poblado en la zona rural"
         Centro_Poblado_Rural,
         !!@ ili2db.dispName = "(Desarrollo restringido) Vivienda campestre"
         Vivienda_Campestre,
@@ -76,10 +76,10 @@ VERSION "2.0.0"  =
          * “Artículo 5°. Categorías de desarrollo restringido en suelo rural. Dentro ................
          * 4. La localización prevista para los equipamientos de salud, educación, bienestar social, cultural y deporte.”
          */
-        !!@ ili2db.dispName = "(Desarrollo Restringido) Equipamento"
+        !!@ ili2db.dispName = "(Desarrollo restringido) Equipamiento"
         Equipamento
       ),
-      !!@ ili2db.dispName = "Categoría Protección Suelo Rural"
+      !!@ ili2db.dispName = "Protección suelo rural"
       Proteccion_Suelo_Rural(
         /** Áreas de conservación y protección ambiental. Incluye:
          * 
@@ -88,27 +88,27 @@ VERSION "2.0.0"  =
          * -Las áreas de manejo especial.
          * -Las áreas de especial importancia ecosistémica.
          */
-        !!@ ili2db.dispName = "(Protección Suelo Rural) Conservación y Protección Ambiental"
+        !!@ ili2db.dispName = "(Protección suelo rural) Conservación y protección ambiental"
         Conservacion_Proteccion_Ambiental(
           /** En este dominio se tienen tadas las categorías del Sistema nacional de Áreas Protegidad (SINAP).
            * Correspondientes al Dcto. 2372 del 2010
            */
-          !!@ ili2db.dispName = "Áreas SINAP"
+          !!@ ili2db.dispName = "(Protección suelo rural-Conservación y protección ambiental) Áreas SINAP"
           Areas_SINAP,
           /** Corresponde a las Áreas de reserva forestal de Ley 2da de 1959.
            */
-          !!@ ili2db.dispName = "Áreas de Reserva Forestal"
+          !!@ ili2db.dispName = "(Protección suelo rural-Conservación y protección ambiental) Áreas de reserva forestal"
           Areas_Reserva_Forestal,
           /** Corresponde a
            */
-          !!@ ili2db.dispName = "Áreas de Manejo Especial"
+          !!@ ili2db.dispName = "(Protección suelo rural-Conservación y protección ambiental) Áreas de manejo especial"
           Areas_Manejo_Especial,
           /** Tales como páramos y subpáramos,
            * nacimientos de agua, zonas de recarga de acuíferos, rondas hidráulicas de los cuerpos de agua,
            * humedales, pantanos, lagos, lagunas, ciénagas, manglares y reservas de flora y fauna.
            * Dcto. 3600 de 2010.
            */
-          !!@ ili2db.dispName = "Áreas de Especial Importancia Ecosistémica"
+          !!@ ili2db.dispName = "(Protección suelo rural-Conservación y protección ambiental) Áreas de especial importancia ecosistémica"
           Areas_Importancia_Ecosistemica
         ),
         /** Incluye los terrenos que deban ser mantenidos y
@@ -124,11 +124,11 @@ VERSION "2.0.0"  =
         Produccion_Agropecuaria_Explotacion_RRNN,
         /** Zonas para aprovisionamiento de servicios públicos e infraestructuras asociadas
          */
-        !!@ ili2db.dispName = "(Protección Suelo Rural) Sistema de Servicios Públicos Domiciliarios"
+        !!@ ili2db.dispName = "(Protección suelo rural) Sistema de servicios públicos domiciliarios"
         Sistema_Servicios_Publicos,
         /** Áreas definidas como de amenaza y riesgo
          */
-        !!@ ili2db.dispName = "(Protección Suelo Rural) Amenaza y riesgo no mitigable"
+        !!@ ili2db.dispName = "(Protección suelo rural) Amenaza y riesgo no mitigable"
         Amenaza_Y_Riesgo_No_Mitigable,
         /** Patrimonio histórico cultural y/o arquitectónico (SOLO EN EL SUELO RURAL SE CONVIERTE EN SUELO DE PROTECCIÓN).
          * Art. 4 Dcto 3600/2007 compilado en el 1077/2015.
@@ -138,7 +138,7 @@ VERSION "2.0.0"  =
          * 
          * Patrimonio Historico, Cultural, Arquitectónico
          */
-        !!@ ili2db.dispName = "(Protección Suelo Rural) Patrimonio cultural"
+        !!@ ili2db.dispName = "(Protección suelo rural) Patrimonio cultural"
         Patrimonio_Cultural
       )
     );
@@ -148,24 +148,23 @@ VERSION "2.0.0"  =
       Urbano,
       !!@ ili2db.dispName = "Rural"
       Rural,
-      !!@ ili2db.dispName = "Expansión Urbana"
+      !!@ ili2db.dispName = "Expansión urbana"
       Expansion_Urbana
     );
 
     /** Esta asociado al fenomeno amenazante
      * Dcto 1807/2014 compilado en el Dcto 1077/2015
      */
-    !!@ ili2db.dispName = "Fenomeno de la Amenaza"
     POT_FenomenoAmenazaTipo = (
       !!@ ili2db.dispName = "Movimientos en masa"
       MovimientosenMasa,
-      !!@ ili2db.dispName = "Avenida Torrencial"
+      !!@ ili2db.dispName = "Avenida torrencial"
       AvenidaTorrencial,
       !!@ ili2db.dispName = "Inundación"
       Inundacion,
       !!@ ili2db.dispName = "Otros"
       Otros(
-        !!@ ili2db.dispName = "Incendios Forestales"
+        !!@ ili2db.dispName = "(Otros) Incendios forestales"
         IncendiosForestales,
         !!@ ili2db.dispName = "Tsunami"
         Tsunami,
@@ -178,29 +177,28 @@ VERSION "2.0.0"  =
 
     POT_FuenteAdministrativaTipo
     EXTENDS LADM_COL_V3_1.LADM_Nucleo.COL_FuenteAdministrativaTipo = (
+      !!@ ili2db.dispName = "Documento público"
       Documento_Publico(
-        !!@ ili2db.dispName = "Documento Técnico de Soporte POT"
+        !!@ ili2db.dispName = "(Documento público) Documento técnico de soporte POT"
         Documento_POT,
         /** Articulo 10 de Ley 388/97
          */
         !!@ ili2db.dispName = "Determinantes de Superior Jerarquía"
         Determinantes_Superior,
-        /** Resolución de
-         */
-        !!@ ili2db.dispName = "Resolución de Concertación Ambiental"
+        !!@ ili2db.dispName = "(Documento público) Determinantes ambientales"
         Determinantes_Ambientales,
         /** Documento que sustenta la posición de la Autoridad Ambiental frente al POT (Resolución Concertación)
          * Ej. CAR, Autoridad ambiental Local, Ministerio de Ambiente.
          */
-        !!@ ili2db.dispName = "Resolución de Concertación Ambiental"
+        !!@ ili2db.dispName = "(Documento público) Resolución de concertación ambiental"
         Resolucion_Concertacion,
         /** Documento que sustenta la posición del la Autoridad Municipal POT.
          */
-        !!@ ili2db.dispName = "Acuerdo o Decreto de Adopción del POT"
+        !!@ ili2db.dispName = "(Documento público) Acuerdo o decreto de adopción del POT"
         Acto_Admon_Adopcion,
-        /** SE REFIE A PRACTICAS QUE NO ESTAN FORMALMENTE SUSTENTADAS EN UNA NORMATIVA PERO ESTAN IMPLEMENTADAS EN LA PRACTICA O RECOMENDADAS EN INSTRUCTIVOS ELABORADOS POR INSTITUCIONES
+        /** Se refiere a prácticas que no están formalmente sustentadas en una normativa, pero están implementadas en la práctica o recomendadas en instructivos elaborados por instituciones.
          */
-        !!@ ili2db.dispName = "Soporte Metodológico"
+        !!@ ili2db.dispName = "(Documento público) Soporte metodológico"
         Soporte_Metodologico
       )
     );
@@ -210,34 +208,34 @@ VERSION "2.0.0"  =
     POT_ModeloFuenteTipo = (
       /** Modelo Extendido del núcleo LADM
        */
-      !!@ ili2db.dispName = "Modelo Catastro-Registro"
+      !!@ ili2db.dispName = "Modelo catastro-registro"
       Catastro_Registro,
       /** Modelo Extendido del núcleo LADM
        */
-      !!@ ili2db.dispName = "Modelo Ambiente"
+      !!@ ili2db.dispName = "Modelo ambiente"
       Ambiente,
       /** Modelo Extendido del núcleo LADM
        */
-      !!@ ili2db.dispName = "Modelo Riesgos"
+      !!@ ili2db.dispName = "Modelo riesgos"
       Riesgos,
       /** Posible modelo de aplicación
        */
-      !!@ ili2db.dispName = "Modelo Patrimonio Cultural"
+      !!@ ili2db.dispName = "Modelo patrimonio cultural"
       Patrimonio_Cultural,
-      !!@ ili2db.dispName = "Modelo Agropecuario"
+      !!@ ili2db.dispName = "Modelo agropecuario"
       Agropecuario,
-      !!@ ili2db.dispName = "Modelo Minero Energético"
+      !!@ ili2db.dispName = "Modelo minero energético"
       Minero_Energetico,
-      !!@ ili2db.dispName = "Modelo Infraestructura"
+      !!@ ili2db.dispName = "Modelo infraestructura"
       Infraestructura
     );
 
     POT_PlanOrdenamientoTerritorialTipo = (
-      !!@ ili2db.dispName = "Plan de Ordenamiento Territorial"
+      !!@ ili2db.dispName = "Plan de ordenamiento territorial"
       POT,
-      !!@ ili2db.dispName = "Plan Básico de Ordenamiento Territorial"
+      !!@ ili2db.dispName = "Plan básico de ordenamiento territorial"
       PBOT,
-      !!@ ili2db.dispName = "Esquema de Ordenamiento Territorial"
+      !!@ ili2db.dispName = "Esquema de ordenamiento territorial"
       EOT
     );
 
@@ -249,41 +247,41 @@ VERSION "2.0.0"  =
     );
 
     POT_SistemasGeneralesNivelTipo = (
-      /** Área de influencia a nivel "Nacional"
+      /** Área de influencia a nivel "Nacional".
        */
-      !!@ ili2db.dispName = "Nivel Nacional"
+      !!@ ili2db.dispName = "Nivel nacional"
       Nacional,
-      /** Área de influencia a nivel "Departamental"
+      /** Área de influencia a nivel "Departamental".
        */
-      !!@ ili2db.dispName = "Nivel Departamental"
+      !!@ ili2db.dispName = "Nivel departamental"
       Departamental,
-      /** Área de influencia a nivel "Regional"
+      /** Área de influencia a nivel "Regional".
        */
-      !!@ ili2db.dispName = "Nivel Regional"
+      !!@ ili2db.dispName = "Nivel regional"
       Regional,
       /** Área de influencia a nivel "Municipal"
        * 
        * Aplica a nivel municipal a nivel del suelo rural
        */
-      !!@ ili2db.dispName = "Nivel Municipal"
+      !!@ ili2db.dispName = "Nivel municipal"
       Municipal,
-      /** Aplica para suelo urbano
+      /** Aplica para suelo urbano.
        */
-      !!@ ili2db.dispName = "Nivel Distrital"
+      !!@ ili2db.dispName = "Nivel distrital"
       Distrital,
       /** Aplica para suelo urbano
        */
-      !!@ ili2db.dispName = "Nivel Local"
+      !!@ ili2db.dispName = "Nivel local"
       Local,
-      /** Aplica para suelo urbano
+      /** Aplica para suelo urbano.
        */
-      !!@ ili2db.dispName = "Nivel Barrial"
+      !!@ ili2db.dispName = "Nivel barrial"
       Barrial,
-      /** Aplica para suelo urbano
+      /** Aplica para suelo urbano.
        */
-      !!@ ili2db.dispName = "Nivel Zonal"
+      !!@ ili2db.dispName = "Nivel zonal"
       Zonal,
-      !!@ ili2db.dispName = "Nivel Metropolitano"
+      !!@ ili2db.dispName = "Nivel metropolitano"
       Metropolitano
     );
 
@@ -301,58 +299,58 @@ VERSION "2.0.0"  =
         Cultura,
         !!@ ili2db.dispName = "(Equipamientos) Salud"
         Salud,
-        !!@ ili2db.dispName = "(Equipamientos) Bienestar Social"
+        !!@ ili2db.dispName = "(Equipamientos) Bienestar social"
         Bienestar_Social,
         !!@ ili2db.dispName = "(Equipamientos) Culto"
         Culto,
-        !!@ ili2db.dispName = "(Equipamientos) Deportivo Recreativo"
+        !!@ ili2db.dispName = "(Equipamientos) Deportivo recreativo"
         Deportivo_Recreativo,
-        !!@ ili2db.dispName = "(Equipamientos) Seguridad Ciudadana"
+        !!@ ili2db.dispName = "(Equipamientos) Seguridad ciudadana"
         Seguridad_Ciudadana,
-        !!@ ili2db.dispName = "(Equipamientos) Defensa y Justicia"
+        !!@ ili2db.dispName = "(Equipamientos) Defensa y justicia"
         Defensa_Justicia,
-        !!@ ili2db.dispName = "(Equipamientos) Abastecimiento de alimentos y Seguridad alimentaria"
+        !!@ ili2db.dispName = "(Equipamientos) Abastecimiento de alimentos y seguridad alimentaria"
         Abastecimiento,
-        !!@ ili2db.dispName = "(Equipamientos) Recintos Feriales"
+        !!@ ili2db.dispName = "(Equipamientos) Recintos feriales"
         Recintos_Feriales,
-        !!@ ili2db.dispName = "(Equipamientos) Cementerios y Servicios Funerarios"
+        !!@ ili2db.dispName = "(Equipamientos) Cementerios y servicios funerarios"
         Cementerios_Servicios_Funerarios,
-        !!@ ili2db.dispName = "(Equipamientos) Servicios de Administración Pública"
+        !!@ ili2db.dispName = "(Equipamientos) Servicios de administración pública"
         Servicios_Administracion_Publica,
-        !!@ ili2db.dispName = "(Equipamientos) Servicios de atencion de usuarios de servicio publicos domiciliarios"
+        !!@ ili2db.dispName = "(Equipamientos) Servicios de atención de usuarios de servicio públicos domiciliarios"
         Atencion_SPD
       ),
       /** Art. 2. DCTO 1504/98
        * El espacio público es el conjunto de inmuebles públicos y los elementos arquitectónicos y naturales de los inmuebles privados destinados por naturaleza, usos o afectación a la satisfacción de necesidades urbanas colectivas que transcienden los límites de los intereses individuales de los habitantes.
        */
-      !!@ ili2db.dispName = "Espacio Público"
+      !!@ ili2db.dispName = "Espacio público"
       Espacio_Publico(
-        !!@ ili2db.dispName = "Elemento Constitutivo de Espacio Público"
+        !!@ ili2db.dispName = "(Espacio público) Elemento constitutivo de espacio público"
         Elemento_Constitutivo,
-        !!@ ili2db.dispName = "Elemento Complementario de Espacio Público"
+        !!@ ili2db.dispName = "(Espacio público) Elemento complementario de espacio público"
         Elemento_Complementario
       ),
-      !!@ ili2db.dispName = "Servicios Públicos"
+      !!@ ili2db.dispName = "Servicios públicos"
       Servicios_Publicos(
-        !!@ ili2db.dispName = "Servicios Públicos Acueducto"
+        !!@ ili2db.dispName = "(Servicios públicos) Acueducto"
         Acueducto,
-        !!@ ili2db.dispName = "Servicios Públicos de Alcantarillado"
+        !!@ ili2db.dispName = "(Servicios públicos) Alcantarillado"
         Alcantarillado,
-        !!@ ili2db.dispName = "Servicios Públicos de Gas Domiciliario"
+        !!@ ili2db.dispName = "(Servicios públicos) Gas domiciliario"
         Gas,
-        !!@ ili2db.dispName = "Servicios Públicos de Energía"
+        !!@ ili2db.dispName = "(Servicios públicos) Energía"
         Energia,
-        !!@ ili2db.dispName = "Servicios Públicos de Telecomunicaciones"
+        !!@ ili2db.dispName = "(Servicios públicos) Telecomunicaciones"
         Telecomunicaciones,
-        !!@ ili2db.dispName = "Servicios públicos Disposición final de residuos sólidos"
+        !!@ ili2db.dispName = "(Servicios públicos) Disposición final de residuos sólidos"
         Disposicion_Final_Residuos(
           /** Norma pendiente
            */
-          !!@ ili2db.dispName = "Servicios públicos Disposición final de residuos sólidos - Escombrera"
+          !!@ ili2db.dispName = "(Servicios públicos-Disposición final de residuos sólidos) Escombrera"
           Escombrera,
           /** Norma pendiente
            */
-          !!@ ili2db.dispName = "Servicios públicos Disposición final de residuos sólidos - Relleno Sanitario"
+          !!@ ili2db.dispName = "(Servicios públicos-Disposición final de residuos sólidos) Relleno Sanitario"
           Relleno_Sanitario
         )
       ),
@@ -366,49 +364,49 @@ VERSION "2.0.0"  =
        */
       !!@ ili2db.dispName = "Vías"
       Vias(
-        !!@ ili2db.dispName = "(Vías) Zona Rural"
+        !!@ ili2db.dispName = "(Vías) Zona rural"
         Rural(
           /** Permite la comunicaión a nivel Nacional conectando Capitales, fronteras y puertos.
            * Caracteristica:
            * -Calzada Doble 
            * -Calzada sencilla >= a 7,30 m.
            */
-          !!@ ili2db.dispName = "(Rural) Vías de Primer Orden"
+          !!@ ili2db.dispName = "(Vías-Zona rural) Vías primer orden"
           Vias_Primer_Orden,
           /** Permite la comunicaión entre municipios o vías de primer orden.
            * Caracteristica: 
            * -Calzada sencilla <  a 7,30 m.
            */
-          !!@ ili2db.dispName = "(Rural) Vías de Segundo Orden"
+          !!@ ili2db.dispName = "(Vías-Zona rural) Vías de segundo orden"
           Vias_Segundo_Orden,
           /** Permite la comunicaión entre vereredas de un municipio o con una vía de segundo orden.
            * Caracteristica: 
            * -Calzada sencilla <=  a 6,00 m.
            */
-          !!@ ili2db.dispName = "(Rural)Vías de Tercer Orden"
+          !!@ ili2db.dispName = "(Vías-Zona rural) Vías de tercer orden"
           Vias_Tercer_Orden
         ),
-        !!@ ili2db.dispName = "(Vías) Zona Urbana"
+        !!@ ili2db.dispName = "(Vías) Zona urbana"
         Urbano(
           /** Ley 769 de 2002 artículo 105
            */
-          !!@ ili2db.dispName = "(Urbano) Vías Principal"
+          !!@ ili2db.dispName = "(Vías-Zona urbana) Principal"
           Principal,
           /** Ley 769 de 2002 artículo 105
            */
-          !!@ ili2db.dispName = "(Urbano) Vías Secundaria"
+          !!@ ili2db.dispName = "(Vías-Zona urbana) Secundaria"
           Secundaria,
           /** Ley 769 de 2002 artículo 105
            */
-          !!@ ili2db.dispName = "(Urbano) Vías Local"
+          !!@ ili2db.dispName = "(Vías-Zona urbana) Local"
           Local,
           /** Ley 769 de 2002 artículo 105
            */
-          !!@ ili2db.dispName = "(Urbano) Vías Peatonal"
+          !!@ ili2db.dispName = "(Vías-Zona urbana) Peatonal"
           Peatonal,
           /** Ley 769 de 2002 artículo 105
            */
-          !!@ ili2db.dispName = "(Urbano) Vías Ciclorruta"
+          !!@ ili2db.dispName = "(Vías-Zona urbana) Ciclorruta"
           Ciclorruta
         )
       ),
@@ -417,23 +415,23 @@ VERSION "2.0.0"  =
        * 
        * Se basa en la Ley 1228 de 2008
        */
-      !!@ ili2db.dispName = "Infraestructura de Transporte"
+      !!@ ili2db.dispName = "Infraestructura de transporte"
       Infraestructura_Transporte(
         /** Catálogo de objetos Cartografía Básica IGAC
          */
-        !!@ ili2db.dispName = "Infraestructura de Transporte Terrestre"
+        !!@ ili2db.dispName = "(Infraestructura de transporte) Terrestre"
         Terrestre,
         /** Catálogo de objetos Cartografía Básica IGAC
          */
-        !!@ ili2db.dispName = "Infraestructura de Transporte Aéreo"
+        !!@ ili2db.dispName = "(Infraestructura de transporte) Aéreo"
         Aereo,
         /** Catálogo de objetos Cartografía Básica IGAC
          */
-        !!@ ili2db.dispName = "Infraestructura de Transporte Fluvial"
+        !!@ ili2db.dispName = "(Infraestructura de transporte) Fluvial"
         Fluvial,
         /** Catálogo de objetos Cartografía Básica IGAC
          */
-        !!@ ili2db.dispName = "Infraestructura de Transporte Marítimo"
+        !!@ ili2db.dispName = "(Infraestructura de transporte) Marítimo"
         Maritimo
       )
     );
@@ -452,11 +450,11 @@ VERSION "2.0.0"  =
       Consolidacion,
       !!@ ili2db.dispName = "Renovación urbana"
       Renovacion_Urbana(
-        !!@ ili2db.dispName = "Reactivación"
+        !!@ ili2db.dispName = "(Renovación urbana) Reactivación"
         Reactivacion,
-        !!@ ili2db.dispName = "Redesarrollo"
+        !!@ ili2db.dispName = "(Renovación urbana) Redesarrollo"
         Redesarrollo,
-        !!@ ili2db.dispName = "Revitalización"
+        !!@ ili2db.dispName = "(Renovación urbana) Revitalización"
         Revitalizacion
       ),
       !!@ ili2db.dispName = "Conservación"
@@ -468,13 +466,13 @@ VERSION "2.0.0"  =
     POT_UsoSueloRuralTipo = (
       !!@ ili2db.dispName = "Agrícola"
       Agricola,
-      !!@ ili2db.dispName = "Uso Ganadero"
+      !!@ ili2db.dispName = "Pecuario"
       Pecuario,
-      !!@ ili2db.dispName = "Uso Forestal"
+      !!@ ili2db.dispName = "Forestal"
       Forestal,
       /** Se da para cultivos de peces y moluscos.
        */
-      !!@ ili2db.dispName = "Uso Pecuario y especies menores"
+      !!@ ili2db.dispName = "Acuicultura"
       Acuicultura,
       /** Sujeto a modificación Dcto. 1077 componente rural
        */
@@ -498,19 +496,19 @@ VERSION "2.0.0"  =
       Centro_Poblado,
       !!@ ili2db.dispName = "Conservación y protección ambiental"
       Conservacion_Proteccion_Ambiental(
-        !!@ ili2db.dispName = "Preservación"
+        !!@ ili2db.dispName = "(Conservación y protección ambiental) Preservación"
         Preservacion,
-        !!@ ili2db.dispName = "Conservación"
+        !!@ ili2db.dispName = "(Conservación y protección ambiental) Conservación"
         Conservacion,
-        !!@ ili2db.dispName = "Restauración"
+        !!@ ili2db.dispName = "(Conservación y protección ambiental) Restauración"
         Restauracion,
-        !!@ ili2db.dispName = "Conocimiento"
+        !!@ ili2db.dispName = "(Conservación y protección ambiental) Conocimiento"
         Conocimiento,
-        !!@ ili2db.dispName = "Uso Sostenible"
+        !!@ ili2db.dispName = "(Conservación y protección ambiental) Uso sostenible"
         Uso_Sostenible,
-        !!@ ili2db.dispName = "Disfrute"
+        !!@ ili2db.dispName = "(Conservación y protección ambiental) Disfrute"
         Disfrute,
-        !!@ ili2db.dispName = "Histórico cultural"
+        !!@ ili2db.dispName = "(Conservación y protección ambiental) Histórico cultural"
         Historico_Cultural
       ),
       /** Utilice este dominio en caso tal de no existir el valor de dominio correspondiente, se recomienda no utilizar si el valor es una mezcla de los dominios anteriores
@@ -547,17 +545,18 @@ VERSION "2.0.0"  =
     !!@ ili2db.dispName = "(POT) Fuente Administrativa"
     CLASS POT_FuenteAdministrativa
     EXTENDS LADM_COL_V3_1.LADM_Nucleo.COL_FuenteAdministrativa =
-      !!@ ili2db.dispName = "Tipo Fuente Administrativa"
+      !!@ ili2db.dispName = "Tipo de fuente administrativa"
       Tipo (EXTENDED) : MANDATORY LADM_COL_v_2_0_0_Ext_POT.POT_FuenteAdministrativaTipo;
-      !!@ ili2db.dispName = "Fecha del Documento"
+      !!@ ili2db.dispName = "Fecha del documento"
       Fecha : INTERLIS.XMLDate;
+      !!@ ili2db.dispName = "Tipo de POT"
       Tipo_POT : LADM_COL_v_2_0_0_Ext_POT.POT_PlanOrdenamientoTerritorialTipo;
     END POT_FuenteAdministrativa;
 
     !!@ ili2db.dispName = "(POT) Fuente Espacial"
     CLASS POT_FuenteEspacial
     EXTENDS LADM_COL_V3_1.LADM_Nucleo.COL_FuenteEspacial =
-      !!@ ili2db.dispName = "Modelo Fuente"
+      !!@ ili2db.dispName = "Modelo fuente"
       Modelo_Fuente : LADM_COL_v_2_0_0_Ext_POT.POT_ModeloFuenteTipo;
       !!@ ili2db.dispName = "Escala"
       Escala : 0.000 .. 100000000.000;
@@ -570,11 +569,11 @@ VERSION "2.0.0"  =
     !!@ ili2db.dispName = "(POT) Municipio"
     CLASS POT_Municipio
     EXTENDS LADM_COL_V3_1.LADM_Nucleo.COL_Interesado =
-      !!@ ili2db.dispName = "Código Departamento"
+      !!@ ili2db.dispName = "Código del departamento"
       Codigo_Departamento : MANDATORY TEXT*2;
-      !!@ ili2db.dispName = "Código Municipio"
+      !!@ ili2db.dispName = "Código del municipio"
       Codigo_Municipio : MANDATORY TEXT*3;
-      !!@ ili2db.dispName = "Nombre del Municipio"
+      !!@ ili2db.dispName = "Nombre del municipio"
       Nombre_Municipio : MANDATORY TEXT*255;
     END POT_Municipio;
 
@@ -618,17 +617,19 @@ VERSION "2.0.0"  =
     EXTENDS LADM_COL_V3_1.LADM_Nucleo.COL_RelacionNecesariaUnidadesEspaciales =
     END POT_NU_RelacionNecesariaUnidadesEspaciales;
 
+    !!@ ili2db.dispName = "(POT) Referencia Línea de Sistema Generales"
     CLASS POT_ReferenciaLinea_SistemasGenerales =
       Geometria : MANDATORY ISO19107_PLANAS_V3_0.GM_Curve3D;
     END POT_ReferenciaLinea_SistemasGenerales;
 
+    !!@ ili2db.dispName = "(POT) Referencia Punto de Sistema Generales"
     CLASS POT_ReferenciaPunto_SistemasGenerales =
       Geometria : ISO19107_PLANAS_V3_0.GM_Point3D;
     END POT_ReferenciaPunto_SistemasGenerales;
 
-    /** Áreas con condición de amenaza, son las zonas o áreas del territorio municipal zonificadas como de amenaza alta y media en las que se establezca en la revisión o expedición de un nuevo POT la necesidad de clasificarlas como suelo urbano, de expansión urbana, rural suburbano o centros poblados rurales para permitir su desarrollo.
+    /** Áreas con condición de amenaza, son las zonas o áreas del territorio municipal zonificadas como de amenaza alta y media, en las que se establezca en la revisión o expedición de un nuevo POT la necesidad de clasificarlas como suelo urbano, de expansión urbana, rural, suburbano o centros poblados rurales para permitir su desarrollo.
      */
-    !!@ ili2db.dispName = "(POT) UAB Área condición de amenaza"
+    !!@ ili2db.dispName = "(POT) UAB Área en Condición de Amenaza"
     CLASS POT_UAB_AreaCondicionAmenaza
     EXTENDS LADM_COL_V3_1.LADM_Nucleo.COL_UnidadAdministrativaBasica =
       /** Se refiere al desarrollo y elaboración de estudios detallados en el corto, mediano y largo plazo.
@@ -636,7 +637,7 @@ VERSION "2.0.0"  =
        */
       !!@ ili2db.dispName = "Es priorizado"
       Es_Priorizado : MANDATORY BOOLEAN;
-      !!@ ili2db.dispName = "Descripción Área Condicición de Amenaza"
+      !!@ ili2db.dispName = "Descripción de área en condición de amenaza"
       Descripcion : MTEXT*255;
     END POT_UAB_AreaCondicionAmenaza;
 
@@ -646,7 +647,7 @@ VERSION "2.0.0"  =
      * 
      * Antes era el Decreto 1807 de 2014, ahora hace parte del 1077 pero no sé qué artículo
      */
-    !!@ ili2db.dispName = "(POT) UAB Área condición de riesgo"
+    !!@ ili2db.dispName = "(POT) UAB Área en Condición de Riesgo"
     CLASS POT_UAB_AreaCondicionRiesgo
     EXTENDS LADM_COL_V3_1.LADM_Nucleo.COL_UnidadAdministrativaBasica =
       /** Se refiere al desarrollo y elaboración de estudios detallados en el corto, mediano y largo plazo.
@@ -654,13 +655,14 @@ VERSION "2.0.0"  =
        */
       !!@ ili2db.dispName = "Es priorizado"
       Es_Priorizado : MANDATORY BOOLEAN;
-      !!@ ili2db.dispName = "Descripción de Área Condición de Riesgo"
+      !!@ ili2db.dispName = "Descripción de área en condición de riesgo"
       Descripcion : MTEXT*255;
     END POT_UAB_AreaCondicionRiesgo;
 
-    !!@ ili2db.dispName = "(POT) UAB Centro poblado rural"
+    !!@ ili2db.dispName = "(POT) UAB Centro Poblado Rural"
     CLASS POT_UAB_CentroPobladoRural
     EXTENDS LADM_COL_V3_1.LADM_Nucleo.COL_UnidadAdministrativaBasica =
+      !!@ ili2db.dispName = "Nombre"
       Nombre (EXTENDED) : MANDATORY TEXT*255;
       !!@ ili2db.dispName = "Código centro poblado"
       Codigo : TEXT*8;
@@ -676,10 +678,11 @@ VERSION "2.0.0"  =
     !!@ ili2db.dispName = "(POT) UAB Sistemas Generales"
     CLASS POT_UAB_SistemasGenerales
     EXTENDS LADM_COL_V3_1.LADM_Nucleo.COL_UnidadAdministrativaBasica =
-      !!@ ili2db.dispName = "Tipo de Sistemas Generales"
-      Tipo_Sistemas_Generales : MANDATORY LADM_COL_v_2_0_0_Ext_POT.POT_SistemasGeneralesTipo;
+      !!@ ili2db.dispName = "Tipo de sistema general"
+      Tipo_Sistema_General : MANDATORY LADM_COL_v_2_0_0_Ext_POT.POT_SistemasGeneralesTipo;
+      !!@ ili2db.dispName = "Detalle de sistema general"
       Detalle_Sistema_General : MANDATORY TEXT*255;
-      !!@ ili2db.dispName = "Nivel de Aplicación"
+      !!@ ili2db.dispName = "Nivel de aplicación"
       Nivel : MANDATORY LADM_COL_v_2_0_0_Ext_POT.POT_SistemasGeneralesNivelTipo;
       /** Corresponde a la identificación actual del Equipamiento, tanto si este se encuentra ya construido (Existente) o si el POT lo definio como un proyecto a futuro (Proyectado). CREAR LOS DOMINIOS
        */
@@ -690,58 +693,50 @@ VERSION "2.0.0"  =
     !!@ ili2db.dispName = "(POT) UAB Tratamiento Urbanístico"
     CLASS POT_UAB_TratamientoUrbanistico
     EXTENDS LADM_COL_V3_1.LADM_Nucleo.COL_UnidadAdministrativaBasica =
-      !!@ ili2db.dispName = "Tratamiento Urbanistico"
+      !!@ ili2db.dispName = "Tipo de tratamiento urbanístico"
       Tipo_Tratamiento_Urbanistico : MANDATORY LADM_COL_v_2_0_0_Ext_POT.POT_TratamientoUrbanisticoTipo;
-      /** En este atributo se utiliza en caso de ser necesario aclarar una variante dentro de las categorias especificadas en la clase.
+      /** En este atributo se utiliza en caso de ser necesario aclarar una variante dentro de las categorías especificadas en la clase.
        */
       !!@ ili2db.dispName = "Observación"
       Observacion : MTEXT*255;
     END POT_UAB_TratamientoUrbanistico;
 
-    !!@ ili2db.dispName = "(POT) UAB Zonificación amenazas"
+    !!@ ili2db.dispName = "(POT) UAB Zonificación de Amenazas"
     CLASS POT_UAB_ZonificacionAmenazas
     EXTENDS LADM_COL_V3_1.LADM_Nucleo.COL_UnidadAdministrativaBasica =
       /** Esta asociado al fenomeno amenazante
        * Dcto 1807/2014 compilado en el Dcto 1077/2015
        */
-      !!@ ili2db.dispName = "Fenómeno Presentado"
+      !!@ ili2db.dispName = "Tipo de fenómeno presentado"
       Fenomeno : MANDATORY LADM_COL_v_2_0_0_Ext_POT.POT_FenomenoAmenazaTipo;
       /** Es la categoria en la que se le da a cada uno de los fenomenos amenazantes.
        * Dcto 1807/2014 compilado en el Dcto 1077/2015
        */
-      !!@ ili2db.dispName = "Categoría de la Amenaza"
+      !!@ ili2db.dispName = "Categoría de la amenaza"
       Categoria_Amenaza : LADM_COL_v_2_0_0_Ext_POT.POT_CategoriaAmenazaTipo;
     END POT_UAB_ZonificacionAmenazas;
 
-    /** Áreas con condición de amenaza, son las zonas o áreas del territorio municipal zonificadas como de amenaza alta y media en las que se establezca en la revisión o expedición de un nuevo POT la necesidad de clasificarlas como suelo urbano, de expansión urbana, rural suburbano o centros poblados rurales para permitir su desarrollo.
-     */
-    !!@ ili2db.dispName = "(POT) UE Área condición de amenaza"
+    !!@ ili2db.dispName = "(POT) UE Área en Condición de Amenaza"
     CLASS POT_UE_AreaCondicionAmenaza
     EXTENDS LADM_COL_V3_1.LADM_Nucleo.COL_UnidadEspacial =
     END POT_UE_AreaCondicionAmenaza;
 
-    /** Áreas con condición de riesgo, corresponden a las zonas o áreas del territorio municipal clasificadas como de amenaza alta que estén urbanizadas, ocupadas o edificadas así como en las que se encuentren elementos del sistema vial, equipamientos (salud, educación, otros) e infraestructura de servicios públicos.
-     * 
-     * la diferencia entre condición de amenaza y de riesgo es cuando hay desarrollo (condición de riesgo) y cuando no hay y va a haber (condición de amenza)
-     * 
-     * Antes era el Decreto 1807 de 2014, ahora hace parte del 1077 pero no sé qué artículo
-     */
-    !!@ ili2db.dispName = "(POT) UE Área condición de riesgo"
+    !!@ ili2db.dispName = "(POT) UE Área en Condición de Riesgo"
     CLASS POT_UE_AreaCondicionRiesgo
     EXTENDS LADM_COL_V3_1.LADM_Nucleo.COL_UnidadEspacial =
     END POT_UE_AreaCondicionRiesgo;
 
-    !!@ ili2db.dispName = "(POT) UE Áreas de actividad"
+    !!@ ili2db.dispName = "(POT) UE Áreas de Actividad"
     CLASS POT_UE_AreasActividad
     EXTENDS LADM_COL_V3_1.LADM_Nucleo.COL_UnidadEspacial =
     END POT_UE_AreasActividad;
 
-    !!@ ili2db.dispName = "(POT) UE Centro poblado rural"
+    !!@ ili2db.dispName = "(POT) UE Centro Poblado Rural"
     CLASS POT_UE_CentroPobladoRural
     EXTENDS LADM_COL_V3_1.LADM_Nucleo.COL_UnidadEspacial =
     END POT_UE_CentroPobladoRural;
 
-    !!@ ili2db.dispName = "(POT) UE Clasificación del suelo"
+    !!@ ili2db.dispName = "(POT) UE Clasificación del Suelo"
     CLASS POT_UE_ClasificacionSuelo
     EXTENDS LADM_COL_V3_1.LADM_Nucleo.COL_UnidadEspacial =
     END POT_UE_ClasificacionSuelo;
@@ -756,7 +751,7 @@ VERSION "2.0.0"  =
     EXTENDS LADM_COL_V3_1.LADM_Nucleo.COL_UnidadEspacial =
     END POT_UE_TratamientoUrbanistico;
 
-    !!@ ili2db.dispName = "(POT) UE Zonificación amenazas"
+    !!@ ili2db.dispName = "(POT) UE Zonificación de Amenazas"
     CLASS POT_UE_ZonificacionAmenazas
     EXTENDS LADM_COL_V3_1.LADM_Nucleo.COL_UnidadEspacial =
     END POT_UE_ZonificacionAmenazas;
@@ -766,42 +761,29 @@ VERSION "2.0.0"  =
     EXTENDS LADM_COL_V3_1.LADM_Nucleo.COL_UnidadEspacial =
     END POT_UE_ZonificacionSueloRural;
 
-    /** Las Áreas de actividad Corresponden a la determinación de zonas (con caracteristicas homogeneas) para la asignación de usos.
+    /** Las Áreas de actividad Corresponden a la determinación de zonas (con características homogéneas) para la asignación de usos.
      * 
-     * Nota: Para usos complementario, restringido y prohibido, se puede tomar mas de un valor del dominio pra cada uno de los atrributos.
+     * Nota: Para usos complementario, restringido y prohibido, se puede tomar más de un valor del dominio para cada uno de los atributos.
      */
     !!@ ili2db.dispName = "(POT) UAB Áreas de Actividad"
     CLASS POT_UAB_AreasActividad
     EXTENDS LADM_COL_V3_1.LADM_Nucleo.COL_UnidadAdministrativaBasica =
+      !!@ ili2db.dispName = "Uso principal"
       Uso_Principal : MANDATORY LADM_COL_v_2_0_0_Ext_POT.POT_AreaActividadTipo;
-      /** Se debe describir nombrar los tipos o niveles en los que se clasifican cada uno de los regimenes_usos: Principal, Complementario, Restringido y Prohibido.
-       * Ejm:
-       * Uso Residencial:  El municipio decide clasificarlo en tres clases
-       * Residencial_Tipo_1
-       * Residencial_Tipo_2
-       * Residencial_Tipo_3
-       * Uso Comercial:  El municipio decide clasificarlo en cuatro clases
-       * Comercio Puntual: Comercial_Tipo_1
-       * Cmercio Vecinal: Comercial_Tipo_2
-       * Comercio Zonal: Comercial_Tipo_3
-       * Comercio Regional: Comercial_Tipo_4
-       * Uso Industrial:  El municipio decide clasificarlo en tres clases
-       * Industrial de Alto Impacto: Industrial_Dotacional_Tipo_1
-       * Industrial de Medio Impacto: Industrial_Dotacional_Tipo_2
-       * Industrial de Bajo Impacto: Industrial_Dotacional_Tipo_3
-       * Nota: En este atributo se utiliza en caso de ser necesario aclarar una variante dentro de las categorias especificadas en la clase.
-       */
       !!@ ili2db.dispName = "Detalle uso principal"
       Detalle_Uso_Principal : MANDATORY MTEXT*255;
+      !!@ ili2db.dispName = "Uso compatible o complementario"
       Uso_Compatible_Complementario : BAG {1..*} OF LADM_COL_v_2_0_0_Ext_POT.Planes_Ordenamiento_Territorial.POT_EstructuraUsoCompatibleComplementario;
+      !!@ ili2db.dispName = "Uso condicionado o restringido"
       Uso_Condicionado_Restringido : BAG {1..*} OF LADM_COL_v_2_0_0_Ext_POT.Planes_Ordenamiento_Territorial.POT_EstructuraUsoCondicionadoRestringido;
+      !!@ ili2db.dispName = "Uso prohibido"
       Uso_Prohibido : BAG {1..*} OF LADM_COL_v_2_0_0_Ext_POT.Planes_Ordenamiento_Territorial.POT_EstructuraUsoProhibido;
     END POT_UAB_AreasActividad;
 
     !!@ ili2db.dispName = "(POT) UAB Zonificación Suelo Rural"
     CLASS POT_UAB_ZonificacionSueloRural
     EXTENDS LADM_COL_V3_1.LADM_Nucleo.COL_UnidadAdministrativaBasica =
-      !!@ ili2db.dispName = "Tipo de Categoría Rural"
+      !!@ ili2db.dispName = "Tipo de categoría rural"
       Tipo_Categoria_Rural : MANDATORY LADM_COL_v_2_0_0_Ext_POT.POT_CategoriaRuralTipo;
       !!@ ili2db.dispName = "Uso principal"
       Uso_Principal : MANDATORY LADM_COL_v_2_0_0_Ext_POT.POT_UsoSueloRuralTipo;
@@ -809,6 +791,7 @@ VERSION "2.0.0"  =
       Detalle_Uso_Principal : MANDATORY TEXT*255;
       !!@ ili2db.dispName = "Uso compatible o complementario"
       Uso_Compatible_Complementario : BAG {1..*} OF LADM_COL_v_2_0_0_Ext_POT.Planes_Ordenamiento_Territorial.POT_EstructuraUsoCompatibleComplementario;
+      !!@ ili2db.dispName = "Uso condicionado o restringido"
       Uso_Condicionado_Restringido : BAG {1..*} OF LADM_COL_v_2_0_0_Ext_POT.Planes_Ordenamiento_Territorial.POT_EstructuraUsoCondicionadoRestringido;
       !!@ ili2db.dispName = "Uso prohibido"
       Uso_Prohibido : BAG {1..*} OF LADM_COL_v_2_0_0_Ext_POT.Planes_Ordenamiento_Territorial.POT_EstructuraUsoProhibido;
