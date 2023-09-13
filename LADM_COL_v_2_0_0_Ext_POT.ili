@@ -157,20 +157,20 @@ VERSION "2.0.0"  =
      */
     POT_FenomenoAmenazaTipo = (
       !!@ ili2db.dispName = "Movimientos en masa"
-      MovimientosenMasa,
+      Movimientos_En_Masa,
       !!@ ili2db.dispName = "Avenida torrencial"
-      AvenidaTorrencial,
+      Avenida_Torrencial,
       !!@ ili2db.dispName = "Inundación"
       Inundacion,
       !!@ ili2db.dispName = "Otros"
       Otros(
         !!@ ili2db.dispName = "(Otros) Incendios forestales"
-        IncendiosForestales,
-        !!@ ili2db.dispName = "Tsunami"
+        Incendios_Forestales,
+        !!@ ili2db.dispName = "(Otros) Tsunami"
         Tsunami,
-        !!@ ili2db.dispName = "Volcánico"
+        !!@ ili2db.dispName = "(Otros) Volcánico"
         Volcanico,
-        !!@ ili2db.dispName = "Tecnológico"
+        !!@ ili2db.dispName = "(Otros) Tecnológico"
         Tecnologico
       )
     );
