@@ -152,6 +152,15 @@ VERSION "2.0.0"  =
       Expansion_Urbana
     );
 
+    POT_DRRTipo = (
+      !!@ ili2db.dispName = "Derecho"
+      Derecho,
+      !!@ ili2db.dispName = "Responsabilidad"
+      Responsabilidad,
+      !!@ ili2db.dispName = "Restricción"
+      Restriccion
+    );
+
     /** Esta asociado al fenomeno amenazante
      * Dcto 1807/2014 compilado en el Dcto 1077/2015
      */
@@ -179,55 +188,11 @@ VERSION "2.0.0"  =
     EXTENDS LADM_COL_V3_1.LADM_Nucleo.COL_FuenteAdministrativaTipo = (
       !!@ ili2db.dispName = "Documento público"
       Documento_Publico(
-        !!@ ili2db.dispName = "(Documento público) Documento técnico de soporte POT"
-        Documento_POT,
-        /** Articulo 10 de Ley 388/97
-         */
-        !!@ ili2db.dispName = "Determinantes de Superior Jerarquía"
-        Determinantes_Superior,
-        !!@ ili2db.dispName = "(Documento público) Determinantes ambientales"
-        Determinantes_Ambientales,
-        /** Documento que sustenta la posición de la Autoridad Ambiental frente al POT (Resolución Concertación)
-         * Ej. CAR, Autoridad ambiental Local, Ministerio de Ambiente.
-         */
-        !!@ ili2db.dispName = "(Documento público) Resolución de concertación ambiental"
-        Resolucion_Concertacion,
-        /** Documento que sustenta la posición del la Autoridad Municipal POT.
-         */
-        !!@ ili2db.dispName = "(Documento público) Acuerdo o decreto de adopción del POT"
-        Acto_Admon_Adopcion,
-        /** Se refiere a prácticas que no están formalmente sustentadas en una normativa, pero están implementadas en la práctica o recomendadas en instructivos elaborados por instituciones.
-         */
-        !!@ ili2db.dispName = "(Documento público) Soporte metodológico"
-        Soporte_Metodologico
+        !!@ ili2db.dispName = "Acuerdo"
+        Acuerdo,
+        !!@ ili2db.dispName = "Decreto"
+        Decreto
       )
-    );
-
-    /** Dominios de los modelos fuente con los que interopera el modelo LADM para POT.
-     */
-    POT_ModeloFuenteTipo = (
-      /** Modelo Extendido del núcleo LADM
-       */
-      !!@ ili2db.dispName = "Modelo catastro-registro"
-      Catastro_Registro,
-      /** Modelo Extendido del núcleo LADM
-       */
-      !!@ ili2db.dispName = "Modelo ambiente"
-      Ambiente,
-      /** Modelo Extendido del núcleo LADM
-       */
-      !!@ ili2db.dispName = "Modelo riesgos"
-      Riesgos,
-      /** Posible modelo de aplicación
-       */
-      !!@ ili2db.dispName = "Modelo patrimonio cultural"
-      Patrimonio_Cultural,
-      !!@ ili2db.dispName = "Modelo agropecuario"
-      Agropecuario,
-      !!@ ili2db.dispName = "Modelo minero energético"
-      Minero_Energetico,
-      !!@ ili2db.dispName = "Modelo infraestructura"
-      Infraestructura
     );
 
     POT_PlanOrdenamientoTerritorialTipo = (
@@ -526,21 +491,9 @@ VERSION "2.0.0"  =
     !!@ ili2db.dispName = "(POT) DRR"
     CLASS POT_DRR
     EXTENDS LADM_COL_V3_1.LADM_Nucleo.COL_DRR =
-      !!@ ili2db.dispName = "Nombre de DRR"
-      Nombre : TEXT*255;
+      !!@ ili2db.dispName = "Tipo de DRR"
+      Tipo_DRR : LADM_COL_v_2_0_0_Ext_POT.POT_DRRTipo;
     END POT_DRR;
-
-    STRUCTURE POT_EstructuraUsoCompatibleComplementario =
-      Tipo : MANDATORY TEXT*255;
-    END POT_EstructuraUsoCompatibleComplementario;
-
-    STRUCTURE POT_EstructuraUsoCondicionadoRestringido =
-      Tipo : MANDATORY TEXT*255;
-    END POT_EstructuraUsoCondicionadoRestringido;
-
-    STRUCTURE POT_EstructuraUsoProhibido =
-      Tipo : MANDATORY TEXT*255;
-    END POT_EstructuraUsoProhibido;
 
     !!@ ili2db.dispName = "(POT) Fuente Administrativa"
     CLASS POT_FuenteAdministrativa
@@ -556,8 +509,6 @@ VERSION "2.0.0"  =
     !!@ ili2db.dispName = "(POT) Fuente Espacial"
     CLASS POT_FuenteEspacial
     EXTENDS LADM_COL_V3_1.LADM_Nucleo.COL_FuenteEspacial =
-      !!@ ili2db.dispName = "Modelo fuente"
-      Modelo_Fuente : LADM_COL_v_2_0_0_Ext_POT.POT_ModeloFuenteTipo;
       !!@ ili2db.dispName = "Escala"
       Escala : 0.000 .. 100000000.000;
       !!@ ili2db.dispName = "Fecha de publicación"
@@ -618,20 +569,24 @@ VERSION "2.0.0"  =
     END POT_NU_RelacionNecesariaUnidadesEspaciales;
 
     !!@ ili2db.dispName = "(POT) Referencia Línea de Sistema Generales"
-    CLASS POT_ReferenciaLinea_SistemasGenerales =
+    CLASS POT_ReferenciaLineaSistemasGenerales =
       Geometria : MANDATORY ISO19107_PLANAS_V3_0.GM_Curve3D;
-    END POT_ReferenciaLinea_SistemasGenerales;
+    END POT_ReferenciaLineaSistemasGenerales;
 
     !!@ ili2db.dispName = "(POT) Referencia Punto de Sistema Generales"
-    CLASS POT_ReferenciaPunto_SistemasGenerales =
+    CLASS POT_ReferenciaPuntoSistemasGenerales =
       Geometria : ISO19107_PLANAS_V3_0.GM_Point3D;
-    END POT_ReferenciaPunto_SistemasGenerales;
+    END POT_ReferenciaPuntoSistemasGenerales;
 
     /** Áreas con condición de amenaza, son las zonas o áreas del territorio municipal zonificadas como de amenaza alta y media, en las que se establezca en la revisión o expedición de un nuevo POT la necesidad de clasificarlas como suelo urbano, de expansión urbana, rural, suburbano o centros poblados rurales para permitir su desarrollo.
      */
     !!@ ili2db.dispName = "(POT) UAB Área en Condición de Amenaza"
     CLASS POT_UAB_AreaCondicionAmenaza
     EXTENDS LADM_COL_V3_1.LADM_Nucleo.COL_UnidadAdministrativaBasica =
+      !!@ ili2db.dispName = "Tipo de fenómeno presentado"
+      Fenomeno : LADM_COL_v_2_0_0_Ext_POT.POT_FenomenoAmenazaTipo;
+      !!@ ili2db.dispName = "Categoría de la amenaza"
+      Categoria_Amenaza : LADM_COL_v_2_0_0_Ext_POT.POT_CategoriaAmenazaTipo;
       /** Se refiere al desarrollo y elaboración de estudios detallados en el corto, mediano y largo plazo.
        * Dcto 1807/2014 compilado en el Dcto 1077/2015
        */
@@ -650,6 +605,10 @@ VERSION "2.0.0"  =
     !!@ ili2db.dispName = "(POT) UAB Área en Condición de Riesgo"
     CLASS POT_UAB_AreaCondicionRiesgo
     EXTENDS LADM_COL_V3_1.LADM_Nucleo.COL_UnidadAdministrativaBasica =
+      !!@ ili2db.dispName = "Tipo de fenómeno presentado"
+      Fenomeno : LADM_COL_v_2_0_0_Ext_POT.POT_FenomenoAmenazaTipo;
+      !!@ ili2db.dispName = "Categoría de la amenaza"
+      Cateogoria_Amenaza : LADM_COL_v_2_0_0_Ext_POT.POT_CategoriaAmenazaTipo;
       /** Se refiere al desarrollo y elaboración de estudios detallados en el corto, mediano y largo plazo.
        * Dcto 1807/2014 compilado en el Dcto 1077/2015
        */
@@ -761,6 +720,18 @@ VERSION "2.0.0"  =
     EXTENDS LADM_COL_V3_1.LADM_Nucleo.COL_UnidadEspacial =
     END POT_UE_ZonificacionSueloRural;
 
+    STRUCTURE POT_UsoCompatibleComplementarioValor =
+      Tipo : MANDATORY TEXT*255;
+    END POT_UsoCompatibleComplementarioValor;
+
+    STRUCTURE POT_UsoCondicionadoRestringidoValor =
+      Tipo : MANDATORY TEXT*255;
+    END POT_UsoCondicionadoRestringidoValor;
+
+    STRUCTURE POT_UsoProhibidoValor =
+      Tipo : MANDATORY TEXT*255;
+    END POT_UsoProhibidoValor;
+
     /** Las Áreas de actividad Corresponden a la determinación de zonas (con características homogéneas) para la asignación de usos.
      * 
      * Nota: Para usos complementario, restringido y prohibido, se puede tomar más de un valor del dominio para cada uno de los atributos.
@@ -773,11 +744,11 @@ VERSION "2.0.0"  =
       !!@ ili2db.dispName = "Detalle uso principal"
       Detalle_Uso_Principal : MANDATORY MTEXT*255;
       !!@ ili2db.dispName = "Uso compatible o complementario"
-      Uso_Compatible_Complementario : BAG {1..*} OF LADM_COL_v_2_0_0_Ext_POT.Planes_Ordenamiento_Territorial.POT_EstructuraUsoCompatibleComplementario;
+      Uso_Compatible_Complementario : BAG {1..*} OF LADM_COL_v_2_0_0_Ext_POT.Planes_Ordenamiento_Territorial.POT_UsoCompatibleComplementarioValor;
       !!@ ili2db.dispName = "Uso condicionado o restringido"
-      Uso_Condicionado_Restringido : BAG {1..*} OF LADM_COL_v_2_0_0_Ext_POT.Planes_Ordenamiento_Territorial.POT_EstructuraUsoCondicionadoRestringido;
+      Uso_Condicionado_Restringido : BAG {1..*} OF LADM_COL_v_2_0_0_Ext_POT.Planes_Ordenamiento_Territorial.POT_UsoCondicionadoRestringidoValor;
       !!@ ili2db.dispName = "Uso prohibido"
-      Uso_Prohibido : BAG {1..*} OF LADM_COL_v_2_0_0_Ext_POT.Planes_Ordenamiento_Territorial.POT_EstructuraUsoProhibido;
+      Uso_Prohibido : BAG {1..*} OF LADM_COL_v_2_0_0_Ext_POT.Planes_Ordenamiento_Territorial.POT_UsoProhibidoValor;
     END POT_UAB_AreasActividad;
 
     !!@ ili2db.dispName = "(POT) UAB Zonificación Suelo Rural"
@@ -790,11 +761,11 @@ VERSION "2.0.0"  =
       !!@ ili2db.dispName = "Detalle uso principal"
       Detalle_Uso_Principal : MANDATORY TEXT*255;
       !!@ ili2db.dispName = "Uso compatible o complementario"
-      Uso_Compatible_Complementario : BAG {1..*} OF LADM_COL_v_2_0_0_Ext_POT.Planes_Ordenamiento_Territorial.POT_EstructuraUsoCompatibleComplementario;
+      Uso_Compatible_Complementario : BAG {1..*} OF LADM_COL_v_2_0_0_Ext_POT.Planes_Ordenamiento_Territorial.POT_UsoCompatibleComplementarioValor;
       !!@ ili2db.dispName = "Uso condicionado o restringido"
-      Uso_Condicionado_Restringido : BAG {1..*} OF LADM_COL_v_2_0_0_Ext_POT.Planes_Ordenamiento_Territorial.POT_EstructuraUsoCondicionadoRestringido;
+      Uso_Condicionado_Restringido : BAG {1..*} OF LADM_COL_v_2_0_0_Ext_POT.Planes_Ordenamiento_Territorial.POT_UsoCondicionadoRestringidoValor;
       !!@ ili2db.dispName = "Uso prohibido"
-      Uso_Prohibido : BAG {1..*} OF LADM_COL_v_2_0_0_Ext_POT.Planes_Ordenamiento_Territorial.POT_EstructuraUsoProhibido;
+      Uso_Prohibido : BAG {1..*} OF LADM_COL_v_2_0_0_Ext_POT.Planes_Ordenamiento_Territorial.POT_UsoProhibidoValor;
     END POT_UAB_ZonificacionSueloRural;
 
     ASSOCIATION pot_clasificacionsuelo_centropoblado =
@@ -804,12 +775,12 @@ VERSION "2.0.0"  =
 
     ASSOCIATION pot_referencialinea_sistemasgenerales =
       sistemasgenerales -- {1} POT_UE_SistemasGenerales;
-      referencialinea -- {0..1} POT_ReferenciaLinea_SistemasGenerales;
+      referencialinea -- {0..1} POT_ReferenciaLineaSistemasGenerales;
     END pot_referencialinea_sistemasgenerales;
 
     ASSOCIATION pot_referenciapunto_sistemasgenerales =
       sistemagenerales -- {1} POT_UE_SistemasGenerales;
-      referenciapunto -- {0..1} POT_ReferenciaPunto_SistemasGenerales;
+      referenciapunto -- {0..1} POT_ReferenciaPuntoSistemasGenerales;
     END pot_referenciapunto_sistemasgenerales;
 
     ASSOCIATION pot_areasactividad_centropoblado =
