@@ -29,14 +29,19 @@ VERSION "2.0.0"  =
       Otro
     );
 
-    /** Es la categoria en la que se le da a cada uno de los fenomenos amenazantes.
-     * Dcto 1807/2014 compilado en el Dcto 1077/2015
+    /** Peligro latente de que un evento físico de origen natural, o causado, o inducido por la acción humana de manera accidental, se presente con una severidad suficiente para causar pérdida de vidas, lesiones u otros impactos en la salud, así como también daños y pérdidas en los bienes, la infraestructura, los medios de sustento, la prestación de servicios y los recursos ambientales.
      */
     POT_CategoriaAmenazaTipo = (
+      /** Clasificación de la amenaza alta de acuerdo con su exposición al peligro.
+       */
       !!@ ili2db.dispName = "Categoría alta"
       Alta,
+      /** Clasificación de la amenaza media de acuerdo con su exposición al peligro.
+       */
       !!@ ili2db.dispName = "Categoría media"
       Media,
+      /** Clasificación de la amenaza baja de acuerdo con su exposición al peligro.
+       */
       !!@ ili2db.dispName = "Categoría baja"
       Baja
     );
@@ -156,20 +161,35 @@ VERSION "2.0.0"  =
      * Dcto 1807/2014 compilado en el Dcto 1077/2015
      */
     POT_FenomenoAmenazaTipo = (
+      /** El término movimientos en masa incluye todos aquellos movimientos de ladera abajo de una masa de roca, de detritos o de tierras por efectos de la gravedad.
+       */
       !!@ ili2db.dispName = "Movimientos en masa"
       Movimientos_En_Masa,
+      /** Flujo rápido que transita por cauces permanentes o intermitentes con pendientes longitudinales altas, que puede ser generado por efecto de lluvias intensas. Involucra el transporte de una mezcla de agua y un contenido significativo de sólidos en diferentes proporciones. El aporte de sólidos al flujo puede provenir de las laderas adyacentes o del lecho de los cauces. Finalmente, cuando el flujo alcanza zonas de baja pendiente, se genera el depósito del material a lo largo de su trayectoria.
+       */
       !!@ ili2db.dispName = "Avenida torrencial"
       Avenida_Torrencial,
+      /** Las inundaciones se presentan como resultado de lluvia excesiva o del crecimiento anormal del nivel del mar, así como por la rotura de presas y
+       * diques. Cada vez es más frecuente observar inundaciones ocasionadas por la intervención del hombre, como consecuencia de la degradación del medio ambiente, la deforestación y el inadecuado uso de la tierra. Por otra parte, existen inundaciones propias de las condiciones de las cuencas debido a su geomorfología, climatología, etc.
+       */
       !!@ ili2db.dispName = "Inundación"
       Inundacion,
       !!@ ili2db.dispName = "Otros"
       Otros(
+        /** Un incendio forestal es cualquier fuego no justificado que afecta combustibles vegetales, y se propaga rápidamente en un bosque.
+         */
         !!@ ili2db.dispName = "(Otros) Incendios forestales"
         Incendios_Forestales,
+        /** Olas gigantescas producidas por sismos submarinos que pueden causar estragos en las zonas costeras.
+         */
         !!@ ili2db.dispName = "(Otros) Tsunami"
         Tsunami,
+        /** Las erupciones son el paso de material (magma), cenizas y gases del interior de la tierra a la superficie. El volumen y magnitud de la erupción variará dependiendo de la cantidad de gas, viscosidad del magma y la permeabilidad de los ductos y chimeneas. La frecuencia de estos fenómenos es muy variable, ya que algunos volcanes tienen erupciones continuas, mientras que en otros transcurren miles de años de intervalo.
+         */
         !!@ ili2db.dispName = "(Otros) Volcánico"
         Volcanico,
+        /** Daños o pérdidas potenciales que pueden presentarse debido a la ocurrencia de los eventos adversos generados por el uso y acceso a la tecnología, originados por sucesos antrópicos, naturales, socio-naturales o propios de la operación, y supone consecuencias importantes para las personas, los bienes, la infraestructura, los medios de subsistencia, la prestación de servicios o los recursos ambientales.
+         */
         !!@ ili2db.dispName = "(Otros) Tecnológico"
         Tecnologico
       )
@@ -523,9 +543,13 @@ VERSION "2.0.0"  =
     OID AS INTERLIS.UUIDOID;
     DEPENDS ON LADM_COL_V3_1.LADM_Nucleo;
 
+    /** Derechos, restricciones y responsabilidades, acorde al estándar LADM.
+     */
     !!@ ili2db.dispName = "(POT) DRR"
     CLASS POT_DRR
     EXTENDS LADM_COL_V3_1.LADM_Nucleo.COL_DRR =
+      /** Se refiere a las relaciones que existen entre las partes interesadas con los elementos territoriales, distinguiendo cuáles son los derechos, las restricciones y las responsabilidades, en la administración de estos.
+       */
       !!@ ili2db.dispName = "Nombre de DRR"
       Nombre : TEXT*255;
     END POT_DRR;
@@ -545,8 +569,12 @@ VERSION "2.0.0"  =
     !!@ ili2db.dispName = "(POT) Fuente Administrativa"
     CLASS POT_FuenteAdministrativa
     EXTENDS LADM_COL_V3_1.LADM_Nucleo.COL_FuenteAdministrativa =
+      /** Documento que suministra información administrativa sobre la adopción de la norma de ordenamiento territorial.
+       */
       !!@ ili2db.dispName = "Tipo de fuente administrativa"
       Tipo (EXTENDED) : MANDATORY LADM_COL_v_2_0_0_Ext_POT.POT_FuenteAdministrativaTipo;
+      /** Fecha del documento.
+       */
       !!@ ili2db.dispName = "Fecha del documento"
       Fecha : INTERLIS.XMLDate;
       !!@ ili2db.dispName = "Tipo de POT"
@@ -556,6 +584,8 @@ VERSION "2.0.0"  =
     !!@ ili2db.dispName = "(POT) Fuente Espacial"
     CLASS POT_FuenteEspacial
     EXTENDS LADM_COL_V3_1.LADM_Nucleo.COL_FuenteEspacial =
+      /** Fuente de la información geográfica que se adopta en los instrumentos de ordenamiento territorial del municipio.
+       */
       !!@ ili2db.dispName = "Modelo fuente"
       Modelo_Fuente : LADM_COL_v_2_0_0_Ext_POT.POT_ModeloFuenteTipo;
       !!@ ili2db.dispName = "Escala"
@@ -569,10 +599,16 @@ VERSION "2.0.0"  =
     !!@ ili2db.dispName = "(POT) Municipio"
     CLASS POT_Municipio
     EXTENDS LADM_COL_V3_1.LADM_Nucleo.COL_Interesado =
+      /** Corresponde al código de la división político administrativa del país para el nivel departamental.
+       */
       !!@ ili2db.dispName = "Código del departamento"
       Codigo_Departamento : MANDATORY TEXT*2;
+      /** Corresponde al código de la división político administrativa del país para el nivel municipal.
+       */
       !!@ ili2db.dispName = "Código del municipio"
       Codigo_Municipio : MANDATORY TEXT*3;
+      /** Corresponde al nombre oficial del municipio.
+       */
       !!@ ili2db.dispName = "Nombre del municipio"
       Nombre_Municipio : MANDATORY TEXT*255;
     END POT_Municipio;
@@ -655,29 +691,43 @@ VERSION "2.0.0"  =
        */
       !!@ ili2db.dispName = "Es priorizado"
       Es_Priorizado : MANDATORY BOOLEAN;
+      /** La identificación de las áreas con condición de riesgo se realizará a partir del análisis de las áreas zonificadas como de amenaza alta en los estudios básicos, con la información cartográfica (predial o catastral, entre otras) disponible que permita identificar la existencia de elementos expuestos, de áreas urbanizadas, ocupadas o edificadas así como de aquellas en las que se encuentren edificaciones indispensables y líneas vitales.
+       */
       !!@ ili2db.dispName = "Descripción de área en condición de riesgo"
       Descripcion : MTEXT*255;
     END POT_UAB_AreaCondicionRiesgo;
 
+    /** Corresponde al conglomerado de 20 o más viviendas contiguas ubicadas en la zona rural, las cuales pueden estar separadas por paredes, muros, patios, huertas o, incluso, por potreros pequeños. Las metodologías para estratificarlos son diferentes dependiendo de su número de habitantes y del tipo de construcciones que los conforman.
+     */
     !!@ ili2db.dispName = "(POT) UAB Centro Poblado Rural"
     CLASS POT_UAB_CentroPobladoRural
     EXTENDS LADM_COL_V3_1.LADM_Nucleo.COL_UnidadAdministrativaBasica =
+      /** Nombre que se le asigne a cada centro poblado del municipio.
+       */
       !!@ ili2db.dispName = "Nombre"
       Nombre (EXTENDED) : MANDATORY TEXT*255;
       !!@ ili2db.dispName = "Código centro poblado"
       Codigo : TEXT*8;
     END POT_UAB_CentroPobladoRural;
 
+    /** Los planes de ordenamiento territorial clasificarán el territorio de los municipios y distritos en suelo urbano, rural y de expansión urbana. Al interior de estas clases podrán establecerse las categorías de suburbano y de protección, de conformidad con los criterios generales establecidos en los artículos siguientes.
+     */
     !!@ ili2db.dispName = "(POT) UAB Clasificación del Suelo"
     CLASS POT_UAB_ClasificacionSuelo
     EXTENDS LADM_COL_V3_1.LADM_Nucleo.COL_UnidadAdministrativaBasica =
+      /** Se refiere a la clasificación del suelo en urbano, rural o de expansión urbana.
+       */
       !!@ ili2db.dispName = "Tipo de Clasificación del Suelo"
       Tipo_Clasificacion_Suelo : MANDATORY LADM_COL_v_2_0_0_Ext_POT.POT_ClasificacionSueloTipo;
     END POT_UAB_ClasificacionSuelo;
 
+    /** Corresponden a las infraestructuras de la red vial principal y las redes matrices de servicios públicos domiciliarios, así cómo los equipamientos colectivos y espacios libres destinados para parques y zonas verdes públicas de escala urbana o metropolitana y que sirven a toda la población del municipio o distrito, según lo previsto por el plan de ordenamiento territorial.
+     */
     !!@ ili2db.dispName = "(POT) UAB Sistemas Generales"
     CLASS POT_UAB_SistemasGenerales
     EXTENDS LADM_COL_V3_1.LADM_Nucleo.COL_UnidadAdministrativaBasica =
+      /** Se refiere al tipo de sistema general entre equipamientos, espacio público, servicios públicos, vías e infraestructura de transporte.
+       */
       !!@ ili2db.dispName = "Tipo de sistema general"
       Tipo_Sistema_General : MANDATORY LADM_COL_v_2_0_0_Ext_POT.POT_SistemasGeneralesTipo;
       !!@ ili2db.dispName = "Detalle de sistema general"
@@ -690,9 +740,13 @@ VERSION "2.0.0"  =
       Estado : MANDATORY LADM_COL_v_2_0_0_Ext_POT.POT_SistemasGeneralesEstadoTipo;
     END POT_UAB_SistemasGenerales;
 
+    /** Son las determinaciones del plan de ordenamiento territorial, que atendiendo las características físicas de cada zona considerada, establecen en función de las mismas las normas urbanísticas que definen un manejo diferenciado del territorio para los distintos sectores del suelo urbano y de expansión urbana. Son tratamientos urbanísticos el de desarrollo, renovación urbana, consolidación, conservación y mejoramiento integral.
+     */
     !!@ ili2db.dispName = "(POT) UAB Tratamiento Urbanístico"
     CLASS POT_UAB_TratamientoUrbanistico
     EXTENDS LADM_COL_V3_1.LADM_Nucleo.COL_UnidadAdministrativaBasica =
+      /** Tratamientos urbanísticos: desarrollo, renovación urbana, consolidación, conservación y mejoramiento integral.
+       */
       !!@ ili2db.dispName = "Tipo de tratamiento urbanístico"
       Tipo_Tratamiento_Urbanistico : MANDATORY LADM_COL_v_2_0_0_Ext_POT.POT_TratamientoUrbanisticoTipo;
       /** En este atributo se utiliza en caso de ser necesario aclarar una variante dentro de las categorías especificadas en la clase.
@@ -701,6 +755,8 @@ VERSION "2.0.0"  =
       Observacion : MTEXT*255;
     END POT_UAB_TratamientoUrbanistico;
 
+    /** Peligro latente de que un evento físico de origen natural, o causado, o inducido por la acción humana de manera accidental, se presente con una severidad suficiente para causar pérdida de vidas, lesiones u otros impactos en la salud, así como también daños y pérdidas en los bienes, la infraestructura, los medios de sustento, la prestación de servicios y los recursos ambientales.
+     */
     !!@ ili2db.dispName = "(POT) UAB Zonificación de Amenazas"
     CLASS POT_UAB_ZonificacionAmenazas
     EXTENDS LADM_COL_V3_1.LADM_Nucleo.COL_UnidadAdministrativaBasica =
@@ -761,9 +817,7 @@ VERSION "2.0.0"  =
     EXTENDS LADM_COL_V3_1.LADM_Nucleo.COL_UnidadEspacial =
     END POT_UE_ZonificacionSueloRural;
 
-    /** Las Áreas de actividad Corresponden a la determinación de zonas (con características homogéneas) para la asignación de usos.
-     * 
-     * Nota: Para usos complementario, restringido y prohibido, se puede tomar más de un valor del dominio para cada uno de los atributos.
+    /** Corresponde a la representación cartográfica de áreas con características homogéneas en relación con los usos urbanos del municipio definidos en el plan de ordenamiento territorial de acuerdo con el artículo 15 de la ley 388 de 1997.
      */
     !!@ ili2db.dispName = "(POT) UAB Áreas de Actividad"
     CLASS POT_UAB_AreasActividad
@@ -772,27 +826,45 @@ VERSION "2.0.0"  =
       Uso_Principal : MANDATORY LADM_COL_v_2_0_0_Ext_POT.POT_AreaActividadTipo;
       !!@ ili2db.dispName = "Detalle uso principal"
       Detalle_Uso_Principal : MANDATORY MTEXT*255;
+      /** Uso que no se opone al principal y concuerda con la potencialidad, productividad y protección del suelo y demás recursos naturales conexos.
+       */
       !!@ ili2db.dispName = "Uso compatible o complementario"
       Uso_Compatible_Complementario : BAG {1..*} OF LADM_COL_v_2_0_0_Ext_POT.Planes_Ordenamiento_Territorial.POT_EstructuraUsoCompatibleComplementario;
+      /** Uso que presenta algún grado de incompatibilidad urbanística y/o ambiental que se puede controlar de acuerdo con las condiciones que impongan las normas urbanísticas y ambientales correspondientes.
+       */
       !!@ ili2db.dispName = "Uso condicionado o restringido"
       Uso_Condicionado_Restringido : BAG {1..*} OF LADM_COL_v_2_0_0_Ext_POT.Planes_Ordenamiento_Territorial.POT_EstructuraUsoCondicionadoRestringido;
+      /** Uso incompatible con el uso principal de una zona, con los objetivos de conservación ambiental y de planificación ambiental y territorial, y por consiguiente implica graves riesgos de tipo ecológico y/o social.
+       */
       !!@ ili2db.dispName = "Uso prohibido"
       Uso_Prohibido : BAG {1..*} OF LADM_COL_v_2_0_0_Ext_POT.Planes_Ordenamiento_Territorial.POT_EstructuraUsoProhibido;
     END POT_UAB_AreasActividad;
 
+    /** Corresponde a la tipificación definida para el suelo rural en el plan de ordenamiento territorial, la cual según sus particularidades de uso y ocupación deberá determinar y delimitar áreas rurales y de desarrollo restringido, según lo establecido por el artículo 3 del Decreto 3600 de 2007 y el artículo 2.2.2.2.1.2 del Decreto 1077 de 2015.
+     */
     !!@ ili2db.dispName = "(POT) UAB Zonificación Suelo Rural"
     CLASS POT_UAB_ZonificacionSueloRural
     EXTENDS LADM_COL_V3_1.LADM_Nucleo.COL_UnidadAdministrativaBasica =
+      /** Corresponde a la zonificación del suelo rural de acuerdo con su categoría, destinación de uso o suelo de protección definido.
+       */
       !!@ ili2db.dispName = "Tipo de categoría rural"
       Tipo_Categoria_Rural : MANDATORY LADM_COL_v_2_0_0_Ext_POT.POT_CategoriaRuralTipo;
+      /** Corresponde a la representación cartográfica de áreas con características homogéneas en relación con los usos rurales del municipio definidos en el plan de ordenamiento territorial de acuerdo con el artículo 15 de la ley 388 de 1997. Identifica y detalla el tipo de uso y actividad principal que se desarrolla en un área determinada.
+       */
       !!@ ili2db.dispName = "Uso principal"
       Uso_Principal : MANDATORY LADM_COL_v_2_0_0_Ext_POT.POT_UsoSueloRuralTipo;
       !!@ ili2db.dispName = "Detalle uso principal"
       Detalle_Uso_Principal : MANDATORY TEXT*255;
+      /** Uso que no se opone al principal y concuerda con la potencialidad, productividad y protección del suelo y demás recursos naturales conexos.
+       */
       !!@ ili2db.dispName = "Uso compatible o complementario"
       Uso_Compatible_Complementario : BAG {1..*} OF LADM_COL_v_2_0_0_Ext_POT.Planes_Ordenamiento_Territorial.POT_EstructuraUsoCompatibleComplementario;
+      /** Uso que presenta algún grado de incompatibilidad urbanística y/o ambiental que se puede controlar de acuerdo con las condiciones que impongan las normas urbanísticas y ambientales correspondientes.
+       */
       !!@ ili2db.dispName = "Uso condicionado o restringido"
       Uso_Condicionado_Restringido : BAG {1..*} OF LADM_COL_v_2_0_0_Ext_POT.Planes_Ordenamiento_Territorial.POT_EstructuraUsoCondicionadoRestringido;
+      /** Uso incompatible con el uso principal de una zona, con los objetivos de conservación ambiental y de planificación ambiental y territorial, y por consiguiente implica graves riesgos de tipo ecológico y/o social.
+       */
       !!@ ili2db.dispName = "Uso prohibido"
       Uso_Prohibido : BAG {1..*} OF LADM_COL_v_2_0_0_Ext_POT.Planes_Ordenamiento_Territorial.POT_EstructuraUsoProhibido;
     END POT_UAB_ZonificacionSueloRural;
