@@ -586,7 +586,7 @@ VERSION "2.0.0"  =
       !!@ ili2db.dispName = "Tipo de fenómeno presentado"
       Fenomeno : MANDATORY LADM_COL_v_2_0_0_Ext_POT.POT_FenomenoAmenazaTipo;
       !!@ ili2db.dispName = "Categoría de la amenaza"
-      Categoria_Amenaza : MANDATORY LADM_COL_v_2_0_0_Ext_POT.POT_CategoriaAmenazaTipo;
+      Categoria_Amenaza : LADM_COL_v_2_0_0_Ext_POT.POT_CategoriaAmenazaTipo;
       /** Se refiere al desarrollo y elaboración de estudios detallados en el corto, mediano y largo plazo.
        * Dcto 1807/2014 compilado en el Dcto 1077/2015
        */
