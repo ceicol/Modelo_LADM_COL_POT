@@ -174,80 +174,43 @@ VERSION "2.0.0"  =
        */
       !!@ ili2db.dispName = "Inundación"
       Inundacion,
+      /** Un incendio forestal es cualquier fuego no justificado que afecta combustibles vegetales, y se propaga rápidamente en un bosque.
+       */
+      !!@ ili2db.dispName = "Incendios forestales"
+      Incendios_Forestales,
+      /** Olas gigantescas producidas por sismos submarinos que pueden causar estragos en las zonas costeras.
+       */
+      !!@ ili2db.dispName = "Tsunami"
+      Tsunami,
+      /** Las erupciones son el paso de material (magma), cenizas y gases del interior de la tierra a la superficie. El volumen y magnitud de la erupción variará dependiendo de la cantidad de gas, viscosidad del magma y la permeabilidad de los ductos y chimeneas. La frecuencia de estos fenómenos es muy variable, ya que algunos volcanes tienen erupciones continuas, mientras que en otros transcurren miles de años de intervalo.
+       */
+      !!@ ili2db.dispName = "Volcánico"
+      Volcanico,
+      !!@ ili2db.dispName = "Huracanes"
+      Huracanes,
+      !!@ ili2db.dispName = "Sísmica"
+      Sismica,
+      !!@ ili2db.dispName = "Erosión costera"
+      Erosion_Costera,
+      !!@ ili2db.dispName = "Vendavales"
+      Vendavales,
+      /** Daños o pérdidas potenciales que pueden presentarse debido a la ocurrencia de los eventos adversos generados por el uso y acceso a la tecnología, originados por sucesos antrópicos, naturales, socio-naturales o propios de la operación, y supone consecuencias importantes para las personas, los bienes, la infraestructura, los medios de subsistencia, la prestación de servicios o los recursos ambientales.
+       */
+      !!@ ili2db.dispName = "Tecnológico"
+      Tecnologico,
       !!@ ili2db.dispName = "Otros"
-      Otros(
-        /** Un incendio forestal es cualquier fuego no justificado que afecta combustibles vegetales, y se propaga rápidamente en un bosque.
-         */
-        !!@ ili2db.dispName = "(Otros) Incendios forestales"
-        Incendios_Forestales,
-        /** Olas gigantescas producidas por sismos submarinos que pueden causar estragos en las zonas costeras.
-         */
-        !!@ ili2db.dispName = "(Otros) Tsunami"
-        Tsunami,
-        /** Las erupciones son el paso de material (magma), cenizas y gases del interior de la tierra a la superficie. El volumen y magnitud de la erupción variará dependiendo de la cantidad de gas, viscosidad del magma y la permeabilidad de los ductos y chimeneas. La frecuencia de estos fenómenos es muy variable, ya que algunos volcanes tienen erupciones continuas, mientras que en otros transcurren miles de años de intervalo.
-         */
-        !!@ ili2db.dispName = "(Otros) Volcánico"
-        Volcanico,
-        /** Daños o pérdidas potenciales que pueden presentarse debido a la ocurrencia de los eventos adversos generados por el uso y acceso a la tecnología, originados por sucesos antrópicos, naturales, socio-naturales o propios de la operación, y supone consecuencias importantes para las personas, los bienes, la infraestructura, los medios de subsistencia, la prestación de servicios o los recursos ambientales.
-         */
-        !!@ ili2db.dispName = "(Otros) Tecnológico"
-        Tecnologico
-      )
+      Otros
     );
 
     POT_FuenteAdministrativaTipo
     EXTENDS LADM_COL_V3_1.LADM_Nucleo.COL_FuenteAdministrativaTipo = (
       !!@ ili2db.dispName = "Documento público"
       Documento_Publico(
-        !!@ ili2db.dispName = "(Documento público) Documento técnico de soporte POT"
-        Documento_POT,
-        /** Articulo 10 de Ley 388/97
-         */
-        !!@ ili2db.dispName = "Determinantes de Superior Jerarquía"
-        Determinantes_Superior,
-        !!@ ili2db.dispName = "(Documento público) Determinantes ambientales"
-        Determinantes_Ambientales,
-        /** Documento que sustenta la posición de la Autoridad Ambiental frente al POT (Resolución Concertación)
-         * Ej. CAR, Autoridad ambiental Local, Ministerio de Ambiente.
-         */
-        !!@ ili2db.dispName = "(Documento público) Resolución de concertación ambiental"
-        Resolucion_Concertacion,
-        /** Documento que sustenta la posición del la Autoridad Municipal POT.
-         */
-        !!@ ili2db.dispName = "(Documento público) Acuerdo o decreto de adopción del POT"
-        Acto_Admon_Adopcion,
-        /** Se refiere a prácticas que no están formalmente sustentadas en una normativa, pero están implementadas en la práctica o recomendadas en instructivos elaborados por instituciones.
-         */
-        !!@ ili2db.dispName = "(Documento público) Soporte metodológico"
-        Soporte_Metodologico
+        !!@ ili2db.dispName = "Acuerdo"
+        Acuerdo,
+        !!@ ili2db.dispName = "Decreto"
+        Decreto
       )
-    );
-
-    /** Dominios de los modelos fuente con los que interopera el modelo LADM para POT.
-     */
-    POT_ModeloFuenteTipo = (
-      /** Modelo Extendido del núcleo LADM
-       */
-      !!@ ili2db.dispName = "Modelo catastro-registro"
-      Catastro_Registro,
-      /** Modelo Extendido del núcleo LADM
-       */
-      !!@ ili2db.dispName = "Modelo ambiente"
-      Ambiente,
-      /** Modelo Extendido del núcleo LADM
-       */
-      !!@ ili2db.dispName = "Modelo riesgos"
-      Riesgos,
-      /** Posible modelo de aplicación
-       */
-      !!@ ili2db.dispName = "Modelo patrimonio cultural"
-      Patrimonio_Cultural,
-      !!@ ili2db.dispName = "Modelo agropecuario"
-      Agropecuario,
-      !!@ ili2db.dispName = "Modelo minero energético"
-      Minero_Energetico,
-      !!@ ili2db.dispName = "Modelo infraestructura"
-      Infraestructura
     );
 
     POT_PlanOrdenamientoTerritorialTipo = (
@@ -554,18 +517,6 @@ VERSION "2.0.0"  =
       Nombre : TEXT*255;
     END POT_DRR;
 
-    STRUCTURE POT_EstructuraUsoCompatibleComplementario =
-      Tipo : MANDATORY TEXT*255;
-    END POT_EstructuraUsoCompatibleComplementario;
-
-    STRUCTURE POT_EstructuraUsoCondicionadoRestringido =
-      Tipo : MANDATORY TEXT*255;
-    END POT_EstructuraUsoCondicionadoRestringido;
-
-    STRUCTURE POT_EstructuraUsoProhibido =
-      Tipo : MANDATORY TEXT*255;
-    END POT_EstructuraUsoProhibido;
-
     !!@ ili2db.dispName = "(POT) Fuente Administrativa"
     CLASS POT_FuenteAdministrativa
     EXTENDS LADM_COL_V3_1.LADM_Nucleo.COL_FuenteAdministrativa =
@@ -584,10 +535,6 @@ VERSION "2.0.0"  =
     !!@ ili2db.dispName = "(POT) Fuente Espacial"
     CLASS POT_FuenteEspacial
     EXTENDS LADM_COL_V3_1.LADM_Nucleo.COL_FuenteEspacial =
-      /** Fuente de la información geográfica que se adopta en los instrumentos de ordenamiento territorial del municipio.
-       */
-      !!@ ili2db.dispName = "Modelo fuente"
-      Modelo_Fuente : LADM_COL_v_2_0_0_Ext_POT.POT_ModeloFuenteTipo;
       !!@ ili2db.dispName = "Escala"
       Escala : 0.000 .. 100000000.000;
       !!@ ili2db.dispName = "Fecha de publicación"
@@ -654,20 +601,24 @@ VERSION "2.0.0"  =
     END POT_NU_RelacionNecesariaUnidadesEspaciales;
 
     !!@ ili2db.dispName = "(POT) Referencia Línea de Sistema Generales"
-    CLASS POT_ReferenciaLinea_SistemasGenerales =
+    CLASS POT_ReferenciaLineaSistemasGenerales =
       Geometria : MANDATORY ISO19107_PLANAS_V3_0.GM_Curve3D;
-    END POT_ReferenciaLinea_SistemasGenerales;
+    END POT_ReferenciaLineaSistemasGenerales;
 
     !!@ ili2db.dispName = "(POT) Referencia Punto de Sistema Generales"
-    CLASS POT_ReferenciaPunto_SistemasGenerales =
+    CLASS POT_ReferenciaPuntoSistemasGenerales =
       Geometria : ISO19107_PLANAS_V3_0.GM_Point3D;
-    END POT_ReferenciaPunto_SistemasGenerales;
+    END POT_ReferenciaPuntoSistemasGenerales;
 
     /** Áreas con condición de amenaza, son las zonas o áreas del territorio municipal zonificadas como de amenaza alta y media, en las que se establezca en la revisión o expedición de un nuevo POT la necesidad de clasificarlas como suelo urbano, de expansión urbana, rural, suburbano o centros poblados rurales para permitir su desarrollo.
      */
     !!@ ili2db.dispName = "(POT) UAB Área en Condición de Amenaza"
     CLASS POT_UAB_AreaCondicionAmenaza
     EXTENDS LADM_COL_V3_1.LADM_Nucleo.COL_UnidadAdministrativaBasica =
+      !!@ ili2db.dispName = "Tipo de fenómeno presentado"
+      Fenomeno : MANDATORY LADM_COL_v_2_0_0_Ext_POT.POT_FenomenoAmenazaTipo;
+      !!@ ili2db.dispName = "Categoría de la amenaza"
+      Categoria_Amenaza : LADM_COL_v_2_0_0_Ext_POT.POT_CategoriaAmenazaTipo;
       /** Se refiere al desarrollo y elaboración de estudios detallados en el corto, mediano y largo plazo.
        * Dcto 1807/2014 compilado en el Dcto 1077/2015
        */
@@ -686,6 +637,8 @@ VERSION "2.0.0"  =
     !!@ ili2db.dispName = "(POT) UAB Área en Condición de Riesgo"
     CLASS POT_UAB_AreaCondicionRiesgo
     EXTENDS LADM_COL_V3_1.LADM_Nucleo.COL_UnidadAdministrativaBasica =
+      !!@ ili2db.dispName = "Tipo de fenómeno presentado"
+      Fenomeno : MANDATORY LADM_COL_v_2_0_0_Ext_POT.POT_FenomenoAmenazaTipo;
       /** Se refiere al desarrollo y elaboración de estudios detallados en el corto, mediano y largo plazo.
        * Dcto 1807/2014 compilado en el Dcto 1077/2015
        */
@@ -749,10 +702,6 @@ VERSION "2.0.0"  =
        */
       !!@ ili2db.dispName = "Tipo de tratamiento urbanístico"
       Tipo_Tratamiento_Urbanistico : MANDATORY LADM_COL_v_2_0_0_Ext_POT.POT_TratamientoUrbanisticoTipo;
-      /** En este atributo se utiliza en caso de ser necesario aclarar una variante dentro de las categorías especificadas en la clase.
-       */
-      !!@ ili2db.dispName = "Observación"
-      Observacion : MTEXT*255;
     END POT_UAB_TratamientoUrbanistico;
 
     /** Peligro latente de que un evento físico de origen natural, o causado, o inducido por la acción humana de manera accidental, se presente con una severidad suficiente para causar pérdida de vidas, lesiones u otros impactos en la salud, así como también daños y pérdidas en los bienes, la infraestructura, los medios de sustento, la prestación de servicios y los recursos ambientales.
@@ -770,6 +719,8 @@ VERSION "2.0.0"  =
        */
       !!@ ili2db.dispName = "Categoría de la amenaza"
       Categoria_Amenaza : LADM_COL_v_2_0_0_Ext_POT.POT_CategoriaAmenazaTipo;
+      !!@ ili2db.dispName = "Descripción"
+      Descripcion : MTEXT*255;
     END POT_UAB_ZonificacionAmenazas;
 
     !!@ ili2db.dispName = "(POT) UE Área en Condición de Amenaza"
@@ -817,6 +768,18 @@ VERSION "2.0.0"  =
     EXTENDS LADM_COL_V3_1.LADM_Nucleo.COL_UnidadEspacial =
     END POT_UE_ZonificacionSueloRural;
 
+    STRUCTURE POT_UsoCompatibleComplementarioValor =
+      Tipo : MANDATORY TEXT*255;
+    END POT_UsoCompatibleComplementarioValor;
+
+    STRUCTURE POT_UsoCondicionadoRestringidoValor =
+      Tipo : MANDATORY TEXT*255;
+    END POT_UsoCondicionadoRestringidoValor;
+
+    STRUCTURE POT_UsoProhibidoValor =
+      Tipo : MANDATORY TEXT*255;
+    END POT_UsoProhibidoValor;
+
     /** Corresponde a la representación cartográfica de áreas con características homogéneas en relación con los usos urbanos del municipio definidos en el plan de ordenamiento territorial de acuerdo con el artículo 15 de la ley 388 de 1997.
      */
     !!@ ili2db.dispName = "(POT) UAB Áreas de Actividad"
@@ -829,15 +792,15 @@ VERSION "2.0.0"  =
       /** Uso que no se opone al principal y concuerda con la potencialidad, productividad y protección del suelo y demás recursos naturales conexos.
        */
       !!@ ili2db.dispName = "Uso compatible o complementario"
-      Uso_Compatible_Complementario : BAG {1..*} OF LADM_COL_v_2_0_0_Ext_POT.Planes_Ordenamiento_Territorial.POT_EstructuraUsoCompatibleComplementario;
+      Uso_Compatible_Complementario : BAG {1..*} OF LADM_COL_v_2_0_0_Ext_POT.Planes_Ordenamiento_Territorial.POT_UsoCompatibleComplementarioValor;
       /** Uso que presenta algún grado de incompatibilidad urbanística y/o ambiental que se puede controlar de acuerdo con las condiciones que impongan las normas urbanísticas y ambientales correspondientes.
        */
       !!@ ili2db.dispName = "Uso condicionado o restringido"
-      Uso_Condicionado_Restringido : BAG {1..*} OF LADM_COL_v_2_0_0_Ext_POT.Planes_Ordenamiento_Territorial.POT_EstructuraUsoCondicionadoRestringido;
+      Uso_Condicionado_Restringido : BAG {1..*} OF LADM_COL_v_2_0_0_Ext_POT.Planes_Ordenamiento_Territorial.POT_UsoCondicionadoRestringidoValor;
       /** Uso incompatible con el uso principal de una zona, con los objetivos de conservación ambiental y de planificación ambiental y territorial, y por consiguiente implica graves riesgos de tipo ecológico y/o social.
        */
       !!@ ili2db.dispName = "Uso prohibido"
-      Uso_Prohibido : BAG {1..*} OF LADM_COL_v_2_0_0_Ext_POT.Planes_Ordenamiento_Territorial.POT_EstructuraUsoProhibido;
+      Uso_Prohibido : BAG {1..*} OF LADM_COL_v_2_0_0_Ext_POT.Planes_Ordenamiento_Territorial.POT_UsoProhibidoValor;
     END POT_UAB_AreasActividad;
 
     /** Corresponde a la tipificación definida para el suelo rural en el plan de ordenamiento territorial, la cual según sus particularidades de uso y ocupación deberá determinar y delimitar áreas rurales y de desarrollo restringido, según lo establecido por el artículo 3 del Decreto 3600 de 2007 y el artículo 2.2.2.2.1.2 del Decreto 1077 de 2015.
@@ -853,20 +816,20 @@ VERSION "2.0.0"  =
        */
       !!@ ili2db.dispName = "Uso principal"
       Uso_Principal : MANDATORY LADM_COL_v_2_0_0_Ext_POT.POT_UsoSueloRuralTipo;
-      !!@ ili2db.dispName = "Detalle uso principal"
+      !!@ ili2db.dispName = "Detalle uso rural principal"
       Detalle_Uso_Principal : MANDATORY TEXT*255;
       /** Uso que no se opone al principal y concuerda con la potencialidad, productividad y protección del suelo y demás recursos naturales conexos.
        */
-      !!@ ili2db.dispName = "Uso compatible o complementario"
-      Uso_Compatible_Complementario : BAG {1..*} OF LADM_COL_v_2_0_0_Ext_POT.Planes_Ordenamiento_Territorial.POT_EstructuraUsoCompatibleComplementario;
+      !!@ ili2db.dispName = "Uso rural compatible o complementario"
+      Uso_Compatible_Complementario : BAG {1..*} OF LADM_COL_v_2_0_0_Ext_POT.Planes_Ordenamiento_Territorial.POT_UsoCompatibleComplementarioValor;
       /** Uso que presenta algún grado de incompatibilidad urbanística y/o ambiental que se puede controlar de acuerdo con las condiciones que impongan las normas urbanísticas y ambientales correspondientes.
        */
-      !!@ ili2db.dispName = "Uso condicionado o restringido"
-      Uso_Condicionado_Restringido : BAG {1..*} OF LADM_COL_v_2_0_0_Ext_POT.Planes_Ordenamiento_Territorial.POT_EstructuraUsoCondicionadoRestringido;
+      !!@ ili2db.dispName = "Uso rural condicionado o restringido"
+      Uso_Condicionado_Restringido : BAG {1..*} OF LADM_COL_v_2_0_0_Ext_POT.Planes_Ordenamiento_Territorial.POT_UsoCondicionadoRestringidoValor;
       /** Uso incompatible con el uso principal de una zona, con los objetivos de conservación ambiental y de planificación ambiental y territorial, y por consiguiente implica graves riesgos de tipo ecológico y/o social.
        */
-      !!@ ili2db.dispName = "Uso prohibido"
-      Uso_Prohibido : BAG {1..*} OF LADM_COL_v_2_0_0_Ext_POT.Planes_Ordenamiento_Territorial.POT_EstructuraUsoProhibido;
+      !!@ ili2db.dispName = "Uso rural prohibido"
+      Uso_Prohibido : BAG {1..*} OF LADM_COL_v_2_0_0_Ext_POT.Planes_Ordenamiento_Territorial.POT_UsoProhibidoValor;
     END POT_UAB_ZonificacionSueloRural;
 
     ASSOCIATION pot_clasificacionsuelo_centropoblado =
@@ -876,12 +839,12 @@ VERSION "2.0.0"  =
 
     ASSOCIATION pot_referencialinea_sistemasgenerales =
       sistemasgenerales -- {1} POT_UE_SistemasGenerales;
-      referencialinea -- {0..1} POT_ReferenciaLinea_SistemasGenerales;
+      referencialinea -- {0..1} POT_ReferenciaLineaSistemasGenerales;
     END pot_referencialinea_sistemasgenerales;
 
     ASSOCIATION pot_referenciapunto_sistemasgenerales =
       sistemagenerales -- {1} POT_UE_SistemasGenerales;
-      referenciapunto -- {0..1} POT_ReferenciaPunto_SistemasGenerales;
+      referenciapunto -- {0..1} POT_ReferenciaPuntoSistemasGenerales;
     END pot_referenciapunto_sistemasgenerales;
 
     ASSOCIATION pot_areasactividad_centropoblado =
