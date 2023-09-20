@@ -769,18 +769,18 @@ VERSION "2.0.0"  =
     END POT_UE_ZonificacionSueloRural;
 
     STRUCTURE POT_UsoCompatibleComplementarioValor =
-      !!@ ili2db.dispName = "Descripción"
-      Descripcion : MANDATORY TEXT*255;
+      !!@ ili2db.dispName = "Valor"
+      Valor : MANDATORY TEXT*255;
     END POT_UsoCompatibleComplementarioValor;
 
     STRUCTURE POT_UsoCondicionadoRestringidoValor =
-      !!@ ili2db.dispName = "Descripción"
-      Descripcion : MANDATORY TEXT*255;
+      !!@ ili2db.dispName = "Valor"
+      Valor : MANDATORY TEXT*255;
     END POT_UsoCondicionadoRestringidoValor;
 
     STRUCTURE POT_UsoProhibidoValor =
-      !!@ ili2db.dispName = "Descripción"
-      Descripcion : MANDATORY TEXT*255;
+      !!@ ili2db.dispName = "Valor"
+      Valor : MANDATORY TEXT*255;
     END POT_UsoProhibidoValor;
 
     /** Corresponde a la representación cartográfica de áreas con características homogéneas en relación con los usos urbanos del municipio definidos en el plan de ordenamiento territorial de acuerdo con el artículo 15 de la ley 388 de 1997.
