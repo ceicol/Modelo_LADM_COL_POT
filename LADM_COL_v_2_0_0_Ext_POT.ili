@@ -607,7 +607,7 @@ VERSION "2.0.0"  =
 
     !!@ ili2db.dispName = "(POT) Referencia Punto de Sistema Generales"
     CLASS POT_ReferenciaPuntoSistemasGenerales =
-      Geometria : ISO19107_PLANAS_V3_0.GM_Point3D;
+      Geometria : MANDATORY ISO19107_PLANAS_V3_0.GM_Point3D;
     END POT_ReferenciaPuntoSistemasGenerales;
 
     /** Áreas con condición de amenaza, son las zonas o áreas del territorio municipal zonificadas como de amenaza alta y media, en las que se establezca en la revisión o expedición de un nuevo POT la necesidad de clasificarlas como suelo urbano, de expansión urbana, rural, suburbano o centros poblados rurales para permitir su desarrollo.
@@ -769,15 +769,18 @@ VERSION "2.0.0"  =
     END POT_UE_ZonificacionSueloRural;
 
     STRUCTURE POT_UsoCompatibleComplementarioValor =
-      Tipo : MANDATORY TEXT*255;
+      !!@ ili2db.dispName = "Descripción"
+      Descripcion : MANDATORY TEXT*255;
     END POT_UsoCompatibleComplementarioValor;
 
     STRUCTURE POT_UsoCondicionadoRestringidoValor =
-      Tipo : MANDATORY TEXT*255;
+      !!@ ili2db.dispName = "Descripción"
+      Descripcion : MANDATORY TEXT*255;
     END POT_UsoCondicionadoRestringidoValor;
 
     STRUCTURE POT_UsoProhibidoValor =
-      Tipo : MANDATORY TEXT*255;
+      !!@ ili2db.dispName = "Descripción"
+      Descripcion : MANDATORY TEXT*255;
     END POT_UsoProhibidoValor;
 
     /** Corresponde a la representación cartográfica de áreas con características homogéneas en relación con los usos urbanos del municipio definidos en el plan de ordenamiento territorial de acuerdo con el artículo 15 de la ley 388 de 1997.
