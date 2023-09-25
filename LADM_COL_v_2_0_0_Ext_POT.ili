@@ -506,16 +506,10 @@ VERSION "2.0.0"  =
     OID AS INTERLIS.UUIDOID;
     DEPENDS ON LADM_COL_V3_1.LADM_Nucleo;
 
-    /** Derechos, restricciones y responsabilidades, acorde al estándar LADM.
-     */
-    !!@ ili2db.dispName = "(POT) DRR"
-    CLASS POT_DRR
+    !!@ ili2db.dispName = "(POT) Derecho"
+    CLASS POT_Derecho
     EXTENDS LADM_COL_V3_1.LADM_Nucleo.COL_DRR =
-      /** Se refiere a las relaciones que existen entre las partes interesadas con los elementos territoriales, distinguiendo cuáles son los derechos, las restricciones y las responsabilidades, en la administración de estos.
-       */
-      !!@ ili2db.dispName = "Nombre de DRR"
-      Nombre : TEXT*255;
-    END POT_DRR;
+    END POT_Derecho;
 
     !!@ ili2db.dispName = "(POT) Fuente Administrativa"
     CLASS POT_FuenteAdministrativa
@@ -609,6 +603,16 @@ VERSION "2.0.0"  =
     CLASS POT_ReferenciaPuntoSistemasGenerales =
       Geometria : MANDATORY ISO19107_PLANAS_V3_0.GM_Point3D;
     END POT_ReferenciaPuntoSistemasGenerales;
+
+    !!@ ili2db.dispName = "(POT) Responsabilidad"
+    CLASS POT_Responsabilidad
+    EXTENDS LADM_COL_V3_1.LADM_Nucleo.COL_DRR =
+    END POT_Responsabilidad;
+
+    !!@ ili2db.dispName = "(POT) Restricción"
+    CLASS POT_Restriccion
+    EXTENDS LADM_COL_V3_1.LADM_Nucleo.COL_DRR =
+    END POT_Restriccion;
 
     /** Áreas con condición de amenaza, son las zonas o áreas del territorio municipal zonificadas como de amenaza alta y media, en las que se establezca en la revisión o expedición de un nuevo POT la necesidad de clasificarlas como suelo urbano, de expansión urbana, rural, suburbano o centros poblados rurales para permitir su desarrollo.
      */
