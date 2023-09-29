@@ -4,7 +4,7 @@ INTERLIS 2.3;
 MODEL LADM_COL_v_2_0_0_Ext_POT (es)
 AT "https://gitlab-ladm-col.igac.gov.co/root/LADM_COL"
 VERSION "2.0.0"  =
-  IMPORTS ISO19107_PLANAS_V3_0,LADM_COL_V3_1;
+  IMPORTS ISO19107_PLANAS_V3_1,LADM_COL_v_4_0_1_Nucleo;
 
   DOMAIN
 
@@ -203,7 +203,7 @@ VERSION "2.0.0"  =
     );
 
     POT_FuenteAdministrativaTipo
-    EXTENDS LADM_COL_V3_1.LADM_Nucleo.COL_FuenteAdministrativaTipo = (
+    EXTENDS LADM_COL_v_4_0_1_Nucleo.LADM_Nucleo.COL_FuenteAdministrativaTipo = (
       !!@ ili2db.dispName = "Documento público"
       Documento_Publico(
         !!@ ili2db.dispName = "Acuerdo"
@@ -501,19 +501,19 @@ VERSION "2.0.0"  =
     );
 
   TOPIC Planes_Ordenamiento_Territorial
-  EXTENDS LADM_COL_V3_1.LADM_Nucleo =
+  EXTENDS LADM_COL_v_4_0_1_Nucleo.LADM_Nucleo =
     BASKET OID AS INTERLIS.UUIDOID;
     OID AS INTERLIS.UUIDOID;
-    DEPENDS ON LADM_COL_V3_1.LADM_Nucleo;
+    DEPENDS ON LADM_COL_v_4_0_1_Nucleo.LADM_Nucleo;
 
     !!@ ili2db.dispName = "(POT) Derecho"
     CLASS POT_Derecho
-    EXTENDS LADM_COL_V3_1.LADM_Nucleo.COL_DRR =
+    EXTENDS LADM_COL_v_4_0_1_Nucleo.LADM_Nucleo.COL_DRR =
     END POT_Derecho;
 
     !!@ ili2db.dispName = "(POT) Fuente Administrativa"
     CLASS POT_FuenteAdministrativa
-    EXTENDS LADM_COL_V3_1.LADM_Nucleo.COL_FuenteAdministrativa =
+    EXTENDS LADM_COL_v_4_0_1_Nucleo.LADM_Nucleo.COL_FuenteAdministrativa =
       /** Documento que suministra información administrativa sobre la adopción de la norma de ordenamiento territorial.
        */
       !!@ ili2db.dispName = "Tipo de fuente administrativa"
@@ -528,7 +528,7 @@ VERSION "2.0.0"  =
 
     !!@ ili2db.dispName = "(POT) Fuente Espacial"
     CLASS POT_FuenteEspacial
-    EXTENDS LADM_COL_V3_1.LADM_Nucleo.COL_FuenteEspacial =
+    EXTENDS LADM_COL_v_4_0_1_Nucleo.LADM_Nucleo.COL_FuenteEspacial =
       !!@ ili2db.dispName = "Escala"
       Escala : 0.000 .. 100000000.000;
       !!@ ili2db.dispName = "Fecha de publicación"
@@ -539,7 +539,7 @@ VERSION "2.0.0"  =
 
     !!@ ili2db.dispName = "(POT) Municipio"
     CLASS POT_Municipio
-    EXTENDS LADM_COL_V3_1.LADM_Nucleo.COL_Interesado =
+    EXTENDS LADM_COL_v_4_0_1_Nucleo.LADM_Nucleo.COL_Interesado =
       /** Corresponde al código de la división político administrativa del país para el nivel departamental.
        */
       !!@ ili2db.dispName = "Código del departamento"
@@ -555,70 +555,46 @@ VERSION "2.0.0"  =
     END POT_Municipio;
 
     CLASS POT_NU_AgrupacionInteresados
-    EXTENDS LADM_COL_V3_1.LADM_Nucleo.COL_AgrupacionInteresados =
+    EXTENDS LADM_COL_v_4_0_1_Nucleo.LADM_Nucleo.COL_AgrupacionInteresados =
     END POT_NU_AgrupacionInteresados;
 
     CLASS POT_NU_AgrupacionUnidadesEspaciales
-    EXTENDS LADM_COL_V3_1.LADM_Nucleo.COL_AgrupacionUnidadesEspaciales =
+    EXTENDS LADM_COL_v_4_0_1_Nucleo.LADM_Nucleo.COL_AgrupacionUnidadesEspaciales =
     END POT_NU_AgrupacionUnidadesEspaciales;
 
     CLASS POT_NU_CadenaCarasLimite
-    EXTENDS LADM_COL_V3_1.LADM_Nucleo.COL_CadenaCarasLimite =
+    EXTENDS LADM_COL_v_4_0_1_Nucleo.LADM_Nucleo.COL_CadenaCarasLimite =
     END POT_NU_CadenaCarasLimite;
 
-    CLASS POT_NU_CarasLindero
-    EXTENDS LADM_COL_V3_1.LADM_Nucleo.COL_CarasLindero =
-    END POT_NU_CarasLindero;
-
-    CLASS POT_NU_EspacioJuridicoRedServicios
-    EXTENDS LADM_COL_V3_1.LADM_Nucleo.COL_EspacioJuridicoRedServicios =
-    END POT_NU_EspacioJuridicoRedServicios;
-
-    CLASS POT_NU_EspacioJuridicoUnidadEdificacion
-    EXTENDS LADM_COL_V3_1.LADM_Nucleo.COL_EspacioJuridicoUnidadEdificacion =
-    END POT_NU_EspacioJuridicoUnidadEdificacion;
-
-    CLASS POT_NU_Nivel
-    EXTENDS LADM_COL_V3_1.LADM_Nucleo.COL_Nivel =
-    END POT_NU_Nivel;
-
     CLASS POT_NU_Punto
-    EXTENDS LADM_COL_V3_1.LADM_Nucleo.COL_Punto =
+    EXTENDS LADM_COL_v_4_0_1_Nucleo.LADM_Nucleo.COL_Punto =
     END POT_NU_Punto;
-
-    CLASS POT_NU_RelacionNecesariaBAUnits
-    EXTENDS LADM_COL_V3_1.LADM_Nucleo.COL_RelacionNecesariaBAUnits =
-    END POT_NU_RelacionNecesariaBAUnits;
-
-    CLASS POT_NU_RelacionNecesariaUnidadesEspaciales
-    EXTENDS LADM_COL_V3_1.LADM_Nucleo.COL_RelacionNecesariaUnidadesEspaciales =
-    END POT_NU_RelacionNecesariaUnidadesEspaciales;
 
     !!@ ili2db.dispName = "(POT) Referencia Línea de Sistema Generales"
     CLASS POT_ReferenciaLineaSistemasGenerales =
-      Geometria : MANDATORY ISO19107_PLANAS_V3_0.GM_Curve3D;
+      Geometria : MANDATORY ISO19107_PLANAS_V3_1.GM_Curve3D;
     END POT_ReferenciaLineaSistemasGenerales;
 
     !!@ ili2db.dispName = "(POT) Referencia Punto de Sistema Generales"
     CLASS POT_ReferenciaPuntoSistemasGenerales =
-      Geometria : MANDATORY ISO19107_PLANAS_V3_0.GM_Point3D;
+      Geometria : MANDATORY ISO19107_PLANAS_V3_1.GM_Point3D;
     END POT_ReferenciaPuntoSistemasGenerales;
 
     !!@ ili2db.dispName = "(POT) Responsabilidad"
     CLASS POT_Responsabilidad
-    EXTENDS LADM_COL_V3_1.LADM_Nucleo.COL_DRR =
+    EXTENDS LADM_COL_v_4_0_1_Nucleo.LADM_Nucleo.COL_DRR =
     END POT_Responsabilidad;
 
     !!@ ili2db.dispName = "(POT) Restricción"
     CLASS POT_Restriccion
-    EXTENDS LADM_COL_V3_1.LADM_Nucleo.COL_DRR =
+    EXTENDS LADM_COL_v_4_0_1_Nucleo.LADM_Nucleo.COL_DRR =
     END POT_Restriccion;
 
     /** Áreas con condición de amenaza, son las zonas o áreas del territorio municipal zonificadas como de amenaza alta y media, en las que se establezca en la revisión o expedición de un nuevo POT la necesidad de clasificarlas como suelo urbano, de expansión urbana, rural, suburbano o centros poblados rurales para permitir su desarrollo.
      */
     !!@ ili2db.dispName = "(POT) UAB Área en Condición de Amenaza"
     CLASS POT_UAB_AreaCondicionAmenaza
-    EXTENDS LADM_COL_V3_1.LADM_Nucleo.COL_UnidadAdministrativaBasica =
+    EXTENDS LADM_COL_v_4_0_1_Nucleo.LADM_Nucleo.COL_UnidadAdministrativaBasica =
       !!@ ili2db.dispName = "Tipo de fenómeno presentado"
       Fenomeno : MANDATORY LADM_COL_v_2_0_0_Ext_POT.POT_FenomenoAmenazaTipo;
       !!@ ili2db.dispName = "Categoría de la amenaza"
@@ -640,7 +616,7 @@ VERSION "2.0.0"  =
      */
     !!@ ili2db.dispName = "(POT) UAB Área en Condición de Riesgo"
     CLASS POT_UAB_AreaCondicionRiesgo
-    EXTENDS LADM_COL_V3_1.LADM_Nucleo.COL_UnidadAdministrativaBasica =
+    EXTENDS LADM_COL_v_4_0_1_Nucleo.LADM_Nucleo.COL_UnidadAdministrativaBasica =
       !!@ ili2db.dispName = "Tipo de fenómeno presentado"
       Fenomeno : MANDATORY LADM_COL_v_2_0_0_Ext_POT.POT_FenomenoAmenazaTipo;
       /** Se refiere al desarrollo y elaboración de estudios detallados en el corto, mediano y largo plazo.
@@ -658,7 +634,7 @@ VERSION "2.0.0"  =
      */
     !!@ ili2db.dispName = "(POT) UAB Centro Poblado Rural"
     CLASS POT_UAB_CentroPobladoRural
-    EXTENDS LADM_COL_V3_1.LADM_Nucleo.COL_UnidadAdministrativaBasica =
+    EXTENDS LADM_COL_v_4_0_1_Nucleo.LADM_Nucleo.COL_UnidadAdministrativaBasica =
       /** Nombre que se le asigne a cada centro poblado del municipio.
        */
       !!@ ili2db.dispName = "Nombre"
@@ -671,7 +647,7 @@ VERSION "2.0.0"  =
      */
     !!@ ili2db.dispName = "(POT) UAB Clasificación del Suelo"
     CLASS POT_UAB_ClasificacionSuelo
-    EXTENDS LADM_COL_V3_1.LADM_Nucleo.COL_UnidadAdministrativaBasica =
+    EXTENDS LADM_COL_v_4_0_1_Nucleo.LADM_Nucleo.COL_UnidadAdministrativaBasica =
       /** Se refiere a la clasificación del suelo en urbano, rural o de expansión urbana.
        */
       !!@ ili2db.dispName = "Tipo de Clasificación del Suelo"
@@ -682,7 +658,7 @@ VERSION "2.0.0"  =
      */
     !!@ ili2db.dispName = "(POT) UAB Sistemas Generales"
     CLASS POT_UAB_SistemasGenerales
-    EXTENDS LADM_COL_V3_1.LADM_Nucleo.COL_UnidadAdministrativaBasica =
+    EXTENDS LADM_COL_v_4_0_1_Nucleo.LADM_Nucleo.COL_UnidadAdministrativaBasica =
       /** Se refiere al tipo de sistema general entre equipamientos, espacio público, servicios públicos, vías e infraestructura de transporte.
        */
       !!@ ili2db.dispName = "Tipo de sistema general"
@@ -701,7 +677,7 @@ VERSION "2.0.0"  =
      */
     !!@ ili2db.dispName = "(POT) UAB Tratamiento Urbanístico"
     CLASS POT_UAB_TratamientoUrbanistico
-    EXTENDS LADM_COL_V3_1.LADM_Nucleo.COL_UnidadAdministrativaBasica =
+    EXTENDS LADM_COL_v_4_0_1_Nucleo.LADM_Nucleo.COL_UnidadAdministrativaBasica =
       /** Tratamientos urbanísticos: desarrollo, renovación urbana, consolidación, conservación y mejoramiento integral.
        */
       !!@ ili2db.dispName = "Tipo de tratamiento urbanístico"
@@ -712,7 +688,7 @@ VERSION "2.0.0"  =
      */
     !!@ ili2db.dispName = "(POT) UAB Zonificación de Amenazas"
     CLASS POT_UAB_ZonificacionAmenazas
-    EXTENDS LADM_COL_V3_1.LADM_Nucleo.COL_UnidadAdministrativaBasica =
+    EXTENDS LADM_COL_v_4_0_1_Nucleo.LADM_Nucleo.COL_UnidadAdministrativaBasica =
       /** Esta asociado al fenomeno amenazante
        * Dcto 1807/2014 compilado en el Dcto 1077/2015
        */
@@ -729,47 +705,47 @@ VERSION "2.0.0"  =
 
     !!@ ili2db.dispName = "(POT) UE Área en Condición de Amenaza"
     CLASS POT_UE_AreaCondicionAmenaza
-    EXTENDS LADM_COL_V3_1.LADM_Nucleo.COL_UnidadEspacial =
+    EXTENDS LADM_COL_v_4_0_1_Nucleo.LADM_Nucleo.COL_UnidadEspacial =
     END POT_UE_AreaCondicionAmenaza;
 
     !!@ ili2db.dispName = "(POT) UE Área en Condición de Riesgo"
     CLASS POT_UE_AreaCondicionRiesgo
-    EXTENDS LADM_COL_V3_1.LADM_Nucleo.COL_UnidadEspacial =
+    EXTENDS LADM_COL_v_4_0_1_Nucleo.LADM_Nucleo.COL_UnidadEspacial =
     END POT_UE_AreaCondicionRiesgo;
 
     !!@ ili2db.dispName = "(POT) UE Áreas de Actividad"
     CLASS POT_UE_AreasActividad
-    EXTENDS LADM_COL_V3_1.LADM_Nucleo.COL_UnidadEspacial =
+    EXTENDS LADM_COL_v_4_0_1_Nucleo.LADM_Nucleo.COL_UnidadEspacial =
     END POT_UE_AreasActividad;
 
     !!@ ili2db.dispName = "(POT) UE Centro Poblado Rural"
     CLASS POT_UE_CentroPobladoRural
-    EXTENDS LADM_COL_V3_1.LADM_Nucleo.COL_UnidadEspacial =
+    EXTENDS LADM_COL_v_4_0_1_Nucleo.LADM_Nucleo.COL_UnidadEspacial =
     END POT_UE_CentroPobladoRural;
 
     !!@ ili2db.dispName = "(POT) UE Clasificación del Suelo"
     CLASS POT_UE_ClasificacionSuelo
-    EXTENDS LADM_COL_V3_1.LADM_Nucleo.COL_UnidadEspacial =
+    EXTENDS LADM_COL_v_4_0_1_Nucleo.LADM_Nucleo.COL_UnidadEspacial =
     END POT_UE_ClasificacionSuelo;
 
     !!@ ili2db.dispName = "(POT) UE Sistemas Generales"
     CLASS POT_UE_SistemasGenerales
-    EXTENDS LADM_COL_V3_1.LADM_Nucleo.COL_UnidadEspacial =
+    EXTENDS LADM_COL_v_4_0_1_Nucleo.LADM_Nucleo.COL_UnidadEspacial =
     END POT_UE_SistemasGenerales;
 
     !!@ ili2db.dispName = "(POT) UE Tratamiento urbanístico"
     CLASS POT_UE_TratamientoUrbanistico
-    EXTENDS LADM_COL_V3_1.LADM_Nucleo.COL_UnidadEspacial =
+    EXTENDS LADM_COL_v_4_0_1_Nucleo.LADM_Nucleo.COL_UnidadEspacial =
     END POT_UE_TratamientoUrbanistico;
 
     !!@ ili2db.dispName = "(POT) UE Zonificación de Amenazas"
     CLASS POT_UE_ZonificacionAmenazas
-    EXTENDS LADM_COL_V3_1.LADM_Nucleo.COL_UnidadEspacial =
+    EXTENDS LADM_COL_v_4_0_1_Nucleo.LADM_Nucleo.COL_UnidadEspacial =
     END POT_UE_ZonificacionAmenazas;
 
     !!@ ili2db.dispName = "(POT) UE Zonificación Suelo Rural"
     CLASS POT_UE_ZonificacionSueloRural
-    EXTENDS LADM_COL_V3_1.LADM_Nucleo.COL_UnidadEspacial =
+    EXTENDS LADM_COL_v_4_0_1_Nucleo.LADM_Nucleo.COL_UnidadEspacial =
     END POT_UE_ZonificacionSueloRural;
 
     STRUCTURE POT_UsoCompatibleComplementarioValor =
@@ -791,7 +767,7 @@ VERSION "2.0.0"  =
      */
     !!@ ili2db.dispName = "(POT) UAB Áreas de Actividad"
     CLASS POT_UAB_AreasActividad
-    EXTENDS LADM_COL_V3_1.LADM_Nucleo.COL_UnidadAdministrativaBasica =
+    EXTENDS LADM_COL_v_4_0_1_Nucleo.LADM_Nucleo.COL_UnidadAdministrativaBasica =
       !!@ ili2db.dispName = "Uso principal"
       Uso_Principal : MANDATORY LADM_COL_v_2_0_0_Ext_POT.POT_AreaActividadTipo;
       !!@ ili2db.dispName = "Detalle uso principal"
@@ -814,7 +790,7 @@ VERSION "2.0.0"  =
      */
     !!@ ili2db.dispName = "(POT) UAB Zonificación Suelo Rural"
     CLASS POT_UAB_ZonificacionSueloRural
-    EXTENDS LADM_COL_V3_1.LADM_Nucleo.COL_UnidadAdministrativaBasica =
+    EXTENDS LADM_COL_v_4_0_1_Nucleo.LADM_Nucleo.COL_UnidadAdministrativaBasica =
       /** Corresponde a la zonificación del suelo rural de acuerdo con su categoría, destinación de uso o suelo de protección definido.
        */
       !!@ ili2db.dispName = "Tipo de categoría rural"
