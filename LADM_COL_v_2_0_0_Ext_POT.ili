@@ -518,10 +518,6 @@ VERSION "2.0.0"  =
        */
       !!@ ili2db.dispName = "Tipo de fuente administrativa"
       Tipo (EXTENDED) : MANDATORY LADM_COL_v_2_0_0_Ext_POT.POT_FuenteAdministrativaTipo;
-      /** Fecha del documento.
-       */
-      !!@ ili2db.dispName = "Fecha del documento"
-      Fecha : INTERLIS.XMLDate;
       !!@ ili2db.dispName = "Tipo de POT"
       Tipo_POT : LADM_COL_v_2_0_0_Ext_POT.POT_PlanOrdenamientoTerritorialTipo;
     END POT_FuenteAdministrativa;
