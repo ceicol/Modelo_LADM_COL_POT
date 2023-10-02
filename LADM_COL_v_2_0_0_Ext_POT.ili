@@ -602,6 +602,9 @@ VERSION "2.0.0"  =
       Es_Priorizado : MANDATORY BOOLEAN;
       !!@ ili2db.dispName = "Descripción de área en condición de amenaza"
       Descripcion : MTEXT*255;
+      !!@ name = "Tipo de UAB invalida"
+      !!@ ilivalid.msg = "Tipo de UAB invalida en la clase POT_UAB_AreaCondicionAmenaza"
+      MANDATORY CONSTRAINT Tipo == #Vivienda_Ciudad_Territorio ;
     END POT_UAB_AreaCondicionAmenaza;
 
     /** Áreas con condición de riesgo, corresponden a las zonas o áreas del territorio municipal clasificadas como de amenaza alta que estén urbanizadas, ocupadas o edificadas así como en las que se encuentren elementos del sistema vial, equipamientos (salud, educación, otros) e infraestructura de servicios públicos.
@@ -624,6 +627,9 @@ VERSION "2.0.0"  =
        */
       !!@ ili2db.dispName = "Descripción de área en condición de riesgo"
       Descripcion : MTEXT*255;
+      !!@ name = "Tipo de UAB invalida"
+      !!@ ilivalid.msg = "Tipo de UAB invalida en la clase POT_UAB_AreaCondicionRiesgo"
+      MANDATORY CONSTRAINT Tipo == #Vivienda_Ciudad_Territorio ;
     END POT_UAB_AreaCondicionRiesgo;
 
     /** Corresponde al conglomerado de 20 o más viviendas contiguas ubicadas en la zona rural, las cuales pueden estar separadas por paredes, muros, patios, huertas o, incluso, por potreros pequeños. Las metodologías para estratificarlos son diferentes dependiendo de su número de habitantes y del tipo de construcciones que los conforman.
@@ -637,6 +643,9 @@ VERSION "2.0.0"  =
       Nombre (EXTENDED) : MANDATORY TEXT*255;
       !!@ ili2db.dispName = "Código centro poblado"
       Codigo : TEXT*8;
+      !!@ name = "Tipo de UAB invalida"
+      !!@ ilivalid.msg = "Tipo de UAB invalida en la clase POT_UAB_CentroPobladoRural"
+      MANDATORY CONSTRAINT Tipo == #Vivienda_Ciudad_Territorio ;
     END POT_UAB_CentroPobladoRural;
 
     /** Los planes de ordenamiento territorial clasificarán el territorio de los municipios y distritos en suelo urbano, rural y de expansión urbana. Al interior de estas clases podrán establecerse las categorías de suburbano y de protección, de conformidad con los criterios generales establecidos en los artículos siguientes.
@@ -648,6 +657,9 @@ VERSION "2.0.0"  =
        */
       !!@ ili2db.dispName = "Tipo de Clasificación del Suelo"
       Tipo_Clasificacion_Suelo : MANDATORY LADM_COL_v_2_0_0_Ext_POT.POT_ClasificacionSueloTipo;
+      !!@ name = "Tipo de UAB invalida"
+      !!@ ilivalid.msg = "Tipo de UAB invalida en la clase POT_UAB_ClasificacionSuelo"
+      MANDATORY CONSTRAINT Tipo == #Vivienda_Ciudad_Territorio ;
     END POT_UAB_ClasificacionSuelo;
 
     /** Corresponden a las infraestructuras de la red vial principal y las redes matrices de servicios públicos domiciliarios, así cómo los equipamientos colectivos y espacios libres destinados para parques y zonas verdes públicas de escala urbana o metropolitana y que sirven a toda la población del municipio o distrito, según lo previsto por el plan de ordenamiento territorial.
@@ -667,6 +679,9 @@ VERSION "2.0.0"  =
        */
       !!@ ili2db.dispName = "Estado"
       Estado : MANDATORY LADM_COL_v_2_0_0_Ext_POT.POT_SistemasGeneralesEstadoTipo;
+      !!@ name = "Tipo de UAB invalida"
+      !!@ ilivalid.msg = "Tipo de UAB invalida en la clase POT_UAB_SistemasGenerales"
+      MANDATORY CONSTRAINT Tipo == #Vivienda_Ciudad_Territorio ;
     END POT_UAB_SistemasGenerales;
 
     /** Son las determinaciones del plan de ordenamiento territorial, que atendiendo las características físicas de cada zona considerada, establecen en función de las mismas las normas urbanísticas que definen un manejo diferenciado del territorio para los distintos sectores del suelo urbano y de expansión urbana. Son tratamientos urbanísticos el de desarrollo, renovación urbana, consolidación, conservación y mejoramiento integral.
@@ -678,6 +693,9 @@ VERSION "2.0.0"  =
        */
       !!@ ili2db.dispName = "Tipo de tratamiento urbanístico"
       Tipo_Tratamiento_Urbanistico : MANDATORY LADM_COL_v_2_0_0_Ext_POT.POT_TratamientoUrbanisticoTipo;
+      !!@ name = "Tipo de UAB invalida"
+      !!@ ilivalid.msg = "Tipo de UAB invalida en la clase POT_UAB_TratamientoUrbanistico"
+      MANDATORY CONSTRAINT Tipo == #Vivienda_Ciudad_Territorio ;
     END POT_UAB_TratamientoUrbanistico;
 
     /** Peligro latente de que un evento físico de origen natural, o causado, o inducido por la acción humana de manera accidental, se presente con una severidad suficiente para causar pérdida de vidas, lesiones u otros impactos en la salud, así como también daños y pérdidas en los bienes, la infraestructura, los medios de sustento, la prestación de servicios y los recursos ambientales.
@@ -697,6 +715,9 @@ VERSION "2.0.0"  =
       Categoria_Amenaza : LADM_COL_v_2_0_0_Ext_POT.POT_CategoriaAmenazaTipo;
       !!@ ili2db.dispName = "Descripción"
       Descripcion : MTEXT*255;
+      !!@ name = "Tipo de UAB invalida"
+      !!@ ilivalid.msg = "Tipo de UAB invalida en la clase POT_UAB_ZonificacionAmenazas"
+      MANDATORY CONSTRAINT Tipo == #Vivienda_Ciudad_Territorio ;
     END POT_UAB_ZonificacionAmenazas;
 
     !!@ ili2db.dispName = "(POT) UE Área en Condición de Amenaza"
@@ -780,6 +801,9 @@ VERSION "2.0.0"  =
        */
       !!@ ili2db.dispName = "Uso prohibido"
       Uso_Prohibido : BAG {1..*} OF LADM_COL_v_2_0_0_Ext_POT.Planes_Ordenamiento_Territorial.POT_UsoProhibidoValor;
+      !!@ name = "Tipo de UAB invalida"
+      !!@ ilivalid.msg = "Tipo de UAB invalida en la clase POT_UAB_AreasActividad"
+      MANDATORY CONSTRAINT Tipo == #Vivienda_Ciudad_Territorio ;
     END POT_UAB_AreasActividad;
 
     /** Corresponde a la tipificación definida para el suelo rural en el plan de ordenamiento territorial, la cual según sus particularidades de uso y ocupación deberá determinar y delimitar áreas rurales y de desarrollo restringido, según lo establecido por el artículo 3 del Decreto 3600 de 2007 y el artículo 2.2.2.2.1.2 del Decreto 1077 de 2015.
@@ -809,6 +833,9 @@ VERSION "2.0.0"  =
        */
       !!@ ili2db.dispName = "Uso rural prohibido"
       Uso_Prohibido : BAG {1..*} OF LADM_COL_v_2_0_0_Ext_POT.Planes_Ordenamiento_Territorial.POT_UsoProhibidoValor;
+      !!@ name = "Tipo de UAB invalida"
+      !!@ ilivalid.msg = "Tipo de UAB invalida en la clase POT_UAB_ZonificacionSueloRural"
+      MANDATORY CONSTRAINT Tipo == #Vivienda_Ciudad_Territorio ;
     END POT_UAB_ZonificacionSueloRural;
 
     ASSOCIATION pot_clasificacionsuelo_centropoblado =
