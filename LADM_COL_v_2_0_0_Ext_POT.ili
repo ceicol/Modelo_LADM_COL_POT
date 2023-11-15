@@ -840,7 +840,7 @@ VERSION "2.0.0"  =
 
     ASSOCIATION pot_clasificacionsuelo_centropoblado =
       centro_poblado -- {0..*} POT_UAB_CentroPobladoRural;
-      clasificacion_suelo_urbano -- {1} POT_UAB_ClasificacionSuelo;
+      clasificacion_suelo -- {1} POT_UAB_ClasificacionSuelo;
     END pot_clasificacionsuelo_centropoblado;
 
     ASSOCIATION pot_referencialinea_sistemasgenerales =
