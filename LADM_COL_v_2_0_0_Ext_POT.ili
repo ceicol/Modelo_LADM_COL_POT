@@ -209,7 +209,9 @@ VERSION "2.0.0"  =
         !!@ ili2db.dispName = "Acuerdo"
         Acuerdo,
         !!@ ili2db.dispName = "Decreto"
-        Decreto
+        Decreto,
+        !!@ ili2db.dispName = "Resolución"
+        Resolucion
       )
     );
 
