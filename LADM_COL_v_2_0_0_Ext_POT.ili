@@ -198,8 +198,10 @@ VERSION "2.0.0"  =
        */
       !!@ ili2db.dispName = "Tecnológico"
       Tecnologico,
-      !!@ ili2db.dispName = "Otros"
-      Otros
+      !!@ ili2db.dispName = "Otro"
+      Otro,
+      !!@ ili2db.dispName = "Sin determinar"
+      Sin_Determinar
     );
 
     POT_FuenteAdministrativaTipo
@@ -215,6 +217,27 @@ VERSION "2.0.0"  =
       )
     );
 
+    POT_MedidaIntervencionTipo = (
+      !!@ ili2db.dispName = "Estudios detallados"
+      Estudios_Detallados,
+      !!@ ili2db.dispName = "Restricción o condicionamiento del uso del suelo"
+      Restriccion_O_Condicionamiento_Uso_Del_Suelo,
+      !!@ ili2db.dispName = "Monitoreo del riesgo"
+      Monitoreo_Del_Riesgo,
+      !!@ ili2db.dispName = "Sistemas de alerta temprana"
+      Sistema_De_Alerta_Temprana,
+      !!@ ili2db.dispName = "Preparación y respuesta"
+      Preparacion_Y_Respuesta,
+      !!@ ili2db.dispName = "Estudios, diseños y obras"
+      Estudios_Disenios_Y_Obras,
+      !!@ ili2db.dispName = "Fortalecimiento institucional"
+      Fortalecimiento_Institucional,
+      !!@ ili2db.dispName = "Apropiación comunitaria de la gestión del riesgo de desastres"
+      Apropiacion_Comunitaria_De_La_Gestion_Del_Riesgo_De_Desastres,
+      !!@ ili2db.dispName = "Otro"
+      Otro
+    );
+
     POT_PlanOrdenamientoTerritorialTipo = (
       !!@ ili2db.dispName = "Plan de ordenamiento territorial"
       POT,
@@ -222,6 +245,15 @@ VERSION "2.0.0"  =
       PBOT,
       !!@ ili2db.dispName = "Esquema de ordenamiento territorial"
       EOT
+    );
+
+    POT_PriorizacionTipo = (
+      !!@ ili2db.dispName = "Corto plazo"
+      Corto_Plazo,
+      !!@ ili2db.dispName = "Mediano plazo"
+      Mediano_Plazo,
+      !!@ ili2db.dispName = "Largo plazo"
+      Largo_Plazo
     );
 
     POT_SistemasGeneralesEstadoTipo = (
@@ -597,8 +629,12 @@ VERSION "2.0.0"  =
       Fenomeno : MANDATORY LADM_COL_v_2_0_0_Ext_POT.POT_FenomenoAmenazaTipo;
       !!@ ili2db.dispName = "Categoría de la amenaza"
       Categoria_Amenaza : LADM_COL_v_2_0_0_Ext_POT.POT_CategoriaAmenazaTipo;
-      !!@ ili2db.dispName = "Descripción de área en condición de amenaza"
-      Descripcion : MTEXT*255;
+      !!@ ili2db.dispName = "Priorización"
+      Priorizacion : LADM_COL_v_2_0_0_Ext_POT.POT_PriorizacionTipo;
+      !!@ ili2db.dispName = "Medida de intervención"
+      Medida_Intervencion : LADM_COL_v_2_0_0_Ext_POT.POT_MedidaIntervencionTipo;
+      !!@ ili2db.dispName = "Detalle de la medida de intervención"
+      Detalle_Medida_Intervencacion : MTEXT*500;
       !!@ ili2db.dispName = "Detalle del fenómeno"
       Detalle_Fenomeno : TEXT*500;
       !!@ name = "Tipo de UAB invalida"
@@ -617,15 +653,14 @@ VERSION "2.0.0"  =
     EXTENDS LADM_COL_v_4_0_1_Nucleo.LADM_Nucleo.COL_UnidadAdministrativaBasica =
       !!@ ili2db.dispName = "Tipo de fenómeno presentado"
       Fenomeno : MANDATORY LADM_COL_v_2_0_0_Ext_POT.POT_FenomenoAmenazaTipo;
-      /** Se refiere al desarrollo y elaboración de estudios detallados en el corto, mediano y largo plazo.
-       * Dcto 1807/2014 compilado en el Dcto 1077/2015
-       */
-      !!@ ili2db.dispName = "Es priorizado"
-      Es_Priorizado : MANDATORY BOOLEAN;
+      !!@ ili2db.dispName = "Priorización"
+      Priorizacion : LADM_COL_v_2_0_0_Ext_POT.POT_PriorizacionTipo;
+      !!@ ili2db.dispName = "Medida de intervención"
+      Medida_Intervencion : LADM_COL_v_2_0_0_Ext_POT.POT_MedidaIntervencionTipo;
       /** La identificación de las áreas con condición de riesgo se realizará a partir del análisis de las áreas zonificadas como de amenaza alta en los estudios básicos, con la información cartográfica (predial o catastral, entre otras) disponible que permita identificar la existencia de elementos expuestos, de áreas urbanizadas, ocupadas o edificadas así como de aquellas en las que se encuentren edificaciones indispensables y líneas vitales.
        */
-      !!@ ili2db.dispName = "Descripción de área en condición de riesgo"
-      Descripcion : MTEXT*255;
+      !!@ ili2db.dispName = "Detalle de la medida de intervención"
+      Detalle_Medida_Intervencacion : MTEXT*500;
       !!@ ili2db.dispName = "Detalle del fenómeno"
       Detalle_Fenomeno : TEXT*500;
       !!@ name = "Tipo de UAB invalida"
