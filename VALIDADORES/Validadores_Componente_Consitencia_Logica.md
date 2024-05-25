@@ -1,6 +1,7 @@
 # Validadores del componente de consistencia lógica
 ## CÓDIGO: CL1
 **Título:** El tipo de documento del interesado debe ser un NIT.
+
 **Errores**
 
 | Error  | Descripción                                                  |
@@ -22,6 +23,7 @@ where pm.tipo_documento not in (select t_id from col_documentotipo where ilicode
 ## CÓDIGO: CL2
 
 **Título:** La Unidad POT_UAB_CentroPobladoRural deben tener diligenciado el "Codigo" que lo identifique, acorde con lo establecido por el DANE, o excepcionalmente por el municipio.
+
 **Errores**
 
 | Error  | Descripción                                                  |
@@ -49,7 +51,8 @@ where pcp.codigo is null or length(pcp.codigo) != 8 or pcp.codigo !~ '^[0-9]*$';
 
 ## CÓDIGO: CL3
 
-**Título: **Todas las áreas de los registros de las Unidades Espaciales de tipo polígono deben tener un valor distinto a cero (0) .
+**Título:**Todas las áreas de los registros de las Unidades Espaciales de tipo polígono deben tener un valor distinto a cero (0).
+
 **Errores**
 
 | Error  | Descripción                                                  |
@@ -142,7 +145,8 @@ where ca.area <=0;
 
 ## CÓDIGO: CL4
 
-**Título: **Todas las longitudes de los registros de la Unidades Espaciales  de tipo línea deben tener un valor distinto a cero (0) .
+**Título: **Todas las longitudes de los registros de la Unidades Espaciales  de tipo línea deben tener un valor distinto a cero (0).
+
 **Errores**
 
 | Error  | Descripción                                      |
@@ -163,6 +167,7 @@ where st_length(pr.geometria) = 0;
 ## CÓDIGO: CL5
 
 **Título:** Todas las posiciones (x,y) de los registros de la Unidades Espaciales de tipo punto deben estar sobre los rangos establecidos por el modelo.
+
 **Errores**
 
 | Error  | Descripción                                                  |
@@ -183,6 +188,7 @@ where st_disjoint(pr.geometria,st_geomfromtext('POLYGON ((3980000.000 1080000.00
 ## CÓDIGO: CL6
 
 **Título:** Todo interesado debe tener asociado un código de departamento de acuerdo a la DIVIPOLA.
+
 **Errores**
 
 | Error  | Descripción                                                  |
@@ -239,6 +245,7 @@ where length(pm.codigo_municipio) != 3 or pm.codigo_municipio  !~ '^[0-9]*$';
 ## CÓDIGO: CL8
 
 **Título:** Todo interesado debe tener asociado un nombre de municipio.
+
 **Errores**
 
 | Error  | Descripción                                                  |
@@ -259,6 +266,7 @@ where pm.nombre_municipio is null or upper(pm.nombre_municipio) not in ('MEDELL�
 ## CÓDIGO: CL9
 
 **Título:** Todos los registros o instancias de áreas de actividad deben asociar un tipo de uso principal.
+
 **Errores**
 
 | Error  | Descripción                                                  |
@@ -278,6 +286,7 @@ where pua.uso_principal is null;
 ## CÓDIGO: CL10
 
 **Título:** Todos los registros o instancias de las áreas de actividad deben asociar el detalle del uso principal, indicando el nombre propio que el municipio le asignó.
+
 **Errores**
 
 | Error   | Descripción                                   |
@@ -297,6 +306,7 @@ where pua.detalle_uso_principal is null;
 ## CÓDIGO: CL11
 
 **Título:** Todos los registros o instancias de las áreas de actividad deben asociar al menos un uso compatible, complementario.
+
 **Errores**
 
 | Error   | Descripción                                                  |
@@ -317,6 +327,7 @@ where pu.pot_uab_areasactividad_uso_compatible_complementario  is null;
 ## CÓDIGO: CL12
 
 **Título:** Todos los registros o instancias de las áreas de actividad deben asociar al menos un uso condicionado, restringido.
+
 **Errores**
 
 | Error   | Descripción                                                  |
@@ -337,6 +348,7 @@ where pu.pot_uab_areasactividad_uso_condicionado_restringido is null;
 ## CÓDIGO: CL13
 
 **Título:** Todos los registros o instancias de las áreas de actividad deben asociar al menos un uso prohibido.
+
 **Errores**
 
 | Error   | Descripción                                                  |
@@ -357,6 +369,7 @@ where pu.pot_uab_areasactividad_uso_prohibido is null;
 ## CÓDIGO: CL14
 
 **Título:** Todos los registros o instancias de tratamientos urbanísticos deben asociar uno de los tipos de tratamiento urbanístico.
+
 **Errores**
 
 | Error   | Descripción                                          |
@@ -377,6 +390,7 @@ where put.tipo_tratamiento_urbanistico  is null;
 ## CÓDIGO: CL15
 
 **Título:** Todos los registros o instancias de clasificación de suelo deben asociar el tipo de clasificación del suelo.
+
 **Errores**
 
 | Error   | Descripción                                          |
@@ -398,7 +412,8 @@ where puc.tipo_clasificacion_suelo is null;
 
 ## CÓDIGO: CL16
 
-**Título:** Todos los registros o instancias de la zonificación del suelo rural deben asociar un tipo de categoría del suelo rural, siempre y cuando la fecha de la fuente administrativa sea mayor a 20 de septiembre de 2007,
+**Título:** Todos los registros o instancias de la zonificación del suelo rural deben asociar un tipo de categoría del suelo rural, siempre y cuando la fecha de la fuente administrativa sea mayor a 20 de septiembre de 2007.
+
 **Errores**
 
 | Error   | Descripción                                                  |
@@ -424,6 +439,7 @@ where puz.tipo_categoria_rural is null and pf.fecha_documento_fuente  > to_date(
 ## CÓDIGO: CL17
 
 **Título:** Todos los registros o instancias de la zonificación del suelo rural deben asociar un tipo de uso principal.
+
 **Errores**
 
 | Error   | Descripción                        |
@@ -446,6 +462,7 @@ where puz.uso_principal is null;
 ## CÓDIGO: CL18
 
 **Título:** Todos los registros o instancias de la zonificación del suelo rural deben asociar el detalle del uso principal indicando el nombre propio que el municipio le asignó.
+
 **Errores**
 
 | Error   | Descripción                                   |
@@ -488,6 +505,7 @@ where pu.pot_uab_zonifccnslrral_uso_compatible_complementario is null;
 ## CÓDIGO: CL20
 
 **Título:** Todos los registros o instancias de la zonificación del suelo rural deben asociar al menos un uso condicionado, restringido.
+
 **Errores**
 
 | Error   | Descripción                                                  |
@@ -509,6 +527,7 @@ where pu.pot_uab_zonifccnslrral_uso_condicionado_restringido is null;
 ## CÓDIGO: CL21
 
 **Título:** Todos los registros o instancias de la zonificación del suelo rural deben asociar al menos un uso prohibido.
+
 **Errores**
 
 | Error   | Descripción                                                  |
@@ -529,7 +548,8 @@ where pu.pot_uab_zonifccnslrral_uso_prohibido is null;
 
 ## CÓDIGO: CL22
 
-**Título: **Todos los registros o instancias de sistemas generales deben tener asociado el tipo de sistema general.
+**Título:** Todos los registros o instancias de sistemas generales deben tener asociado el tipo de sistema general.
+
 **Errores**
 
 | Error   | Descripción                                  |
@@ -550,6 +570,7 @@ where pst.tipo_sistema_general is null;
 ## CÓDIGO: CL23
 
 **Título:** Todos los registros o instancias de sistemas generales deben tener asociado el detalle del sistema general en el cual se indique la información precisa del instrumento de ordenamiento, en caso de que los valores hayan sido homologados en un proceso de migración o agregar un detalle adicional por parte del municipio.
+
 **Errores**
 
 | Error   | Descripción                                      |
@@ -570,6 +591,7 @@ where pst.detalle_sistema_general is null;
 ## CÓDIGO: CL24
 
 **Título:** Todos los registros o instancias de sistemas generales deben tener asociado el nivel.
+
 **Errores**
 
 | Error   | Descripción                                   |
@@ -590,6 +612,7 @@ where pst.nivel is null;
 ## CÓDIGO: CL25
 
 **Título:** Todos los registros o instancias de sistemas generales deben tener asociado el estado.
+
 **Errores**
 
 | Error   | Descripción                                     |
@@ -609,7 +632,8 @@ where pst.estado is null;
 
 ## CÓDIGO: CL26
 
-**Título:** Todos los registros o instancias de la zonificación de amenazas debe asociar un fenómeno
+**Título:** Todos los registros o instancias de la zonificación de amenazas debe asociar un fenómeno.
+
 **Errores**
 
 | Error   | Descripción                                      |
@@ -630,6 +654,7 @@ where pz.fenomeno is null;
 ## CÓDIGO: CL27
 
 **Título:** No pueden existir registros de áreas de condición de amenazas o de riesgos si no existe zonificación de amenazas. Se requiere dejar una alerta sobre la correspondencia.
+
 **Errores**
 
 | Error   | Descripción                                                  |
@@ -656,6 +681,7 @@ join pot_ue_areacondicionamenaza as pm on not st_contains(zon.geometria,pm.geome
 ## CÓDIGO: CL28
 
 **Título:** Todos los registros o instancias de áreas en condición de amenaza debe asociar un fenómeno.
+
 **Errores**
 
 | Error   | Descripción                   |
@@ -675,7 +701,8 @@ where pua.fenomeno is null;
 
 ## CÓDIGO: CL29
 
-**Título:** Todos los registros o instancias de áreas en condición de amenaza debe asociar una categoría de amenaza para los instrumentos de ordenamiento posteriores al 01 de enero del 2015.
+**Título:** Todos los registros o instancias de áreas en condición de amenaza debe asociar una categoría de amenaza para los instrumentos de ordenamiento posteriores al 01 de enero del 2016.
+
 **Errores**
 
 | Error   | Descripción                               |
@@ -693,12 +720,13 @@ from pot_uab_areacondicionamenaza pua
 join pot_derecho pd on pua.t_id = pd.unidad_pot_uab_areacondicionamenaza
 join col_rrrfuente cr on pd.t_id = cr.rrr_pot_derecho 
 join pot_fuenteadministrativa pf on pf.t_id = cr.fuente_administrativa
-where pua.categoria_amenaza is null and pf.fecha_documento_fuente >= to_date('2015-01-01', 'YYYY-MM-DD'); 
+where pua.categoria_amenaza is null and pf.fecha_documento_fuente >= to_date('2016-01-01', 'YYYY-MM-DD'); 
 ```
 
 ## CÓDIGO: CL30
 
-**Título:** Todos los registros o instancias de áreas en condición de riesgo debe indicar si es priorizado
+**Título:** Todos los registros o instancias de áreas en condición de riesgo debe indicar si es priorizado.
+
 **Errores**
 
 | Error  | Descripción                                |
@@ -715,4 +743,3 @@ select
 from pot_uab_areacondicionriesgo pua 
 where pua.es_priorizado is null;
 ```
-
