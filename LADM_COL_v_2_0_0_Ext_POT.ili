@@ -256,6 +256,19 @@ VERSION "2.0.0"  =
       Largo_Plazo
     );
 
+    POT_RevisionTipo = (
+      !!@ ili2db.dispName = "Revisión por vencimiento de largo plazo"
+      Revision_Vencimiento_Largo_Plazo,
+      !!@ ili2db.dispName = "Revisión por vencimiento de mediano plazo"
+      Revision_Vencimiento_Mediano_Plazo,
+      !!@ ili2db.dispName = "Revisión por vencimiento de corto plazo"
+      Revision_Vencimiento_Corto_Plazo,
+      !!@ ili2db.dispName = "Modificación excepcional de norma urbanística"
+      Modificacion_Excepcional_Norma_Urbanistica,
+      !!@ ili2db.dispName = "Revisión por excepcional interés público"
+      Revision_Excepcional_Interes_Publico
+    );
+
     POT_SistemasGeneralesEstadoTipo = (
       !!@ ili2db.dispName = "Estado existente"
       Existente,
@@ -554,6 +567,10 @@ VERSION "2.0.0"  =
       Tipo (EXTENDED) : MANDATORY LADM_COL_v_2_0_0_Ext_POT.POT_FuenteAdministrativaTipo;
       !!@ ili2db.dispName = "Tipo de POT"
       Tipo_POT : LADM_COL_v_2_0_0_Ext_POT.POT_PlanOrdenamientoTerritorialTipo;
+      !!@ ili2db.dispName = "Número de fuente"
+      Numero_Fuente : TEXT*150;
+      !!@ ili2db.dispName = "Tipo de revisión"
+      Tipo_Revision : LADM_COL_v_2_0_0_Ext_POT.POT_RevisionTipo;
     END POT_FuenteAdministrativa;
 
     !!@ ili2db.dispName = "(POT) Fuente Espacial"
@@ -736,8 +753,8 @@ VERSION "2.0.0"  =
 
     /** Peligro latente de que un evento físico de origen natural, o causado, o inducido por la acción humana de manera accidental, se presente con una severidad suficiente para causar pérdida de vidas, lesiones u otros impactos en la salud, así como también daños y pérdidas en los bienes, la infraestructura, los medios de sustento, la prestación de servicios y los recursos ambientales.
      */
-    !!@ ili2db.dispName = "(POT) UAB Zonificación de Amenazas"
-    CLASS POT_UAB_ZonificacionAmenazas
+    !!@ ili2db.dispName = "(POT) UAB Zonificación de Amenaza"
+    CLASS POT_UAB_ZonificacionAmenaza
     EXTENDS LADM_COL_v_4_0_1_Nucleo.LADM_Nucleo.COL_UnidadAdministrativaBasica =
       /** Esta asociado al fenomeno amenazante
        * Dcto 1807/2014 compilado en el Dcto 1077/2015
@@ -756,7 +773,7 @@ VERSION "2.0.0"  =
       !!@ name = "Tipo de UAB invalida"
       !!@ ilivalid.msg = "Tipo de UAB invalida en la clase POT_UAB_ZonificacionAmenazas"
       MANDATORY CONSTRAINT Tipo == #Vivienda_Ciudad_Territorio ;
-    END POT_UAB_ZonificacionAmenazas;
+    END POT_UAB_ZonificacionAmenaza;
 
     !!@ ili2db.dispName = "(POT) UE Área en Condición de Amenaza"
     CLASS POT_UE_AreaCondicionAmenaza
@@ -793,10 +810,10 @@ VERSION "2.0.0"  =
     EXTENDS LADM_COL_v_4_0_1_Nucleo.LADM_Nucleo.COL_UnidadEspacial =
     END POT_UE_TratamientoUrbanistico;
 
-    !!@ ili2db.dispName = "(POT) UE Zonificación de Amenazas"
-    CLASS POT_UE_ZonificacionAmenazas
+    !!@ ili2db.dispName = "(POT) UE Zonificación de Amenaza"
+    CLASS POT_UE_ZonificacionAmenaza
     EXTENDS LADM_COL_v_4_0_1_Nucleo.LADM_Nucleo.COL_UnidadEspacial =
-    END POT_UE_ZonificacionAmenazas;
+    END POT_UE_ZonificacionAmenaza;
 
     !!@ ili2db.dispName = "(POT) UE Zonificación Suelo Rural"
     CLASS POT_UE_ZonificacionSueloRural
