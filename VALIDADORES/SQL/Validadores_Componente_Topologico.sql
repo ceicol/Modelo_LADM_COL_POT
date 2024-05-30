@@ -23,7 +23,7 @@ set search_path to
 select
 	puc1.t_id,
 	puc2.t_ili_tid,
-	concat('El registro ',puc1.t_id,' se superpone con el registro ',puc2.t_id) as mensaje
+	concat('El registro categoría de suelo rural',puc1.t_id,' se superpone con el registro',puc2.t_id) as mensaje
 from pot_ue_clasificacionsuelo as puc1
 join pot_ue_clasificacionsuelo as puc2 on st_overlaps(puc1.geometria,puc2.geometria)
 where puc1.t_id != puc2.t_id;
@@ -31,32 +31,18 @@ where puc1.t_id != puc2.t_id;
 	
 --Regla T5
 select
-	tbl1.t_id,
-	tbl1.t_ili_tid,
-	'El insumo presenta superposición con insumos del mismo tipo de categoría rural' as mensaje
-from (select
-	puz1.t_id,
-	puz1.t_ili_tid,
-	ps.tipo_categoria_rural,
-	puz1.geometria
-from pot_ue_zonificacionsuelorural puz1
-join col_uebaunit cu on puz1.t_id = cu.ue_pot_ue_zonificacionsuelorural 
-join pot_uab_zonificacionsuelorural ps on ps.t_id =cu.baunit_pot_uab_zonificacionsuelorural) as tbl1
-join (select
-	puz1.t_id,
-	ps.tipo_categoria_rural,
-	puz1.geometria
-from pot_ue_zonificacionsuelorural puz1
-join col_uebaunit cu on puz1.t_id = cu.ue_pot_ue_zonificacionsuelorural 
-join pot_uab_zonificacionsuelorural ps on ps.t_id =cu.baunit_pot_uab_zonificacionsuelorural) as tbl2
-on st_overlaps(tbl1.geometria,tbl2.geometria)
-where tbl1.t_id != tbl2.t_id and tbl1.tipo_categoria_rural =tbl2.tipo_categoria_rural;
+	puc1.t_id,
+	puc2.t_ili_tid,
+	concat('El registro de zonificación de suelo rural ',puc1.t_id,' se superpone con el registro',puc2.t_id) as mensaje
+from pot_ue_zonificacionsuelorural as puc1
+join pot_ue_zonificacionsuelorural as puc2 on st_overlaps(puc1.geometria,puc2.geometria)
+where puc1.t_id != puc2.t_id;
 
 --Regla T6
 select
 	puc1.t_id,
 	puc1.t_ili_tid,
-	concat('El tratamiento urbanitico ',puc1.t_id,' se superpone con el registro ',puc2.t_id) as mensaje
+	concat('El registro de tratamiento urbanístico ',puc1.t_id,' se superpone con el registro ',puc2.t_id) as mensaje
 from pot_ue_tratamientourbanistico as puc1
 join pot_ue_tratamientourbanistico as puc2 on st_overlaps(puc1.geometria,puc2.geometria)
 where puc1.t_id != puc2.t_id;
@@ -65,7 +51,7 @@ where puc1.t_id != puc2.t_id;
 select
 	puc1.t_id,
 	puc1.t_ili_tid,
-	concat('El área de actividad ',puc1.t_id,' se superpone con el registro ',puc2.t_id) as mensaje
+	concat('El registro de área de actividad ',puc1.t_id,' se superpone con el registro ',puc2.t_id) as mensaje
 from pot_ue_areasactividad as puc1
 join pot_ue_areasactividad as puc2 on st_overlaps(puc1.geometria,puc2.geometria)
 where puc1.t_id != puc2.t_id;
@@ -73,7 +59,7 @@ where puc1.t_id != puc2.t_id;
 
 --Regla T10
 select
-	'La siguiente zona del perimetro urbano no está cubierta por registros de las áreas de actividad' as mensaje,
+	'La siguiente zona del perímetro urbano no está cubierta por registros de las áreas de actividad' as mensaje,
 	st_difference(ctc.geometria,arc.geometria) as geometria
 from
 (select
@@ -106,37 +92,37 @@ where pc.tipo_clasificacion_suelo in (select t_id from pot_clasificacionsuelotip
 on st_intersects(ttu.geometria, ctc.geometria);
 
 --Regla T13
-select
-	st1.t_id,
-	st1.t_ili_tid,
-	concat('El registro ',st1.t_id,' presenta superposición con el registro ',st2.t_id) as mensaje
-from 
-(select
-	pr.t_id,
-	pr.t_ili_tid,
-	pr.geometria
-from pot_uab_sistemasgenerales pus 
-join col_uebaunit cu  on pus.t_id = cu.baunit_pot_uab_sistemasgenerales 
-join pot_ue_sistemasgenerales pus2 on pus2.t_id = cu.ue_pot_ue_sistemasgenerales 
-join pot_referencialineasistemasgenerales pr on pr.sistemasgenerales = pus2.t_id 
-where pus.tipo_sistema_general in (select t_id from pot_sistemasgeneralestipo  where ilicode like 'Vias.%')) as st1
-join (select
-	pr.t_id,
-	pr.t_ili_tid,
-	pr.geometria
-from pot_uab_sistemasgenerales pus 
-join col_uebaunit cu  on pus.t_id = cu.baunit_pot_uab_sistemasgenerales 
-join pot_ue_sistemasgenerales pus2 on pus2.t_id = cu.ue_pot_ue_sistemasgenerales 
-join pot_referencialineasistemasgenerales pr on pr.sistemasgenerales = pus2.t_id 
-where pus.tipo_sistema_general in (select t_id from pot_sistemasgeneralestipo  where ilicode like 'Vias.%')) as st2 on st_intersects(st1.geometria,st2.geometria)
-where st1.t_id != st2.t_id and  not st_touches(st1.geometria,st2.geometria)
-order by st1.t_id  asc;
+	select
+		st1.t_id,
+		st1.t_ili_tid,
+		concat('El registro de sistemas generales de tipo vías ',st1.t_id,' presenta superposición con el registro ',st2.t_id) as mensaje
+	from 
+	(select
+		pr.t_id,
+		pr.t_ili_tid,
+		pr.geometria
+	from pot_uab_sistemasgenerales pus 
+	join col_uebaunit cu  on pus.t_id = cu.baunit_pot_uab_sistemasgenerales 
+	join pot_ue_sistemasgenerales pus2 on pus2.t_id = cu.ue_pot_ue_sistemasgenerales 
+	join pot_referencialineasistemasgenerales pr on pr.sistemasgenerales = pus2.t_id 
+	where pus.tipo_sistema_general in (select t_id from pot_sistemasgeneralestipo  where ilicode like 'Vias.%')) as st1
+	join (select
+		pr.t_id,
+		pr.t_ili_tid,
+		pr.geometria
+	from pot_uab_sistemasgenerales pus 
+	join col_uebaunit cu  on pus.t_id = cu.baunit_pot_uab_sistemasgenerales 
+	join pot_ue_sistemasgenerales pus2 on pus2.t_id = cu.ue_pot_ue_sistemasgenerales 
+	join pot_referencialineasistemasgenerales pr on pr.sistemasgenerales = pus2.t_id 
+	where pus.tipo_sistema_general in (select t_id from pot_sistemasgeneralestipo  where ilicode like 'Vias.%')) as st2 on st_intersects(st1.geometria,st2.geometria)
+	where st1.t_id != st2.t_id and  not st_touches(st1.geometria,st2.geometria)
+	order by st1.t_id  asc;
 
 --Regla T15
 select
 	st1.t_id, 
 	st1.t_ili_tid,
-	'El registro presenta superposición con otros registros' as mensaje
+	concat('El registro de sistemas generales ',st1.t_id,' presenta superposición con el registro ',st2.t_id) as  as mensaje
 from 
 (select
 	pr.t_id,

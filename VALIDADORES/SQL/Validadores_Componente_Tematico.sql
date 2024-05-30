@@ -38,8 +38,8 @@ join pot_derecho pd on pua.t_id = pd.unidad_pot_uab_zonificacionamenazas
 join col_rrrfuente cr on pd.t_id = cr.rrr_pot_derecho 
 join pot_fuenteadministrativa pf on pf.t_id = cr.fuente_administrativa
 where pua.categoria_amenaza is null and 
-(pf.fecha_documento_fuente >= to_date('2016-01-01', 'YYYY-MM-DD') or 
-pf.tipo in (select t_id from col_fuenteadministrativatipo where ilicode not like 'Documento_Publico.Resolucion' and thisclass like 'LADM_COL_v_2_0_0_Ext_POT.POT_FuenteAdministrativaTipo'));
+(pf.fecha_documento_fuente >= to_date('2014-09-19', 'YYYY-MM-DD') or 
+pf.tipo in (select t_id from col_fuenteadministrativatipo where ilicode not like 'Documento_Publico.Acta_Conciliacion' and thisclass like 'LADM_COL_v_2_0_0_Ext_POT.POT_FuenteAdministrativaTipo'));
 
 --Regla TM3
 select 

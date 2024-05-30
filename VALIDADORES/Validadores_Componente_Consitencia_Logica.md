@@ -701,7 +701,7 @@ where pua.fenomeno is null;
 
 ## CÓDIGO: CL29
 
-**Título:** Todos los registros o instancias de áreas en condición de amenaza debe asociar una categoría de amenaza para los instrumentos de ordenamiento posteriores al 01 de enero del 2016.
+**Título:** Todos los registros o instancias de áreas en condición de amenaza debe asociar una categoría de amenaza para los instrumentos de ordenamiento posteriores al 19 de septiembre del 2014.
 
 **Errores**
 
@@ -720,7 +720,7 @@ from pot_uab_areacondicionamenaza pua
 join pot_derecho pd on pua.t_id = pd.unidad_pot_uab_areacondicionamenaza
 join col_rrrfuente cr on pd.t_id = cr.rrr_pot_derecho 
 join pot_fuenteadministrativa pf on pf.t_id = cr.fuente_administrativa
-where pua.categoria_amenaza is null and pf.fecha_documento_fuente >= to_date('2016-01-01', 'YYYY-MM-DD'); 
+where pua.categoria_amenaza is null and pf.fecha_documento_fuente >= to_date('2014-09-19', 'YYYY-MM-DD'); 
 ```
 
 ## CÓDIGO: CL30
