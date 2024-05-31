@@ -910,7 +910,7 @@ VERSION "2.0.0"  =
 
     ASSOCIATION pot_areasactividad_centropoblado =
       area_actividad -- {0..*} POT_UAB_AreasActividad;
-      centropoblado -- {0..1} POT_UAB_CentroPobladoRural;
+      centro_poblado -- {0..1} POT_UAB_CentroPobladoRural;
     END pot_areasactividad_centropoblado;
 
     ASSOCIATION pot_clasificacionsuelo_zonificacionsuelo =
