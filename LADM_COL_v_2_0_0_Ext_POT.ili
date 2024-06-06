@@ -210,8 +210,8 @@ VERSION "2.0.0"  =
         Acuerdo,
         !!@ ili2db.dispName=Decreto
         Decreto,
-        !!@ ili2db.dispName="Acta de conciliación"
-        Acta_Conciliacion
+        !!@ ili2db.dispName="Acta de concertación"
+        Acta_Concertacion
       )
     );
 
