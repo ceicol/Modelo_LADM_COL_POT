@@ -17,8 +17,6 @@ VERSION "2.0.0"  =
       Servicios,
       !!@ ili2db.dispName=Industrial
       Industrial,
-      !!@ ili2db.dispName="Conservación y/o protección"
-      Conservacion_Proteccion,
       !!@ ili2db.dispName=Institucional
       Institucional,
       !!@ ili2db.dispName=Dotacional
@@ -466,6 +464,15 @@ VERSION "2.0.0"  =
       )
     );
 
+    POT_SueloProteccionUrbanoTipo = (
+      Otro,
+      Infraestructura,
+      Servicios_Publicos,
+      Patrimonio,
+      Riesgo_No_Mitigable,
+      Ambiental
+    );
+
     /** Norma Urbanistica general referida a la potencialidad de utilización correspondiente a 5 categorías:
      * -Desarrollo
      * -Consolidación
@@ -805,6 +812,10 @@ VERSION "2.0.0"  =
     EXTENDS LADM_COL_v_4_0_1_Nucleo.LADM_Nucleo.COL_UnidadEspacial =
     END POT_UE_SistemasGenerales;
 
+    CLASS POT_UE_SueloProteccionUrbano
+    EXTENDS LADM_COL_v_4_0_1_Nucleo.LADM_Nucleo.COL_UnidadEspacial =
+    END POT_UE_SueloProteccionUrbano;
+
     !!@ ili2db.dispName="(POT) UE Tratamiento urbanístico"
     CLASS POT_UE_TratamientoUrbanistico
     EXTENDS LADM_COL_v_4_0_1_Nucleo.LADM_Nucleo.COL_UnidadEspacial =
@@ -860,6 +871,15 @@ VERSION "2.0.0"  =
       !!@ ilivalid.msg="Tipo de UAB invalida en la clase POT_UAB_AreasActividad"
       MANDATORY CONSTRAINT Tipo == #Vivienda_Ciudad_Territorio ;
     END POT_UAB_AreasActividad;
+
+    CLASS POT_UAB_SueloProteccionUrbano
+    EXTENDS LADM_COL_v_4_0_1_Nucleo.LADM_Nucleo.COL_UnidadAdministrativaBasica =
+      Uso_Principal : MANDATORY LADM_COL_v_2_0_0_Ext_POT.POT_SueloProteccionUrbanoTipo;
+      Detalle_Uso_Principal : MANDATORY MTEXT*255;
+      Uso_Compatible_Complementario : BAG {1..*} OF LADM_COL_v_2_0_0_Ext_POT.Planes_Ordenamiento_Territorial.POT_UsoCompatibleComplementarioValor;
+      Uso_Condicionado_Restringido : BAG {1..*} OF LADM_COL_v_2_0_0_Ext_POT.Planes_Ordenamiento_Territorial.POT_UsoCondicionadoRestringidoValor;
+      Uso_Prohibido : BAG {1..*} OF LADM_COL_v_2_0_0_Ext_POT.Planes_Ordenamiento_Territorial.POT_UsoProhibidoValor;
+    END POT_UAB_SueloProteccionUrbano;
 
     /** Corresponde a la tipificación definida para el suelo rural en el plan de ordenamiento territorial, la cual según sus particularidades de uso y ocupación deberá determinar y delimitar áreas rurales y de desarrollo restringido, según lo establecido por el artículo 3 del Decreto 3600 de 2007 y el artículo 2.2.2.2.1.2 del Decreto 1077 de 2015.
      */
