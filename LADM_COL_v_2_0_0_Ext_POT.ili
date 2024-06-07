@@ -465,12 +465,18 @@ VERSION "2.0.0"  =
     );
 
     POT_SueloProteccionUrbanoTipo = (
-      Otro,
+      !!@ ili2db.dispName=Ambiental
+      Ambiental,
+      !!@ ili2db.dispName=Infraestructura
       Infraestructura,
+      !!@ ili2db.dispName="Servicios públicos"
       Servicios_Publicos,
+      !!@ ili2db.dispName=Patrimonio
       Patrimonio,
+      !!@ ili2db.dispName="Riesgo no mitigable"
       Riesgo_No_Mitigable,
-      Ambiental
+      !!@ ili2db.dispName=Otro
+      Otro
     );
 
     /** Norma Urbanistica general referida a la potencialidad de utilización correspondiente a 5 categorías:
@@ -812,6 +818,7 @@ VERSION "2.0.0"  =
     EXTENDS LADM_COL_v_4_0_1_Nucleo.LADM_Nucleo.COL_UnidadEspacial =
     END POT_UE_SistemasGenerales;
 
+    !!@ ili2db.dispName="(POT) UE Suelo de Protección Urbano"
     CLASS POT_UE_SueloProteccionUrbano
     EXTENDS LADM_COL_v_4_0_1_Nucleo.LADM_Nucleo.COL_UnidadEspacial =
     END POT_UE_SueloProteccionUrbano;
@@ -848,7 +855,7 @@ VERSION "2.0.0"  =
 
     /** Corresponde a la representación cartográfica de áreas con características homogéneas en relación con los usos urbanos del municipio definidos en el plan de ordenamiento territorial de acuerdo con el artículo 15 de la ley 388 de 1997.
      */
-    !!@ ili2db.dispName=POT_UAB_AreasActividad
+    !!@ ili2db.dispName="(POT) UAB Áreas de Actividad"
     CLASS POT_UAB_AreasActividad
     EXTENDS LADM_COL_v_4_0_1_Nucleo.LADM_Nucleo.COL_UnidadAdministrativaBasica =
       !!@ ili2db.dispName="Uso principal"
@@ -872,12 +879,18 @@ VERSION "2.0.0"  =
       MANDATORY CONSTRAINT Tipo == #Vivienda_Ciudad_Territorio ;
     END POT_UAB_AreasActividad;
 
+    !!@ ili2db.dispName="(POT) UAB Suelo de Protección Urbano"
     CLASS POT_UAB_SueloProteccionUrbano
     EXTENDS LADM_COL_v_4_0_1_Nucleo.LADM_Nucleo.COL_UnidadAdministrativaBasica =
+      !!@ ili2db.dispName="Uso principal"
       Uso_Principal : MANDATORY LADM_COL_v_2_0_0_Ext_POT.POT_SueloProteccionUrbanoTipo;
+      !!@ ili2db.dispName="Detalle uso principal"
       Detalle_Uso_Principal : MANDATORY MTEXT*255;
+      !!@ ili2db.dispName="Uso compatible o complementario"
       Uso_Compatible_Complementario : BAG {1..*} OF LADM_COL_v_2_0_0_Ext_POT.Planes_Ordenamiento_Territorial.POT_UsoCompatibleComplementarioValor;
+      !!@ ili2db.dispName="Uso condicionado o restringido"
       Uso_Condicionado_Restringido : BAG {1..*} OF LADM_COL_v_2_0_0_Ext_POT.Planes_Ordenamiento_Territorial.POT_UsoCondicionadoRestringidoValor;
+      !!@ ili2db.dispName="Uso prohibido"
       Uso_Prohibido : BAG {1..*} OF LADM_COL_v_2_0_0_Ext_POT.Planes_Ordenamiento_Territorial.POT_UsoProhibidoValor;
     END POT_UAB_SueloProteccionUrbano;
 
