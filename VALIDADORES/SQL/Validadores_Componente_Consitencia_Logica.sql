@@ -19,7 +19,7 @@
  
 -- Establecer los esquemas de trabajo
 set search_path to 
-	ladm_pot,	--Nombre del esquema LADM-POT
+	ladm_pot_new,	--Nombre del esquema LADM-POT
 	public;
 
 --Regla CL1
@@ -103,9 +103,9 @@ union
 select 
 	pza.t_id,
 	pza.t_ili_tid,
-	'El registro de la clase pot_ue_zonificacionamenazas no puede tener un valor de área igual o menor a 0' as mensaje
-from pot_ue_zonificacionamenazas as pza
-join col_areavalor ca on pza.t_id = ca.pot_ue_zonificacnmnzas_area 
+	'El registro de la clase pot_ue_zonificacionamenaza no puede tener un valor de área igual o menor a 0' as mensaje
+from pot_ue_zonificacionamenaza as pza
+join col_areavalor ca on pza.t_id = ca.pot_ue_zonificacnmnaza_area 
 where ca.area <=0
 union
 select 
@@ -114,6 +114,14 @@ select
 	'El registro de la clase pot_ue_zonificacionsuelorural no puede tener un valor de área igual o menor a 0' as mensaje
 from pot_ue_zonificacionsuelorural as pzr
 join col_areavalor ca on pzr.t_id = ca.pot_ue_zonificcnslrral_area 
+where ca.area <=0
+union
+select 
+	psp.t_id,
+	psp.t_ili_tid,
+	'El registro de la clase pot_ue_sueloproteccionurbano no puede tener un valor de área igual o menor a 0' as mensaje
+from pot_ue_sueloproteccionurbano as psp
+join col_areavalor ca on psp.t_id = ca.pot_ue_suelprtccnrbano_area
 where ca.area <=0;
 
 --Regla CL4
@@ -321,7 +329,7 @@ select
 	pz.t_id,
 	pz.t_ili_tid,
 	'El tipo de fenómeno de amenaza no puede ser NULL' as mensaje
-from pot_uab_zonificacionamenazas  as pz
+from pot_uab_zonificacionamenaza as pz
 where pz.fenomeno is null;
 
 --Regla CL27
@@ -331,10 +339,10 @@ select
 	'La categoria de amenaza no esta contenida en su totalidad por zonificación de amenaza de cetegoria media y alta' as mensaje
 from (
 select 
-	st_union(pua.geometria) as geometria
-from pot_ue_zonificacionamenazas as pua
-join col_uebaunit as cu on pua.t_id = cu.ue_pot_ue_zonificacionamenazas
-join pot_uab_zonificacionamenazas as puz on puz.t_id =cu.baunit_pot_uab_zonificacionamenazas 
+	st_union(st_makevalid(pua.geometria)) as geometria
+from pot_ue_zonificacionamenaza as pua
+join col_uebaunit as cu on pua.t_id = cu.ue_pot_ue_zonificacionamenaza
+join pot_uab_zonificacionamenaza as puz on puz.t_id =cu.baunit_pot_uab_zonificacionamenaza 
 where puz.categoria_amenaza in (select t_id from pot_categoriaamenazatipo pc where ilicode in ('Alta','Media'))) as zon
 join pot_ue_areacondicionamenaza as pm on not st_contains(zon.geometria,pm.geometria);
 
