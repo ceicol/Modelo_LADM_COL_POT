@@ -2386,7 +2386,7 @@ update pot_ue_areacondicionriesgo set
 where true = true;
 
 --pot_ue_areacondicionriesgo
-update pot_ue_areasactividado set 
+update pot_ue_areasactividad set 
 	geometria =st_removerepeatedpoints(geometria,0.01)
 where true = true;
 
