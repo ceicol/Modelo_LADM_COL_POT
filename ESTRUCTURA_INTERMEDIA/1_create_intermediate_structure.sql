@@ -53,6 +53,7 @@ set search_path to
 --=============================================
 
 CREATE TABLE area_condicion_amenaza (
+	identificador varchar(50) NULL,
 	fenomeno varchar(255) NOT NULL,
 	categoria_amenaza varchar(255) NULL,
 	priorizacion varchar(255) NULL,
@@ -63,6 +64,7 @@ CREATE TABLE area_condicion_amenaza (
 	descripcion_derecho varchar(255),
 	descripcion_restriccion varchar(255),
 	descripcion_responsabilidad varchar(255),
+	area_m2 numeric(14,1) NULL,
 	geometria public.geometry(multipolygonz, 9377) NULL,
 	fuente_administrativa_tipo varchar(255) NOT NULL,
 	fuente_administrativa_tipo_pot varchar(255) NULL,
@@ -84,6 +86,7 @@ CREATE TABLE area_condicion_amenaza (
 -- Área en condición de riesgo
 --=============================================
 CREATE TABLE area_condicion_riesgo (
+	identificador varchar(50) NULL,
 	fenomeno varchar(255) NOT NULL,
 	priorizacion varchar(255) NULL,
 	medida_intervencion varchar(255) NULL,
@@ -93,6 +96,7 @@ CREATE TABLE area_condicion_riesgo (
 	descripcion_derecho varchar(255),
 	descripcion_restriccion varchar(255),
 	descripcion_responsabilidad varchar(255),
+	area_m2 numeric(14,1) NULL,
 	geometria public.geometry(multipolygonz, 9377) NULL,
 	fuente_administrativa_tipo varchar(255) NOT NULL,
 	fuente_administrativa_tipo_pot varchar(255) NULL,
@@ -114,6 +118,7 @@ CREATE TABLE area_condicion_riesgo (
 -- Área de actividad
 --=============================================
 CREATE TABLE areas_actividad (
+	identificador varchar(50) NULL,
 	uso_principal varchar(255) NOT NULL,
 	detalle_uso_principal varchar(255) NOT NULL,
 	uso_compatible_complementario varchar(500) NOT NULL,
@@ -123,6 +128,7 @@ CREATE TABLE areas_actividad (
 	descripcion_derecho varchar(255),
 	descripcion_restriccion varchar(255),
 	descripcion_responsabilidad varchar(255),
+	area_m2 numeric(14,1) NULL,
 	geometria public.geometry(multipolygonz, 9377) NULL,
 	fuente_administrativa_tipo varchar(255) NOT NULL,
 	fuente_administrativa_tipo_pot varchar(255) NULL,
@@ -144,11 +150,13 @@ CREATE TABLE areas_actividad (
 -- Centro poblado rural
 --=============================================
 CREATE TABLE centro_poblado_rural (
+	identificador varchar(50) NULL,
 	nombre varchar(255) NOT NULL,
 	codigo varchar(8) NULL,
 	descripcion_derecho varchar(255),
 	descripcion_restriccion varchar(255),
 	descripcion_responsabilidad varchar(255),
+	area_m2 numeric(14,1) NULL,
 	geometria public.geometry(multipolygonz, 9377) NULL,
 	fuente_administrativa_tipo varchar(255) NOT NULL,
 	fuente_administrativa_tipo_pot varchar(255) NULL,
@@ -170,11 +178,13 @@ CREATE TABLE centro_poblado_rural (
 -- Clasificación del suelo
 --=============================================
 CREATE TABLE clasificacion_suelo (
+	identificador varchar(50) NULL,
 	tipo_clasificacion_suelo varchar(255) NOT NULL,
 	nombre varchar(255) NULL,
 	descripcion_derecho varchar(255),
 	descripcion_restriccion varchar(255),
 	descripcion_responsabilidad varchar(255),
+	area_m2 numeric(14,1) NULL,
 	geometria public.geometry(multipolygonz, 9377) NULL,
 	fuente_administrativa_tipo varchar(255) NOT NULL,
 	fuente_administrativa_tipo_pot varchar(255) NULL,
@@ -196,6 +206,7 @@ CREATE TABLE clasificacion_suelo (
 -- Sistemas generales- Geometria poligono
 --=============================================
 CREATE TABLE sistemas_generales_poligono (
+	identificador varchar(50) NULL,
 	tipo_sistema_general varchar(255) NOT NULL,
 	detalle_sistema_general varchar(255) NOT NULL,
 	nivel varchar(255) NOT NULL,
@@ -204,6 +215,7 @@ CREATE TABLE sistemas_generales_poligono (
 	descripcion_derecho varchar(255),
 	descripcion_restriccion varchar(255),
 	descripcion_responsabilidad varchar(255),
+	area_m2 numeric(14,1) NULL,
 	geometria public.geometry(multipolygonz, 9377) NULL,
 	fuente_administrativa_tipo varchar(255) NOT NULL,
 	fuente_administrativa_tipo_pot varchar(255) NULL,
@@ -225,6 +237,7 @@ CREATE TABLE sistemas_generales_poligono (
 -- Sistemas generales- Geometria linea
 --=============================================
 CREATE TABLE sistemas_generales_linea (
+	identificador varchar(50) NULL,
 	tipo_sistema_general varchar(255) NOT NULL,
 	detalle_sistema_general varchar(255) NOT NULL,
 	nivel varchar(255) NOT NULL,
@@ -233,6 +246,7 @@ CREATE TABLE sistemas_generales_linea (
 	descripcion_derecho varchar(255),
 	descripcion_restriccion varchar(255),
 	descripcion_responsabilidad varchar(255),
+	area_m2 numeric(14,1) NULL,
 	geometria public.geometry(linestringz, 9377) NULL,
 	fuente_administrativa_tipo varchar(255) NOT NULL,
 	fuente_administrativa_tipo_pot varchar(255) NULL,
@@ -254,6 +268,7 @@ CREATE TABLE sistemas_generales_linea (
 -- Sistemas generales- Geometria punto
 --=============================================
 CREATE TABLE sistemas_generales_punto (
+	identificador varchar(50) NULL,
 	tipo_sistema_general varchar(255) NOT NULL,
 	detalle_sistema_general varchar(255) NOT NULL,
 	nivel varchar(255) NOT NULL,
@@ -262,6 +277,7 @@ CREATE TABLE sistemas_generales_punto (
 	descripcion_derecho varchar(255),
 	descripcion_restriccion varchar(255),
 	descripcion_responsabilidad varchar(255),
+	area_m2 numeric(14,1) NULL,
 	geometria public.geometry(pointz, 9377) NULL,
 	fuente_administrativa_tipo varchar(255) NOT NULL,
 	fuente_administrativa_tipo_pot varchar(255) NULL,
@@ -283,6 +299,7 @@ CREATE TABLE sistemas_generales_punto (
 -- Suelo de protección urbano
 --=============================================
 CREATE TABLE suelo_proteccion_urbano (
+	identificador varchar(50) NULL,
 	uso_principal varchar(255) NOT NULL,
 	detalle_uso_principal varchar(255) NOT NULL,
 	uso_compatible_complementario varchar(500) NOT NULL,
@@ -292,6 +309,7 @@ CREATE TABLE suelo_proteccion_urbano (
 	descripcion_derecho varchar(255),
 	descripcion_restriccion varchar(255),
 	descripcion_responsabilidad varchar(255),
+	area_m2 numeric(14,1) NULL,
 	geometria public.geometry(multipolygonz, 9377) NULL,
 	fuente_administrativa_tipo varchar(255) NOT NULL,
 	fuente_administrativa_tipo_pot varchar(255) NULL,
@@ -313,11 +331,13 @@ CREATE TABLE suelo_proteccion_urbano (
 -- Tratamientos urbanisticos
 --=============================================
 CREATE TABLE tratamiento_urbanistico (
+	identificador varchar(50) NULL,
 	tipo_tratamiento_urbanistico varchar(255) NOT NULL,
 	nombre varchar(255) NULL,
 	descripcion_derecho varchar(255),
 	descripcion_restriccion varchar(255),
 	descripcion_responsabilidad varchar(255),
+	area_m2 numeric(14,1) NULL,
 	geometria public.geometry(multipolygonz, 9377) NULL,
 	fuente_administrativa_tipo varchar(255) NOT NULL,
 	fuente_administrativa_tipo_pot varchar(255) NULL,
@@ -339,6 +359,7 @@ CREATE TABLE tratamiento_urbanistico (
 -- Zonificación de amenazas
 --=============================================
 CREATE TABLE zonificacion_amenaza (
+	identificador varchar(50) NULL,
 	fenomeno varchar(255) NOT NULL,
 	categoria_amenaza varchar(50) NULL,
 	descripcion varchar(255) NULL,
@@ -347,6 +368,7 @@ CREATE TABLE zonificacion_amenaza (
 	descripcion_derecho varchar(255),
 	descripcion_restriccion varchar(255),
 	descripcion_responsabilidad varchar(255),
+	area_m2 numeric(14,1) NULL,
 	geometria public.geometry(multipolygonz, 9377) NULL,
 	fuente_administrativa_tipo varchar(255) NOT NULL,
 	fuente_administrativa_tipo_pot varchar(255) NULL,
@@ -368,6 +390,7 @@ CREATE TABLE zonificacion_amenaza (
 -- Zonificación del suelo rural
 --=============================================
 CREATE TABLE zonificacion_suelo_rural (
+	identificador varchar(50) NULL,
 	uso_principal varchar(255) NOT NULL,
 	tipo_categoria_rural varchar(255) NULL,
 	detalle_uso_principal varchar(255) NOT NULL,
@@ -378,6 +401,7 @@ CREATE TABLE zonificacion_suelo_rural (
 	descripcion_derecho varchar(255),
 	descripcion_restriccion varchar(255),
 	descripcion_responsabilidad varchar(255),
+	area_m2 numeric(14,1) NULL,
 	geometria public.geometry(multipolygonz, 9377) NULL,
 	fuente_administrativa_tipo varchar(255) NOT NULL,
 	fuente_administrativa_tipo_pot varchar(255) NULL,
