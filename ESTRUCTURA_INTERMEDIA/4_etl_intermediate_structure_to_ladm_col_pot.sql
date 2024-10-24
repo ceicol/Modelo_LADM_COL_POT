@@ -2425,6 +2425,17 @@ select distinct fuente_espacial_tipo, fuente_espacial_estado_disponibilidad, fue
 union
 select distinct fuente_espacial_tipo, fuente_espacial_estado_disponibilidad, fuente_espacial_metadato,fuente_espacial_escala, fuente_espacial_fecha_publicacion, fuente_espacial_responsable, fuente_espacial_nombre, fuente_espacial_fecha_documento  from zonificacion_suelo_rural);
 
+--Eliminar registros nulos de la tabla fuentes_espaciales
+delete from fuentes_espaciales
+where fuente_espacial_tipo is null
+  and fuente_espacial_estado_disponibilidad is null
+  and fuente_espacial_metadato is null
+  and fuente_espacial_escala is null
+  and fuente_espacial_fecha_publicacion is null
+  and fuente_espacial_responsable is null
+  and fuente_espacial_nombre is null
+  and fuente_espacial_fecha_documento is null;
+
 --13.1 Creacion de atributos temporales 
 alter table pot_fuenteespacial add id_fuente bigint;
 
